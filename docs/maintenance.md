@@ -1,72 +1,73 @@
-# Contrato e manutenção
+# Contract and maintenance
 
-## Fonte e geração
+## Source and generation
 
-O contrato fixado em `contracts/openapi.json` vem do espelho público
-[raimshq/openapi](https://github.com/raimshq/openapi). `contracts/source.json`
-registra a revisão imutável, URL, SHA-256, versão da API e quantidade de endpoints.
-A fonte canônica permanece na Public-API; o espelho publicado delimita a
-superfície consumida por este SDK.
+The contract pinned in `contracts/openapi.json` comes from the public
+[raimshq/openapi](https://github.com/raimshq/openapi) mirror.
+`contracts/source.json` records the immutable revision, URL, SHA-256, API version
+and endpoint count. The canonical source remains in Public-API; the published
+mirror defines the surface consumed by this SDK.
 
-O gerador é offline. Não lê credenciais, baixa contratos nem chama endpoints.
-`contracts/service-map.json` mapeia explicitamente cada endpoint para um método.
-O gerador recusa hash divergente, endpoints ausentes ou repetidos e composições
-que ainda não possuem representação implementada.
+The generator runs offline. It does not read credentials, download contracts or
+call endpoints. `contracts/service-map.json` explicitly maps each endpoint to
+a method. The generator rejects mismatched hashes, missing or repeated endpoints
+and compositions without an implemented representation.
 
-| Arquivo | Responsabilidade |
+| File | Responsibility |
 | --- | --- |
-| `client.go` | Credenciais, composição, transporte, timeout, retries e diagnósticos |
-| `optional.go` | Omissão, valor e null em entradas |
-| `resource.go` | Metadados, campos originais e erros |
-| `contract.go` | Metadados preparados, validação, leitura exata e serialização das respostas |
-| `pagination.go` | Navegação e iteração por cursor |
-| `webhook.go` | Autenticação de entregas |
-| `*_generated.go` | Serviços, parâmetros, modelos e constantes |
-| `contracts/operations.json` e `contracts/schemas.json` | Metadados usados no runtime |
-| `scripts/generate.py` | Geração determinística |
+| `client.go` | Credentials, composition, transport, timeout, retries and diagnostics |
+| `optional.go` | Omission, values and null in inputs |
+| `resource.go` | Metadata, original fields and errors |
+| `contract.go` | Prepared metadata, validation, exact reading and response serialization |
+| `pagination.go` | Cursor navigation and iteration |
+| `webhook.go` | Delivery authentication |
+| `*_generated.go` | Services, parameters, models and constants |
+| `contracts/operations.json` and `contracts/schemas.json` | Metadata used at runtime |
+| `scripts/generate.py` | Deterministic generation |
 
-Para atualizar, selecione uma revisão pública aprovada, confira manifesto e
-checksum e atualize o snapshot e a origem. Revise mudanças de autenticação,
-ambiente, campos, nullability, status, paginação e idempotência. Ajuste o mapa
-e execute a geração. Não acrescente rotas disponíveis somente no código local.
+To update, select an approved public revision, verify its manifest and checksum,
+and update the snapshot and source metadata. Review changes to authentication,
+environments, fields, nullability, statuses, pagination and idempotency. Adjust
+the map and run generation. Do not add routes available only in local code.
 
-As respostas aceitam campos e valores de enum futuros. Entradas mantêm tipos
-próprios. Uniões com vários tipos concretos, respostas inline e alterações na
-combinação dos mecanismos de autenticação exigem suporte explícito antes de
-atualizar o contrato. O gerador recusa essas formas quando não consegue
-preservar seu significado.
+Responses accept future fields and enum values. Inputs retain their own types.
+Unions of multiple concrete types, inline responses and changes to the
+combination of authentication mechanisms require explicit support before the
+contract is updated. The generator rejects these forms when it cannot preserve
+their meaning.
 
-`contracts/go-api.json` é a base independente dos símbolos públicos. Execute
-`go run ./scripts/check-api --check` para conferir a identidade do pacote,
-tipos, métodos, campos, constantes e tags JSON. Uma mudança de assinatura,
-tipo ou significado exige análise de compatibilidade antes de definir a versão.
-A geração do OpenAPI e
-o check de compatibilidade não regravam a base. Sua atualização é explícita,
-com `go run ./scripts/check-api --write`, após revisar as diferenças.
+`contracts/go-api.json` is the independent baseline of public symbols. Run
+`go run ./scripts/check-api --check` to verify package identity, types, methods,
+fields, constants and JSON tags. A change in signature, type or meaning requires
+a compatibility review before choosing a version. OpenAPI generation and the
+compatibility check do not rewrite the baseline. Update it explicitly with
+`go run ./scripts/check-api --write` after reviewing the differences.
 
-O módulo usa somente a biblioteca padrão. Valide a versão mínima suportada e
-a estável atual, incluindo a ferramenta de vulnerabilidades de Go. A versão
-em `client.go` identifica o SDK; ela não altera a versão HTTP `/v1`.
+The module uses only the standard library. Validate the minimum supported
+version and the current stable version, including Go's vulnerability tool.
+The version in `client.go` identifies the SDK; it does not change the HTTP
+version `/v1`.
 
-## Distribuição e atendimento
+## Distribution and support
 
-A preparação local não confirma publicação. Antes de distribuir, confira a
-identidade do repositório remoto, os metadados do módulo, a licença e os arquivos
-incluídos. Tags, releases e publicação seguem autorização própria.
-Não configure CI antes de autorizar o repositório e seu workflow nos runners
-CodeBuild. Preserve os checks de segurança e o vínculo com o commit publicado.
+Local preparation does not confirm publication. Before distributing, verify the
+remote repository's identity, module metadata, license and included files.
+Tags, releases and publication require separate authorization. Do not configure
+CI before authorizing the repository and its workflow on the CodeBuild runners.
+Preserve security checks and their link to the published commit.
 
-Após confirmar a distribuição, prepare os guias BR/EN em
-`raims-developer-docs` e a nota de changelog com a data real de disponibilização.
-O guia deve cobrir instalação e atualização pelo módulo Go, requisitos,
-credenciais, permissões, ambiente, paginação, null, idempotência, erros, respostas
-pendentes e webhooks. Use `go get github.com/raimshq/raims-go@latest` para obter
-a versão estável atual; não fixe uma release nos exemplos de instalação.
+After confirming distribution, prepare the BR/EN guides in
+`raims-developer-docs` and the changelog entry with the actual availability date.
+The guide must cover installation and updates through the Go module,
+requirements, credentials, permissions, environments, pagination, null,
+idempotency, errors, pending responses and webhooks. Use
+`go get github.com/raimshq/raims-go@latest` to obtain the current stable version;
+do not pin a release in installation examples.
 
-Essa orientação pertence ao catálogo existente `raims-developer-docs` usado
-pelo Raims-Chat. O SDK não altera contexto autenticado, permissões do Dashboard
-nem ferramentas de consulta financeira. Não há necessidade de mudar o schema
-do contexto por causa desta biblioteca.
-Mantenha o item do TODO aberto até publicar as fontes, regenerar o catálogo e
-validar a orientação nos dois idiomas. Não anuncie um checkout local como
-pacote disponível. Não indexe documentos internos deste repositório no chat.
+This guidance belongs to the existing `raims-developer-docs` catalog used by
+Raims-Chat. The SDK does not change authenticated context, Dashboard permissions
+or financial query tools. This library does not require a context schema change.
+Keep the TODO item open until the sources are published, the catalog is
+regenerated and the guidance is validated in both languages. Do not present a
+local checkout as an available package. Do not index this repository's internal
+documents in the chat.

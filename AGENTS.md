@@ -1,41 +1,43 @@
 # Raims Go SDK
 
-Leia o README, CONTRIBUTING.md e docs/maintenance.md antes de alterar o SDK.
+Read the README, CONTRIBUTING.md and docs/maintenance.md before changing the SDK.
 
-- O módulo é `github.com/raimshq/raims-go`, com package `raims` e somente
-  biblioteca padrão no runtime. Preserve o cliente reutilizável por goroutines,
-  os serviços por recurso e `context.Context` em todas as chamadas.
-- O SDK consome o OpenAPI público publicado. A origem imutável e o SHA-256 ficam
-  em `contracts/source.json`. Não importe código dos hosts nem inclua endpoints
-  disponíveis somente no checkout local da API.
-- Execute `python scripts/generate.py`. Arquivos `*_generated.go`,
-  `contracts/operations.json`, `contracts/schemas.json` e `docs/reference.md`
-  são gerados; não os edite manualmente. O mapa precisa cobrir cada endpoint
-  fixado exatamente uma vez. `--check` confere sem regravar.
-- A base independente `contracts/go-api.json` é conferida por
-  `go run ./scripts/check-api --check`. Somente `--write` atualiza a base;
-  revise as diferenças antes dessa atualização. Não a regrave pelo gerador.
-- Preserve int64, Unix segundos, campos futuros, omissão e null. Entradas usam
-  `Optional[T]`; mapas vazios e itens nullable precisam manter seu significado.
-- A chave de API determina o ambiente e não envia header de ambiente. OAuth
-  exige ambiente explicitamente autorizado e compatível com o endpoint;
-  derive a compatibilidade do contrato, antes de enviar HTTP.
-- Não gere idempotência, repita escritas ou inicie polling após `202`.
-  Impeça também replay de escrita pelo transporte HTTP. Retries opcionais
-  são exclusivos de GET e respeitam Retry-After.
-- O transporte autenticado não segue redirects, baixa URLs externas nem envia
-  uploads. Não exponha um método público para endpoints ou headers arbitrários.
-- Diagnósticos contêm somente método, caminho sem IDs, tentativa, duração,
-  status e Request-Id. Nunca incluir query, corpo ou credencial.
-- Testes, corpus, simuladores, dependências de validação e relatórios ficam
-  exclusivamente em `C:\server\raims\.tmp\raims-go-sdk`. Não versioná-los.
-- Antes de concluir, confira geração, formatação, vet, build e consumidores
-  externos, incluindo contrato, OAuth, paginação, retries e webhooks.
-- `scripts/check.ps1` chama o adapter canônico `go_sdk.py` do Developer-Toolkit.
-  Ele deve reconstruir a suíte em uma saída nova dentro de `.tmp`, sem depender
-  de testes preexistentes. Preserve os cenários físicos fora deste repositório.
-- Deixe mudanças sem commit e sem conteúdo em staging. Configuração de runners,
-  publicação no GitHub e tags/releases são etapas próprias. Use apenas runners
-  CodeBuild autorizados quando o CI for habilitado.
-- Descreva os recursos da Raims diretamente. Preserve licenças e procedência
-  de código incorporado. Aplique a skill humanizer à prosa criada ou alterada.
+- Keep repository descriptions and Markdown documentation in English.
+- The module is `github.com/raimshq/raims-go`, with package `raims` and only
+  standard library dependencies at runtime. Preserve the client that can be
+  shared by goroutines, services grouped by resource and `context.Context` on
+  every call.
+- The SDK consumes the published public OpenAPI. Its immutable source and
+  SHA-256 are recorded in `contracts/source.json`. Do not import host code or
+  include endpoints available only in the API's local checkout.
+- Run `python scripts/generate.py`. Files named `*_generated.go`,
+  `contracts/operations.json`, `contracts/schemas.json` and `docs/reference.md`
+  are generated; do not edit them manually. The map must cover each pinned
+  endpoint exactly once. `--check` verifies the outputs without rewriting them.
+- The independent baseline `contracts/go-api.json` is checked by
+  `go run ./scripts/check-api --check`. Only `--write` updates it; review the
+  differences before doing so. The generator must not rewrite this baseline.
+- Preserve int64, Unix seconds, future fields, omission and null. Inputs use
+  `Optional[T]`; empty maps and nullable items must retain their meaning.
+- An API key determines the environment and does not send an environment header.
+  OAuth requires an explicitly authorized environment compatible with the
+  endpoint; derive compatibility from the contract before sending HTTP.
+- Do not generate idempotency keys, retry writes or start polling after `202`.
+  The HTTP transport must also prevent write replay. Optional retries apply
+  only to GET and honor Retry-After.
+- Authenticated transport must not follow redirects, download external URLs or
+  upload files. Do not expose a public method for arbitrary endpoints or headers.
+- Diagnostics contain only the method, path without IDs, attempt, duration,
+  status and Request-Id. Never include query strings, bodies or credentials.
+- Tests, corpora, simulators, validation dependencies and reports belong
+  exclusively in `C:\server\raims\.tmp\raims-go-sdk`. Do not version them.
+- Before finishing, check generation, formatting, vet, build and external
+  consumers, covering the contract, OAuth, pagination, retries and webhooks.
+- `scripts/check.ps1` calls the canonical `go_sdk.py` adapter in Developer-Toolkit.
+  It must reconstruct the suite in a new output directory under `.tmp`, without
+  relying on existing tests. Keep physical test files outside this repository.
+- Leave changes uncommitted and unstaged. Runner configuration, publication on
+  GitHub and tags/releases are separate steps. Use only authorized CodeBuild
+  runners when CI is enabled.
+- Describe Raims features directly. Preserve licenses and the provenance of
+  incorporated code. Apply the humanizer skill to new or changed prose.

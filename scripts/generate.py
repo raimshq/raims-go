@@ -265,7 +265,7 @@ class Generator:
         catalog = {}
         service_source = MARKER + 'package raims\n\nimport "context"\n\n'
         client_init = []
-        docs = ['# Referência do SDK Go\n', 'Gerada do contrato público fixado. `Params` usa `Set(valor)` para enviar um campo e `Null[T]()` para enviar null. Todos os métodos recebem `context.Context`, os IDs indicados no caminho e opções de requisição opcionais. Consulte os campos dos tipos com `go doc`.\n', '| Serviço e método | Endpoint | Parâmetros | Retorno | Status | Ambientes OAuth | Idempotência |\n| --- | --- | --- | --- | --- | --- | --- |\n']
+        docs = ['# Go SDK reference\n\n', 'Generated from the pinned public contract. `Params` uses `Set(value)` to send a field and `Null[T]()` to send null. All methods accept `context.Context`, the IDs shown in the path and optional request options. Inspect type fields with `go doc`.\n\n', '| Service and method | Endpoint | Parameters | Return type | Status | OAuth environments | Idempotency |\n| --- | --- | --- | --- | --- | --- | --- |\n']
         for service, methods in self.services.items():
             public_service = {'SimulationCharges': 'Simulations.Charges', 'SimulationRefunds': 'Simulations.Refunds'}.get(service, service)
             service_source += '// ' + service + 'Service provides the endpoints available through Client.' + public_service + '.\n'
@@ -347,7 +347,7 @@ class Generator:
                         self.pages = set()
                     self.pages.add(output)
                 public_service = {'SimulationCharges': 'Simulations.Charges', 'SimulationRefunds': 'Simulations.Refunds'}.get(service, service)
-                docs.append('| `' + public_service + '.' + method + '` | `' + op['method'] + ' ' + op['path'] + '` | `' + (params_name or 'nenhum') + '` | `' + (output or 'Response') + '` | ' + ', '.join(sorted(successes)) + ' | ' + ', '.join(env) + ' | ' + ('Sim' if idem else 'Não') + ' |\n')
+                docs.append('| `' + public_service + '.' + method + '` | `' + op['method'] + ' ' + op['path'] + '` | `' + (params_name or 'none') + '` | `' + (output or 'Response') + '` | ' + ', '.join(sorted(successes)) + ' | ' + ', '.join(env) + ' | ' + ('Yes' if idem else 'No') + ' |\n')
         self.outputs['services_generated.go'] = service_source
         self.outputs['client_generated.go'] = MARKER + 'package raims\n\n// SimulationsService groups the endpoints that require Sandbox credentials.\ntype SimulationsService struct {\n// Charges provides charge payment and scenario simulations.\nCharges *SimulationChargesService\n// Refunds provides refund completion and failure simulations.\nRefunds *SimulationRefundsService\n}\n\nfunc initServices(client *Client) {\n' + '\n'.join(client_init) + '\nclient.Simulations = &SimulationsService{Charges: &SimulationChargesService{client: client}, Refunds: &SimulationRefundsService{client: client}}\n}\n'
         models = MARKER + 'package raims\n\nimport "encoding/json"\n\n'

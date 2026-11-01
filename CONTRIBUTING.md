@@ -1,9 +1,9 @@
-# Contribuir
+# Contributing
 
-Leia `AGENTS.md` e o [guia de manutenção](docs/maintenance.md).
-Use Go 1.26.5 ou superior e Python 3.8 ou superior para a geração offline.
+Read `AGENTS.md` and the [maintenance guide](docs/maintenance.md).
+Use Go 1.26.5 or later and Python 3.8 or later for offline generation.
 
-Na raiz do SDK:
+From the SDK root:
 
 ```powershell
 python scripts/generate.py --check
@@ -12,33 +12,33 @@ go vet ./...
 go build ./...
 ```
 
-Para regenerar, execute o primeiro comando sem `--check`. Confira o diff dos
-tipos, métodos e metadados antes de validar os consumidores.
+To regenerate the outputs, run the first command without `--check`. Review the
+diff of types, methods and metadata before validating consumers.
 
-## Validação no workspace
+## Workspace validation
 
-Testes, corpus e consumidores externos ficam exclusivamente em
-`C:\server\raims\.tmp\raims-go-sdk`. Esse módulo usa `replace` para apontar
-para o checkout do SDK e não acessa a API real. A bateria verifica os endpoints
-e status publicados, autenticação, ambientes, serialização, paginação,
-idempotência, cancelamento, erros e assinatura de webhooks.
+Tests, corpora and external consumers belong exclusively in
+`C:\server\raims\.tmp\raims-go-sdk`. The validation module uses `replace` to
+point to the SDK checkout and does not access the live API. The suite checks
+published endpoints and statuses, authentication, environments, serialization,
+pagination, idempotency, cancellation, errors and webhook signatures.
 
 ```powershell
 .\scripts\check.ps1
 ```
 
-O script chama o validador canônico do checkout vizinho `Developer-Toolkit`,
-que materializa uma suíte nova em `.tmp` e confere contrato, compatibilidade,
-regressões, consumidor documentado, vulnerabilidades e exportação de fontes.
-Ele não depende de arquivos de uma execução anterior. Um clone sem o Toolkit
-informa a dependência ausente; os comandos acima continuam disponíveis para
-geração, compatibilidade, vet e build.
-Confira também as versões mínima e estável suportadas, concorrência com
-`go test -race` em ambiente com compilador C e `govulncheck`.
+The script calls the canonical validator in the sibling `Developer-Toolkit`
+checkout. It materializes a fresh suite in `.tmp` and checks the contract,
+compatibility, regressions, the documented consumer, vulnerabilities and source
+export. It does not rely on files from a previous run. A clone without the
+Toolkit reports the missing dependency; the commands above remain available
+for generation, compatibility, vet and build.
+Also check the minimum and supported stable versions, concurrency with
+`go test -race` in an environment with a C compiler, and `govulncheck`.
 
-Encerre processos e containers temporários antes de concluir. Preserve processos
-preexistentes. Não inclua testes, corpus, relatórios, segredos ou arquivos de
-validação no módulo, em commits ou em arquivos de distribuição.
+Stop temporary processes and containers before finishing. Preserve existing
+processes. Do not include tests, corpora, reports, secrets or validation files
+in the module, commits or distribution archives.
 
-Deixe alterações locais sem commit e sem conteúdo em staging. Uma validação
-aprovada não autoriza publicação, tag, release ou configuração de infraestrutura.
+Leave local changes uncommitted and unstaged. Passing validation does not
+authorize publication, tags, releases or infrastructure configuration.

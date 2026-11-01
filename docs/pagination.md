@@ -1,6 +1,6 @@
-# Paginação
+# Pagination
 
-`List` retorna somente uma página, sem iniciar outras chamadas:
+`List` returns a single page without starting further calls:
 
 ```go
 page, err := client.Customers.List(ctx, &raims.ListCustomersParams{
@@ -10,39 +10,39 @@ if err != nil {
     return err
 }
 for _, customer := range page.List {
-    // Use customer.ID na sua aplicação.
+    // Use customer.ID in your application.
 }
 next, err := page.NextPage(ctx)
 ```
 
-`NextPage` e `PreviousPage` preservam filtros, ordenação, IDs e opções da chamada
-original. Retornam nil quando não há continuação. Os cursores são opacos;
-use os valores recebidos sem interpretá-los. Os parâmetros são copiados antes
-da primeira chamada, para que alterações posteriores não troquem os filtros.
+`NextPage` and `PreviousPage` preserve the filters, ordering, IDs and options of
+the original call. They return nil when there is no continuation. Cursors are
+opaque; use the received values without interpreting them. Parameters are copied
+before the first call so later changes cannot replace the filters.
 
-Para continuar automaticamente:
+To continue automatically:
 
 ```go
 for customer, err := range client.Customers.ListAll(ctx, nil).All() {
     if err != nil {
         return err
     }
-    // Use customer.ID na sua aplicação.
+    // Use customer.ID in your application.
 }
 ```
 
-O iterador busca páginas durante o consumo. `break` interrompe novos envios.
-Também é possível usar `Next()`, `Current()` e `Err()`.
-Não compartilhe um iterador entre goroutines.
+The iterator fetches pages as they are consumed. `break` stops new requests.
+You can also use `Next()`, `Current()` and `Err()`.
+Do not share an iterator between goroutines.
 
-`ListAll` usa a mesma validação e associação exata de nomes JSON de `List`.
-Campos desconhecidos não substituem a lista, a continuação ou os cursores.
+`ListAll` uses the same validation and exact JSON field name matching as `List`.
+Unknown fields cannot replace the list, continuation information or cursors.
 
-Uma página vazia pode ter continuação. O iterador segue esse cursor e recusa
-cursores ausentes ou repetidos. O contexto permite cancelar o percurso ou
-limitar seu prazo. Limite também a quantidade de recursos conforme a aplicação.
+An empty page can have a continuation. The iterator follows that cursor and
+rejects missing or repeated cursors. The context lets you cancel iteration or
+set a deadline. Also limit the number of resources to suit your application.
 
-Na navegação manual, `NextPage` e `PreviousPage` também recusam ciclos com
-mais de um cursor. O histórico acompanha cada sequência na mesma direção;
-mudar de direção permite voltar às páginas já consultadas. Consultar novamente
-a partir de uma página anterior mantém uma sequência independente.
+During manual navigation, `NextPage` and `PreviousPage` also reject cycles with
+more than one cursor. History follows each sequence in the same direction;
+changing direction lets you return to pages already visited. Starting again
+from an earlier page keeps an independent sequence.

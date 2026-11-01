@@ -1,9 +1,9 @@
-# Segurança
+# Security
 
-Relate vulnerabilidades a `security@raims.com`, com o comportamento observado,
-impacto e uma reprodução mínima. Remova chaves, tokens, documentos pessoais,
-payloads financeiros e URLs temporárias antes de enviar o relato.
+Report vulnerabilities to `security@raims.com`, including the observed behavior,
+impact and a minimal reproduction. Remove keys, tokens, personal identity
+documents, financial payloads and temporary URLs before submitting a report.
 
-Mantenha o SDK no servidor, use uma versão suportada de Go e atualize suas
-dependências. Trate uma escrita com resposta perdida como resultado incerto;
-consulte o recurso antes de repetir a intenção.
+Run the SDK on the server, use a supported Go version and keep dependencies
+updated. Treat a write whose response was lost as an uncertain result;
+check the resource before retrying the intent.

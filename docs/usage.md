@@ -1,6 +1,6 @@
-# Configuração e tipos
+# Configuration and types
 
-## Cliente e transporte
+## Client and transport
 
 ```go
 client, err := raims.NewClient(apiKey,
@@ -9,27 +9,27 @@ client, err := raims.NewClient(apiKey,
 )
 ```
 
-O timeout padrão é 80 segundos por tentativa, incluindo a leitura da resposta.
-O transporte padrão limita a conexão a dez segundos e reutiliza conexões.
-Passe um contexto com prazo para limitar toda a chamada, incluindo retries e
-esperas. `WithRequestTimeout` ajusta o prazo de uma chamada.
+The default timeout is 80 seconds per attempt, including response reading.
+The default transport sets a ten-second connection timeout and reuses
+connections. Pass a context with a deadline to limit the entire call, including
+retries and waits. `WithRequestTimeout` adjusts the timeout for a call.
 
-`WithHTTPClient` aceita um `*http.Client` da aplicação. O SDK copia sua
-configuração, recusa redirects e não usa cookies. O transporte fornecido
-precisa respeitar o contexto e preservar a política de envio único de escritas.
-`CloseIdleConnections` encerra conexões ociosas do transporte usado pelo cliente.
-Quando compartilhar um transporte, essa chamada também afeta suas conexões ociosas.
+`WithHTTPClient` accepts an application-provided `*http.Client`. The SDK copies
+its configuration, rejects redirects and does not use cookies. The supplied
+transport must respect the context and preserve the policy of sending writes
+only once. `CloseIdleConnections` closes idle connections in the client's
+transport. If you share a transport, this call also affects its idle connections.
 
-`WithBaseURL` aceita uma origem HTTPS confiável, sem caminho, query ou credenciais.
-HTTP é aceito somente em IP de loopback para validação local. A origem recebe
-a credencial; use somente um destino sob seu controle.
+`WithBaseURL` accepts a trusted HTTPS origin without a path, query or
+credentials. HTTP is accepted only for loopback IP addresses during local
+validation. The origin receives the credential; use only a destination you control.
 
-## API key e OAuth
+## API keys and OAuth
 
-`NewClient` usa uma chave de API. A chave determina o ambiente; o cliente não
-oferece seleção de ambiente nem envia `X-Raims-Environment` nesse modo.
+`NewClient` uses an API key. The key determines the environment; the client
+does not offer environment selection or send `X-Raims-Environment` in this mode.
 
-Para um aplicativo autorizado por OAuth:
+For an application authorized through OAuth:
 
 ```go
 client, err := raims.NewOAuthClient(accessToken, raims.Sandbox,
@@ -37,20 +37,21 @@ client, err := raims.NewOAuthClient(accessToken, raims.Sandbox,
 )
 ```
 
-Informe somente os ambientes efetivamente concedidos à conexão. O SDK recebe
-um access token obtido pelo fluxo da aplicação; autorização, armazenamento e
-renovação do token continuam sob responsabilidade dela. Crie outro cliente
-quando renovar o token ou mudar de ambiente.
+Provide only the environments actually granted to the connection. The SDK
+accepts an access token obtained through the application's flow; the application
+remains responsible for authorization, token storage and renewal. Create another
+client when you renew the token or change environments.
 
-O cliente envia o ambiente escolhido e recusa endpoints incompatíveis antes
-do HTTP. Simulações aceitam somente Sandbox. Não há troca automática de ambiente.
-A API continua responsável por conferir a credencial, o recurso e as permissões.
+The client sends the selected environment and rejects incompatible endpoints
+before sending HTTP. Simulations accept only Sandbox. The environment never
+changes automatically. The API remains responsible for checking the credential,
+resource and permissions.
 
-## Omissão, null e valores
+## Omission, null and values
 
-Campos de entrada usam `Optional[T]`. Seu valor zero omite o campo.
-`Set(valor)` envia o valor, inclusive `false`, zero ou texto vazio.
-`Null[T]()` envia null quando o campo permitir.
+Input fields use `Optional[T]`. Its zero value omits the field.
+`Set(value)` sends the value, including `false`, zero or an empty string.
+`Null[T]()` sends null when the field allows it.
 
 ```go
 params := &raims.UpdateCustomerParams{
@@ -59,55 +60,54 @@ params := &raims.UpdateCustomerParams{
 }
 ```
 
-Esse exemplo remove o nome e preserva metadata pelo envio de `{}`. Para apagar
-todo o mapa, use `raims.Null[map[string]*string]()`. Para remover uma chave,
-envie seu valor como nil. Use um mapa ou slice vazio inicializado para enviar
-`{}` ou `[]`; um mapa ou slice nil é serializado como null.
+This example removes the name and preserves metadata by sending `{}`. To clear
+the entire map, use `raims.Null[map[string]*string]()`. To remove a key, send nil
+as its value. Use an initialized empty map or slice to send `{}` or `[]`;
+a nil map or slice is serialized as null.
 
-As constantes de enums são geradas do contrato. Inteiros usam `int64`, inclusive
-nas constantes numéricas. Em literais, use `Set[int64](15000)` para corresponder
-ao campo sem inferir `int`.
+Enum constants are generated from the contract. Integers use `int64`, including
+numeric constants. For literals, use `Set[int64](15000)` to match the field
+without inferring `int`.
 
-## Respostas
+## Responses
 
-Respostas têm campos tipados, `LastResponse` e `RawJSON`. `HasField` distingue
-um campo ausente; `IsNull` identifica null explícito. `ExtraFields` preserva
-campos futuros e `RawJSON` guarda a resposta original. Use `RawJSON` quando
-precisar conservar exatamente a representação recebida.
+Responses have typed fields, `LastResponse` and `RawJSON`. `HasField`
+distinguishes an absent field; `IsNull` identifies explicit null. `ExtraFields`
+preserves future fields and `RawJSON` stores the original response. Use
+`RawJSON` when you need to retain the exact representation received.
 
-`json.Marshal` preserva campos futuros, omissão e null das respostas recebidas.
-Ele também inclui alterações feitas nos campos tipados e em `ExtraFields`.
-`HasField` e `IsNull` descrevem a resposta recebida; não acompanham edições
-posteriores na struct. Os nomes JSON são associados exatamente, para que um
-campo desconhecido não substitua uma propriedade conhecida.
+`json.Marshal` preserves future fields, omission and null in received responses.
+It also includes changes made to typed fields and `ExtraFields`. `HasField` and
+`IsNull` describe the response as received; they do not track later changes to
+the struct. JSON field names are matched exactly, so an unknown field cannot
+replace a known property.
 
-Os bytes de `ExtraFields` são independentes de `RawJSON`. Você pode editar um
-valor extra ou acrescentar bytes a ele sem alterar o snapshot recebido nem os
-indicadores de presença e null.
+The bytes in `ExtraFields` are independent of `RawJSON`. You can edit an extra
+value or append bytes to it without changing the received snapshot or the
+presence and null indicators.
 
-A validação estrutural confere campos obrigatórios, tipos e nullability.
-Centavos e datas não passam por ponto flutuante. Novos valores de enums em
-respostas continuam legíveis; decida como tratá-los na aplicação.
+Structural validation checks required fields, types and nullability. Amounts
+in cents and dates do not pass through floating-point values. New enum values
+in responses remain readable; decide how to handle them in your application.
 
-`LastResponse` mantém status, `RequestID`, `RetryAfter` e
-`IdempotencyReplayed`. O status `202` permanece pendente, sem polling automático.
-`Charges.Revoke` usa `RevokeChargeResult` para representar tanto `200` quanto `202`.
+`LastResponse` retains the status, `RequestID`, `RetryAfter` and
+`IdempotencyReplayed`. A `202` status remains pending, without automatic polling.
+`Charges.Revoke` uses `RevokeChargeResult` to represent both `200` and `202`.
 
-Métodos de documentos e preparação de upload retornam os dados fornecidos pela
-API. O SDK não baixa as URLs retornadas nem executa o upload com a chave de API.
+Document and upload-preparation methods return the data provided by the API.
+The SDK does not download the returned URLs or perform uploads with the API key.
 
-## Diagnóstico
+## Diagnostics
 
-`WithRequestObserver` recebe método, caminho sem IDs, tentativa, duração, status
-e Request-Id após cada tentativa. O callback pode ser chamado por goroutines
-diferentes e precisa ser seguro para uso concorrente. Uma falha no callback
-não altera o resultado da chamada.
+`WithRequestObserver` receives the method, path without IDs, attempt, duration,
+status and Request-Id after each attempt. The callback may be called by different
+goroutines and must be safe for concurrent use. A callback failure does not
+change the call's result.
 
-O callback executa de forma síncrona e deve retornar rapidamente. Seu tempo
-de execução não descarta uma resposta conclusiva já recebida, inclusive em
-escritas. Os prazos do contexto continuam controlando o transporte e novas
-tentativas elegíveis.
+The callback runs synchronously and should return quickly. Its execution time
+does not discard a conclusive response already received, including for writes.
+Context deadlines continue to control the transport and any eligible retries.
 
-Agregue erros de conexão, HTTP e protocolo para detectar indisponibilidade ou
-mudança incompatível de resposta. Confirme recuperação por uma nova leitura
-válida. Evite registrar objetos completos, payloads e URLs temporárias.
+Aggregate connection, HTTP and protocol errors to detect outages or incompatible
+response changes. Confirm recovery with a new valid read. Avoid logging entire
+objects, payloads and temporary URLs.

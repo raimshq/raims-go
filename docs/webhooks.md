@@ -1,34 +1,34 @@
-# Receber webhooks
+# Receiving webhooks
 
-Leia o corpo original como bytes, com limite definido pelo seu servidor, antes
-de interpretar ou modificar o JSON. Passe os headers HTTP recebidos ao SDK:
+Read the original body as bytes, with a size limit set by your server, before
+parsing or modifying the JSON. Pass the received HTTP headers to the SDK:
 
 ```go
 event, err := raims.ConstructWebhookEvent(payload, request.Header, signingSecret,
     raims.DefaultWebhookTolerance, time.Now())
 if err != nil {
-    // Recuse a entrega conforme a política do seu servidor.
+    // Reject the delivery according to your server's policy.
     return err
 }
 ```
 
-`ConstructWebhookEvent` autentica a assinatura e retorna um objeto com valores
-`json.RawMessage`, preservando inteiros e campos futuros. Para autenticar sem
-interpretar o corpo, use `VerifyWebhookSignature` com os mesmos argumentos.
+`ConstructWebhookEvent` authenticates the signature and returns an object with
+`json.RawMessage` values, preserving integers and future fields. To authenticate
+without parsing the body, use `VerifyWebhookSignature` with the same arguments.
 
-O SDK confere `webhook-id`, `webhook-timestamp` e `webhook-signature`, recusa
-headers ausentes ou repetidos e verifica HMAC-SHA256 sobre os bytes originais.
-O segredo tem o formato `whsec_` retornado pela Raims; não o decodifique antes
-de passá-lo ao método.
+The SDK checks `webhook-id`, `webhook-timestamp` and `webhook-signature`, rejects
+missing or repeated headers, and verifies HMAC-SHA256 over the original bytes.
+The secret uses the `whsec_` format returned by Raims; do not decode it before
+passing it to the method.
 
-A tolerância padrão é cinco minutos, para timestamps passados ou futuros.
-Tolerância zero exige o mesmo segundo; ela não desliga a verificação de tempo.
-Uma data `time.Time{}` usa o relógio atual.
+The default tolerance is five minutes for past or future timestamps.
+Zero tolerance requires the same second; it does not disable the time check.
+A `time.Time{}` value uses the current clock.
 
-Depois de autenticar, confira o tipo do evento e o ambiente esperado. Grave e
-deduplique seu identificador de forma durável antes de aplicar o efeito de
-negócio. A assinatura comprova autenticidade; não substitui essa deduplicação
-nem confirma, sozinha, a conclusão financeira de um recurso.
+After authentication, check the event type and expected environment. Persist
+and deduplicate its identifier durably before applying the business effect.
+The signature proves authenticity; it does not replace deduplication or, by
+itself, confirm that a resource's financial operation is complete.
 
-Mantenha o segredo fora dos logs e do controle de versão. Durante uma rotação,
-use somente os segredos válidos e siga o período informado pela API.
+Keep the secret out of logs and version control. During rotation, use only valid
+secrets and follow the period specified by the API.

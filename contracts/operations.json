@@ -1,0 +1,1417 @@
+{
+  "GetAccountFees": {
+    "method": "GET",
+    "path": "/v1/accounts/fees",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "AccountFees"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {},
+    "max_body_bytes": 0
+  },
+  "GetAccountNumber": {
+    "method": "GET",
+    "path": "/v1/accounts/account_number",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "AccountNumber"
+    },
+    "environments": [
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {},
+    "max_body_bytes": 0
+  },
+  "GetCheckoutSettings": {
+    "method": "GET",
+    "path": "/v1/accounts/checkout_settings",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "CheckoutSettings"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {},
+    "max_body_bytes": 0
+  },
+  "UpdateCheckoutSettings": {
+    "method": "PATCH",
+    "path": "/v1/accounts/checkout_settings",
+    "params": "UpdateCheckoutSettingsRequest",
+    "body": true,
+    "body_required": true,
+    "responses": {
+      "200": "CheckoutSettings",
+      "202": "CheckoutSettings"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {},
+    "max_body_bytes": 16384
+  },
+  "CreateCheckoutLogoUpload": {
+    "method": "POST",
+    "path": "/v1/accounts/checkout_settings/logo_uploads",
+    "params": "CreateCheckoutLogoUploadRequest",
+    "body": true,
+    "body_required": true,
+    "responses": {
+      "201": "CheckoutAssetUpload"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {},
+    "max_body_bytes": 16384
+  },
+  "CreateCheckoutFaviconUpload": {
+    "method": "POST",
+    "path": "/v1/accounts/checkout_settings/favicon_uploads",
+    "params": "CreateCheckoutFaviconUploadRequest",
+    "body": true,
+    "body_required": true,
+    "responses": {
+      "201": "CheckoutAssetUpload"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {},
+    "max_body_bytes": 16384
+  },
+  "DeleteCheckoutAssetUpload": {
+    "method": "DELETE",
+    "path": "/v1/accounts/checkout_settings/uploads/{id}",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "CheckoutAssetUploadDeleted"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^cau_[A-Za-z0-9]+$",
+        "maxLength": 26,
+        "example": "cau_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "GetAccountContext": {
+    "method": "GET",
+    "path": "/v1/accounts/context",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "AccountContext"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {},
+    "max_body_bytes": 0
+  },
+  "GetBalance": {
+    "method": "GET",
+    "path": "/v1/balances",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "Balance"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {},
+    "max_body_bytes": 0
+  },
+  "GetBalanceForecast": {
+    "method": "GET",
+    "path": "/v1/balances/forecast",
+    "params": "GetBalanceForecastParams",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "BalanceForecast"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {},
+    "max_body_bytes": 0
+  },
+  "CreateCharge": {
+    "method": "POST",
+    "path": "/v1/charges",
+    "params": "CreateChargeRequest",
+    "body": true,
+    "body_required": true,
+    "responses": {
+      "201": "ChargeCreated",
+      "202": "ChargeCreated"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {},
+    "max_body_bytes": 16384
+  },
+  "ListCharges": {
+    "method": "GET",
+    "path": "/v1/charges",
+    "params": "ListChargesParams",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "ChargeListResponse"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {},
+    "max_body_bytes": 0
+  },
+  "GetCharge": {
+    "method": "GET",
+    "path": "/v1/charges/{id}",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "Charge"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "maxLength": 100,
+        "pattern": "^ch_[A-Za-z0-9]+$",
+        "example": "ch_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "UpdateCharge": {
+    "method": "PATCH",
+    "path": "/v1/charges/{id}",
+    "params": "UpdateChargeRequest",
+    "body": true,
+    "body_required": true,
+    "responses": {
+      "200": "Charge"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "maxLength": 100,
+        "pattern": "^ch_[A-Za-z0-9]+$",
+        "example": "ch_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 16384
+  },
+  "RevokeCharge": {
+    "method": "DELETE",
+    "path": "/v1/charges/{id}",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "ChargeRevoked",
+      "202": "ChargeRevocationPending"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "maxLength": 100,
+        "pattern": "^ch_[A-Za-z0-9]+$",
+        "example": "ch_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "GetChargePayment": {
+    "method": "GET",
+    "path": "/v1/charges/{id}/payment",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "PaymentReceipt"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^ch_[A-Za-z0-9]+$",
+        "maxLength": 100,
+        "example": "ch_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "GetChargeReceipt": {
+    "method": "GET",
+    "path": "/v1/charges/{id}/receipt",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "FinancialDocument"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^ch_[A-Za-z0-9]+$",
+        "maxLength": 100,
+        "example": "ch_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "GetChargeBoleto": {
+    "method": "GET",
+    "path": "/v1/charges/{id}/boleto",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "FinancialDocument"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^ch_[A-Za-z0-9]+$",
+        "maxLength": 100,
+        "example": "ch_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "CreateRefund": {
+    "method": "POST",
+    "path": "/v1/charges/{id}/refunds",
+    "params": "CreateRefundRequest",
+    "body": true,
+    "body_required": true,
+    "responses": {
+      "200": "Refund",
+      "202": "Refund"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^ch_[A-Za-z0-9]+$",
+        "maxLength": 100,
+        "example": "ch_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 16384
+  },
+  "ListChargeRefunds": {
+    "method": "GET",
+    "path": "/v1/charges/{id}/refunds",
+    "params": "ListChargeRefundsParams",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "RefundListResponse"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^ch_[A-Za-z0-9]+$",
+        "maxLength": 100,
+        "example": "ch_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "GetRefundEligibility": {
+    "method": "GET",
+    "path": "/v1/charges/{id}/refund_eligibility",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "RefundEligibility"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^ch_[A-Za-z0-9]+$",
+        "maxLength": 100,
+        "example": "ch_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "GetChargeStatistics": {
+    "method": "GET",
+    "path": "/v1/charges/statistics",
+    "params": "GetChargeStatisticsParams",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "ChargeStatistics"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {},
+    "max_body_bytes": 0
+  },
+  "CreateCustomer": {
+    "method": "POST",
+    "path": "/v1/customers",
+    "params": "CreateCustomerRequest",
+    "body": true,
+    "body_required": true,
+    "responses": {
+      "200": "CustomerCreated",
+      "201": "CustomerCreated"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {},
+    "max_body_bytes": 16384
+  },
+  "ListCustomers": {
+    "method": "GET",
+    "path": "/v1/customers",
+    "params": "ListCustomersParams",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "CustomerListResponse"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {},
+    "max_body_bytes": 0
+  },
+  "GetCustomer": {
+    "method": "GET",
+    "path": "/v1/customers/{id}",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "CustomerListItem"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "maxLength": 100,
+        "pattern": "^cus_[A-Za-z0-9]+$",
+        "example": "cus_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "UpdateCustomer": {
+    "method": "PATCH",
+    "path": "/v1/customers/{id}",
+    "params": "UpdateCustomerRequest",
+    "body": true,
+    "body_required": true,
+    "responses": {
+      "200": "CustomerListItem"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "maxLength": 100,
+        "pattern": "^cus_[A-Za-z0-9]+$",
+        "example": "cus_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 16384
+  },
+  "DeleteCustomer": {
+    "method": "DELETE",
+    "path": "/v1/customers/{id}",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "CustomerDeleted"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "maxLength": 100,
+        "pattern": "^cus_[A-Za-z0-9]+$",
+        "example": "cus_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "DeleteCustomersBatch": {
+    "method": "DELETE",
+    "path": "/v1/customers",
+    "params": "RemoveCustomersRequest",
+    "body": true,
+    "body_required": true,
+    "responses": {
+      "200": "CustomerBatchDeleted"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {},
+    "max_body_bytes": 16384
+  },
+  "ListDisputes": {
+    "method": "GET",
+    "path": "/v1/disputes",
+    "params": "ListDisputesParams",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "DisputeListResponse"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {},
+    "max_body_bytes": 0
+  },
+  "GetDispute": {
+    "method": "GET",
+    "path": "/v1/disputes/{id}",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "Dispute"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^(?:dp_[A-Za-z0-9]+|med_[1-9][0-9]*)$",
+        "maxLength": 100,
+        "example": "med_123"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "CreatePaymentLink": {
+    "method": "POST",
+    "path": "/v1/payment_links",
+    "params": "CreatePaymentLinkRequest",
+    "body": true,
+    "body_required": true,
+    "responses": {
+      "200": "PaymentLink",
+      "201": "PaymentLink"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {},
+    "max_body_bytes": 16384
+  },
+  "ListPaymentLinks": {
+    "method": "GET",
+    "path": "/v1/payment_links",
+    "params": "ListPaymentLinksParams",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "PaymentLinkListResponse"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {},
+    "max_body_bytes": 0
+  },
+  "GetPaymentLink": {
+    "method": "GET",
+    "path": "/v1/payment_links/{id}",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "PaymentLinkDetails"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^pl_[A-Za-z0-9]+$",
+        "maxLength": 100,
+        "example": "pl_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "UpdatePaymentLink": {
+    "method": "PATCH",
+    "path": "/v1/payment_links/{id}",
+    "params": "UpdatePaymentLinkRequest",
+    "body": true,
+    "body_required": true,
+    "responses": {
+      "200": "PaymentLink"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^pl_[A-Za-z0-9]+$",
+        "maxLength": 100,
+        "example": "pl_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 16384
+  },
+  "SendPaymentLinkEmail": {
+    "method": "POST",
+    "path": "/v1/payment_links/{id}/send_email",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "202": "PaymentLinkEmailRequestAccepted"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^pl_[A-Za-z0-9]+$",
+        "maxLength": 100,
+        "example": "pl_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "ListRefunds": {
+    "method": "GET",
+    "path": "/v1/refunds",
+    "params": "ListRefundsParams",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "RefundListResponse"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {},
+    "max_body_bytes": 0
+  },
+  "GetRefund": {
+    "method": "GET",
+    "path": "/v1/refunds/{id}",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "Refund"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^rf_[A-Za-z0-9]+$",
+        "maxLength": 100,
+        "example": "rf_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "GetRefundReceipt": {
+    "method": "GET",
+    "path": "/v1/refunds/{id}/receipt",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "FinancialDocument"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^rf_[A-Za-z0-9]+$",
+        "maxLength": 100,
+        "example": "rf_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "ListStatements": {
+    "method": "GET",
+    "path": "/v1/statements",
+    "params": "ListStatementsParams",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "StatementListResponse"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {},
+    "max_body_bytes": 0
+  },
+  "GetStatement": {
+    "method": "GET",
+    "path": "/v1/statements/{id}",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "Statement"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^st_[A-Za-z0-9]+$",
+        "maxLength": 100,
+        "example": "st_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "ListWebhookEventTypes": {
+    "method": "GET",
+    "path": "/v1/webhook_event_types",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "WebhookEventTypeListResponse"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {},
+    "max_body_bytes": 0
+  },
+  "CreateWebhook": {
+    "method": "POST",
+    "path": "/v1/webhooks",
+    "params": "CreateWebhookRequest",
+    "body": true,
+    "body_required": true,
+    "responses": {
+      "201": "WebhookCreated"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {},
+    "max_body_bytes": 16384
+  },
+  "ListWebhooks": {
+    "method": "GET",
+    "path": "/v1/webhooks",
+    "params": "ListWebhooksParams",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "WebhookListResponse"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {},
+    "max_body_bytes": 0
+  },
+  "GetWebhook": {
+    "method": "GET",
+    "path": "/v1/webhooks/{webhook_id}",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "Webhook"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {
+      "webhook_id": {
+        "type": "string",
+        "pattern": "^whk_[A-Za-z0-9]+$",
+        "maxLength": 26,
+        "example": "whk_1AbXiWSrsCBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "UpdateWebhook": {
+    "method": "PATCH",
+    "path": "/v1/webhooks/{webhook_id}",
+    "params": "UpdateWebhookRequest",
+    "body": true,
+    "body_required": true,
+    "responses": {
+      "200": "Webhook"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "webhook_id": {
+        "type": "string",
+        "pattern": "^whk_[A-Za-z0-9]+$",
+        "maxLength": 26,
+        "example": "whk_1AbXiWSrsCBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 16384
+  },
+  "DeleteWebhook": {
+    "method": "DELETE",
+    "path": "/v1/webhooks/{webhook_id}",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "204": ""
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "webhook_id": {
+        "type": "string",
+        "pattern": "^whk_[A-Za-z0-9]+$",
+        "maxLength": 26,
+        "example": "whk_1AbXiWSrsCBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "GetWebhookHealth": {
+    "method": "GET",
+    "path": "/v1/webhooks/{webhook_id}/health",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "WebhookHealth"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {
+      "webhook_id": {
+        "type": "string",
+        "pattern": "^whk_[A-Za-z0-9]+$",
+        "maxLength": 26,
+        "example": "whk_1AbXiWSrsCBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "SetWebhookPause": {
+    "method": "PATCH",
+    "path": "/v1/webhooks/{webhook_id}/pause",
+    "params": "SetWebhookPauseRequest",
+    "body": true,
+    "body_required": true,
+    "responses": {
+      "200": "WebhookPause"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "webhook_id": {
+        "type": "string",
+        "pattern": "^whk_[A-Za-z0-9]+$",
+        "maxLength": 26,
+        "example": "whk_1AbXiWSrsCBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 16384
+  },
+  "RotateWebhookSecret": {
+    "method": "POST",
+    "path": "/v1/webhooks/{webhook_id}/rotate_secret",
+    "params": "RotateWebhookSecretRequest",
+    "body": true,
+    "body_required": true,
+    "responses": {
+      "200": "WebhookSecretRotation"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "webhook_id": {
+        "type": "string",
+        "pattern": "^whk_[A-Za-z0-9]+$",
+        "maxLength": 26,
+        "example": "whk_1AbXiWSrsCBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 16384
+  },
+  "TestWebhook": {
+    "method": "POST",
+    "path": "/v1/webhooks/{webhook_id}/test",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "202": "WebhookTestAccepted"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "webhook_id": {
+        "type": "string",
+        "pattern": "^whk_[A-Za-z0-9]+$",
+        "maxLength": 26,
+        "example": "whk_1AbXiWSrsCBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "ListWithdrawalDestinations": {
+    "method": "GET",
+    "path": "/v1/withdrawal_destinations",
+    "params": "ListWithdrawalDestinationsParams",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "WithdrawalDestinationListResponse"
+    },
+    "environments": [
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {},
+    "max_body_bytes": 0
+  },
+  "GetWithdrawalDestination": {
+    "method": "GET",
+    "path": "/v1/withdrawal_destinations/{id}",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "WithdrawalDestination"
+    },
+    "environments": [
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^wdst_[A-Za-z0-9]+$",
+        "maxLength": 100,
+        "example": "wdst_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "CreateWithdrawal": {
+    "method": "POST",
+    "path": "/v1/withdrawals",
+    "params": "CreateWithdrawalRequest",
+    "body": true,
+    "body_required": true,
+    "responses": {
+      "200": "Withdrawal",
+      "202": "Withdrawal"
+    },
+    "environments": [
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {},
+    "max_body_bytes": 16384
+  },
+  "ListWithdrawals": {
+    "method": "GET",
+    "path": "/v1/withdrawals",
+    "params": "ListWithdrawalsParams",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "WithdrawalListResponse"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {},
+    "max_body_bytes": 0
+  },
+  "GetWithdrawal": {
+    "method": "GET",
+    "path": "/v1/withdrawals/{id}",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "Withdrawal"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^wd_[A-Za-z0-9]+$",
+        "maxLength": 100,
+        "example": "wd_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "GetWithdrawalLimits": {
+    "method": "GET",
+    "path": "/v1/withdrawals/limits",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "WithdrawalLimits"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {},
+    "max_body_bytes": 0
+  },
+  "GetWithdrawalSummary": {
+    "method": "GET",
+    "path": "/v1/withdrawals/summary",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "WithdrawalSummary"
+    },
+    "environments": [
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {},
+    "max_body_bytes": 0
+  },
+  "GetAutomaticWithdrawalSettings": {
+    "method": "GET",
+    "path": "/v1/withdrawals/automatic_settings",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "AutomaticWithdrawalSettings"
+    },
+    "environments": [
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {},
+    "max_body_bytes": 0
+  },
+  "UpdateAutomaticWithdrawalSettings": {
+    "method": "PATCH",
+    "path": "/v1/withdrawals/automatic_settings",
+    "params": "UpdateAutomaticWithdrawalSettingsRequest",
+    "body": true,
+    "body_required": true,
+    "responses": {
+      "200": "AutomaticWithdrawalSettings"
+    },
+    "environments": [
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {},
+    "max_body_bytes": 16384
+  },
+  "ConfirmSimulationPayment": {
+    "method": "POST",
+    "path": "/v1/simulations/charges/{id}/confirm_payment",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "ChargeSimulation"
+    },
+    "environments": [
+      "Sandbox"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^ch_[A-Za-z0-9]+$",
+        "maxLength": 100,
+        "example": "ch_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "FailSimulationPayment": {
+    "method": "POST",
+    "path": "/v1/simulations/charges/{id}/fail_payment",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "ChargeSimulation"
+    },
+    "environments": [
+      "Sandbox"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^ch_[A-Za-z0-9]+$",
+        "maxLength": 100,
+        "example": "ch_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "ConfigureSimulationScenario": {
+    "method": "POST",
+    "path": "/v1/simulations/charges/{id}/scenario",
+    "params": "ChargeScenarioRequest",
+    "body": true,
+    "body_required": true,
+    "responses": {
+      "200": "ChargeScenario"
+    },
+    "environments": [
+      "Sandbox"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^ch_[A-Za-z0-9]+$",
+        "maxLength": 100,
+        "example": "ch_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 16384
+  },
+  "ResolveSimulationScenario": {
+    "method": "POST",
+    "path": "/v1/simulations/charges/{id}/resolve",
+    "params": "ResolveChargeScenarioRequest",
+    "body": true,
+    "body_required": true,
+    "responses": {
+      "200": "ChargeScenario"
+    },
+    "environments": [
+      "Sandbox"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^ch_[A-Za-z0-9]+$",
+        "maxLength": 100,
+        "example": "ch_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 16384
+  },
+  "IssueSimulationPayment": {
+    "method": "POST",
+    "path": "/v1/simulations/charges/{id}/issue_payment",
+    "params": "IssueSimulationPaymentRequest",
+    "body": true,
+    "body_required": true,
+    "responses": {
+      "200": "Charge",
+      "202": "Charge"
+    },
+    "environments": [
+      "Sandbox"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^ch_[A-Za-z0-9]+$",
+        "maxLength": 100,
+        "example": "ch_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 16384
+  },
+  "CompensateSimulationBoleto": {
+    "method": "POST",
+    "path": "/v1/simulations/charges/{id}/compensate_boleto",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "ChargeBoletoCompensation"
+    },
+    "environments": [
+      "Sandbox"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^ch_[A-Za-z0-9]+$",
+        "maxLength": 100,
+        "example": "ch_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "CreateSimulationRefund": {
+    "method": "POST",
+    "path": "/v1/simulations/charges/{id}/refunds",
+    "params": "CreateRefundRequest",
+    "body": true,
+    "body_required": true,
+    "responses": {
+      "200": "Refund",
+      "202": "Refund"
+    },
+    "environments": [
+      "Sandbox"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^ch_[A-Za-z0-9]+$",
+        "maxLength": 100,
+        "example": "ch_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 16384
+  },
+  "CompleteSimulationRefund": {
+    "method": "POST",
+    "path": "/v1/simulations/refunds/{id}/complete",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "Refund"
+    },
+    "environments": [
+      "Sandbox"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^rf_[A-Za-z0-9]+$",
+        "maxLength": 100,
+        "example": "rf_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "FailSimulationRefund": {
+    "method": "POST",
+    "path": "/v1/simulations/refunds/{id}/fail",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "Refund"
+    },
+    "environments": [
+      "Sandbox"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "id": {
+        "type": "string",
+        "pattern": "^rf_[A-Za-z0-9]+$",
+        "maxLength": 100,
+        "example": "rf_3AbHiWSrsZBoaTg47OcMzC"
+      }
+    },
+    "max_body_bytes": 0
+  }
+}

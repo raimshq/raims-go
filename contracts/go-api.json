@@ -1,0 +1,6961 @@
+{
+  "schema_version": 2,
+  "module": "github.com/raimshq/raims-go",
+  "package": "raims",
+  "symbols": {
+    "APIError": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "StatusCode",
+          "type": "int"
+        },
+        {
+          "name": "Code",
+          "type": "string"
+        },
+        {
+          "name": "Detail",
+          "type": "*Error"
+        },
+        {
+          "name": "Response",
+          "type": "*Response"
+        }
+      ]
+    },
+    "APIError.Error": {
+      "kind": "method",
+      "type": "func() string",
+      "receiver": "*APIError"
+    },
+    "AccountContext": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "CompanyID",
+          "type": "string",
+          "tag": "json:\"company_id\""
+        },
+        {
+          "name": "CompanyName",
+          "type": "*string",
+          "tag": "json:\"company_name\""
+        },
+        {
+          "name": "CompanyStatus",
+          "type": "string",
+          "tag": "json:\"company_status\""
+        },
+        {
+          "name": "DataEnvironment",
+          "type": "string",
+          "tag": "json:\"data_environment\""
+        },
+        {
+          "name": "CheckedAt",
+          "type": "int64",
+          "tag": "json:\"checked_at\""
+        },
+        {
+          "name": "AccessRevision",
+          "type": "string",
+          "tag": "json:\"access_revision\""
+        },
+        {
+          "name": "Currency",
+          "type": "string",
+          "tag": "json:\"currency\""
+        },
+        {
+          "name": "AmountUnit",
+          "type": "string",
+          "tag": "json:\"amount_unit\""
+        },
+        {
+          "name": "TimestampUnit",
+          "type": "string",
+          "tag": "json:\"timestamp_unit\""
+        },
+        {
+          "name": "BusinessTimezone",
+          "type": "string",
+          "tag": "json:\"business_timezone\""
+        }
+      ]
+    },
+    "AccountContext.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "AccountContext"
+    },
+    "AccountContext.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*AccountContext"
+    },
+    "AccountContextAmountUnitCents": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"cents\""
+    },
+    "AccountContextBusinessTimezoneAmericaSaoPaulo": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"America/Sao_Paulo\""
+    },
+    "AccountContextCompanyStatusActive": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"active\""
+    },
+    "AccountContextCompanyStatusLimited": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"limited\""
+    },
+    "AccountContextCompanyStatusPending": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pending\""
+    },
+    "AccountContextCurrencyBRL": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"BRL\""
+    },
+    "AccountContextDataEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "AccountContextDataEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
+    },
+    "AccountContextTimestampUnitUnixSeconds": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"unix_seconds\""
+    },
+    "AccountFee": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "PercentageRate",
+          "type": "*encoding/json.Number",
+          "tag": "json:\"percentage_rate\""
+        },
+        {
+          "name": "FixedFeeCents",
+          "type": "*int64",
+          "tag": "json:\"fixed_fee_cents\""
+        },
+        {
+          "name": "MinimumFeeCents",
+          "type": "*int64",
+          "tag": "json:\"minimum_fee_cents\""
+        },
+        {
+          "name": "MaximumFeeCents",
+          "type": "*int64",
+          "tag": "json:\"maximum_fee_cents\""
+        }
+      ]
+    },
+    "AccountFee.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "AccountFee"
+    },
+    "AccountFee.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*AccountFee"
+    },
+    "AccountFees": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Pix",
+          "type": "*AccountFee",
+          "tag": "json:\"pix\""
+        },
+        {
+          "name": "Boleto",
+          "type": "*AccountFee",
+          "tag": "json:\"boleto\""
+        }
+      ]
+    },
+    "AccountFees.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "AccountFees"
+    },
+    "AccountFees.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*AccountFees"
+    },
+    "AccountNumber": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Agency",
+          "type": "string",
+          "tag": "json:\"agency\""
+        },
+        {
+          "name": "Account",
+          "type": "string",
+          "tag": "json:\"account\""
+        }
+      ]
+    },
+    "AccountNumber.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "AccountNumber"
+    },
+    "AccountNumber.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*AccountNumber"
+    },
+    "AccountsService": {
+      "kind": "type",
+      "type": "struct"
+    },
+    "AccountsService.CreateCheckoutFaviconUpload": {
+      "kind": "method",
+      "type": "func(context.Context, *CreateCheckoutFaviconUploadParams, ...RequestOption) (*CheckoutAssetUpload, error)",
+      "receiver": "*AccountsService"
+    },
+    "AccountsService.CreateCheckoutLogoUpload": {
+      "kind": "method",
+      "type": "func(context.Context, *CreateCheckoutLogoUploadParams, ...RequestOption) (*CheckoutAssetUpload, error)",
+      "receiver": "*AccountsService"
+    },
+    "AccountsService.DeleteCheckoutAssetUpload": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*CheckoutAssetUploadDeleted, error)",
+      "receiver": "*AccountsService"
+    },
+    "AccountsService.GetCheckoutSettings": {
+      "kind": "method",
+      "type": "func(context.Context, ...RequestOption) (*CheckoutSettings, error)",
+      "receiver": "*AccountsService"
+    },
+    "AccountsService.GetContext": {
+      "kind": "method",
+      "type": "func(context.Context, ...RequestOption) (*AccountContext, error)",
+      "receiver": "*AccountsService"
+    },
+    "AccountsService.GetFees": {
+      "kind": "method",
+      "type": "func(context.Context, ...RequestOption) (*AccountFees, error)",
+      "receiver": "*AccountsService"
+    },
+    "AccountsService.GetNumber": {
+      "kind": "method",
+      "type": "func(context.Context, ...RequestOption) (*AccountNumber, error)",
+      "receiver": "*AccountsService"
+    },
+    "AccountsService.UpdateCheckoutSettings": {
+      "kind": "method",
+      "type": "func(context.Context, *UpdateCheckoutSettingsParams, ...RequestOption) (*CheckoutSettings, error)",
+      "receiver": "*AccountsService"
+    },
+    "AutomaticWithdrawalSettings": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Enabled",
+          "type": "bool",
+          "tag": "json:\"enabled\""
+        },
+        {
+          "name": "MinimumAmountCents",
+          "type": "int64",
+          "tag": "json:\"minimum_amount_cents\""
+        },
+        {
+          "name": "Time",
+          "type": "string",
+          "tag": "json:\"time\""
+        },
+        {
+          "name": "NextExecutionAt",
+          "type": "*int64",
+          "tag": "json:\"next_execution_at\""
+        }
+      ]
+    },
+    "AutomaticWithdrawalSettings.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "AutomaticWithdrawalSettings"
+    },
+    "AutomaticWithdrawalSettings.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*AutomaticWithdrawalSettings"
+    },
+    "Balance": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "TotalAmountCents",
+          "type": "int64",
+          "tag": "json:\"total_amount_cents\""
+        },
+        {
+          "name": "BlockedAmountCents",
+          "type": "int64",
+          "tag": "json:\"blocked_amount_cents\""
+        },
+        {
+          "name": "AvailableAmountCents",
+          "type": "int64",
+          "tag": "json:\"available_amount_cents\""
+        }
+      ]
+    },
+    "Balance.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "Balance"
+    },
+    "Balance.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*Balance"
+    },
+    "BalanceForecast": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Period",
+          "type": "string",
+          "tag": "json:\"period\""
+        },
+        {
+          "name": "StartAt",
+          "type": "int64",
+          "tag": "json:\"start_at\""
+        },
+        {
+          "name": "EndAt",
+          "type": "int64",
+          "tag": "json:\"end_at\""
+        },
+        {
+          "name": "ForecastDate",
+          "type": "int64",
+          "tag": "json:\"forecast_date\""
+        },
+        {
+          "name": "ReceivableAmountCents",
+          "type": "int64",
+          "tag": "json:\"receivable_amount_cents\""
+        },
+        {
+          "name": "ProjectedBalanceCents",
+          "type": "int64",
+          "tag": "json:\"projected_balance_cents\""
+        },
+        {
+          "name": "UpdatedAt",
+          "type": "*int64",
+          "tag": "json:\"updated_at\""
+        }
+      ]
+    },
+    "BalanceForecast.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "BalanceForecast"
+    },
+    "BalanceForecast.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*BalanceForecast"
+    },
+    "BalanceForecastPeriodLast15Days": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"last_15_days\""
+    },
+    "BalanceForecastPeriodLast30Days": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"last_30_days\""
+    },
+    "BalanceForecastPeriodLast7Days": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"last_7_days\""
+    },
+    "BalanceForecastPeriodToday": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"today\""
+    },
+    "BalancesService": {
+      "kind": "type",
+      "type": "struct"
+    },
+    "BalancesService.Forecast": {
+      "kind": "method",
+      "type": "func(context.Context, *GetBalanceForecastParams, ...RequestOption) (*BalanceForecast, error)",
+      "receiver": "*BalancesService"
+    },
+    "BalancesService.Get": {
+      "kind": "method",
+      "type": "func(context.Context, ...RequestOption) (*Balance, error)",
+      "receiver": "*BalancesService"
+    },
+    "Charge": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "CustomerID",
+          "type": "string",
+          "tag": "json:\"customer_id\""
+        },
+        {
+          "name": "AmountCents",
+          "type": "int64",
+          "tag": "json:\"amount_cents\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "int64",
+          "tag": "json:\"payment_method\""
+        },
+        {
+          "name": "CheckoutPaymentMethod",
+          "type": "*int64",
+          "tag": "json:\"checkout_payment_method\""
+        },
+        {
+          "name": "DueDate",
+          "type": "int64",
+          "tag": "json:\"due_date\""
+        },
+        {
+          "name": "Title",
+          "type": "*string",
+          "tag": "json:\"title\""
+        },
+        {
+          "name": "Description",
+          "type": "*string",
+          "tag": "json:\"description\""
+        },
+        {
+          "name": "Status",
+          "type": "int64",
+          "tag": "json:\"status\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "int64",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "CheckoutURL",
+          "type": "*string",
+          "tag": "json:\"checkout_url\""
+        },
+        {
+          "name": "IsPayable",
+          "type": "bool",
+          "tag": "json:\"is_payable\""
+        },
+        {
+          "name": "PaymentInformation",
+          "type": "ChargePaymentInformation",
+          "tag": "json:\"payment_information\""
+        },
+        {
+          "name": "PaymentMethodTypes",
+          "type": "*[]int64",
+          "tag": "json:\"payment_method_types\""
+        },
+        {
+          "name": "ExternalReference",
+          "type": "*string",
+          "tag": "json:\"external_reference\""
+        },
+        {
+          "name": "Metadata",
+          "type": "map[string]string",
+          "tag": "json:\"metadata\""
+        }
+      ]
+    },
+    "Charge.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "Charge"
+    },
+    "Charge.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*Charge"
+    },
+    "ChargeBoletoCompensation": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ChargeID",
+          "type": "string",
+          "tag": "json:\"charge_id\""
+        },
+        {
+          "name": "Status",
+          "type": "int64",
+          "tag": "json:\"status\""
+        },
+        {
+          "name": "AmountCents",
+          "type": "int64",
+          "tag": "json:\"amount_cents\""
+        },
+        {
+          "name": "Duplicate",
+          "type": "bool",
+          "tag": "json:\"duplicate\""
+        }
+      ]
+    },
+    "ChargeBoletoCompensation.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeBoletoCompensation"
+    },
+    "ChargeBoletoCompensation.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeBoletoCompensation"
+    },
+    "ChargeBoletoPaymentInformation": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "LineDigits",
+          "type": "string",
+          "tag": "json:\"line_digits\""
+        },
+        {
+          "name": "Barcode",
+          "type": "string",
+          "tag": "json:\"barcode\""
+        },
+        {
+          "name": "DueDate",
+          "type": "int64",
+          "tag": "json:\"due_date\""
+        }
+      ]
+    },
+    "ChargeBoletoPaymentInformation.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeBoletoPaymentInformation"
+    },
+    "ChargeBoletoPaymentInformation.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeBoletoPaymentInformation"
+    },
+    "ChargeCreated": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "CustomerID",
+          "type": "string",
+          "tag": "json:\"customer_id\""
+        },
+        {
+          "name": "AmountCents",
+          "type": "int64",
+          "tag": "json:\"amount_cents\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "int64",
+          "tag": "json:\"payment_method\""
+        },
+        {
+          "name": "DueDate",
+          "type": "int64",
+          "tag": "json:\"due_date\""
+        },
+        {
+          "name": "Title",
+          "type": "*string",
+          "tag": "json:\"title\""
+        },
+        {
+          "name": "Description",
+          "type": "*string",
+          "tag": "json:\"description\""
+        },
+        {
+          "name": "Status",
+          "type": "int64",
+          "tag": "json:\"status\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "int64",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "CheckoutURL",
+          "type": "*string",
+          "tag": "json:\"checkout_url\""
+        },
+        {
+          "name": "PaymentMethodTypes",
+          "type": "*[]int64",
+          "tag": "json:\"payment_method_types\""
+        },
+        {
+          "name": "ExternalReference",
+          "type": "*string",
+          "tag": "json:\"external_reference\""
+        },
+        {
+          "name": "PaymentInformation",
+          "type": "ChargePaymentInformation",
+          "tag": "json:\"payment_information\""
+        },
+        {
+          "name": "Metadata",
+          "type": "map[string]string",
+          "tag": "json:\"metadata\""
+        }
+      ]
+    },
+    "ChargeCreated.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeCreated"
+    },
+    "ChargeCreated.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeCreated"
+    },
+    "ChargeCreatedPaymentMethodTypesItemBoleto": {
+      "kind": "const",
+      "type": "int64",
+      "value": "2"
+    },
+    "ChargeCreatedPaymentMethodTypesItemPix": {
+      "kind": "const",
+      "type": "int64",
+      "value": "1"
+    },
+    "ChargeListItem": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "CustomerID",
+          "type": "string",
+          "tag": "json:\"customer_id\""
+        },
+        {
+          "name": "AmountCents",
+          "type": "int64",
+          "tag": "json:\"amount_cents\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "int64",
+          "tag": "json:\"payment_method\""
+        },
+        {
+          "name": "CheckoutPaymentMethod",
+          "type": "*int64",
+          "tag": "json:\"checkout_payment_method\""
+        },
+        {
+          "name": "DueDate",
+          "type": "int64",
+          "tag": "json:\"due_date\""
+        },
+        {
+          "name": "Title",
+          "type": "*string",
+          "tag": "json:\"title\""
+        },
+        {
+          "name": "Description",
+          "type": "*string",
+          "tag": "json:\"description\""
+        },
+        {
+          "name": "Status",
+          "type": "int64",
+          "tag": "json:\"status\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "int64",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "CheckoutURL",
+          "type": "*string",
+          "tag": "json:\"checkout_url\""
+        },
+        {
+          "name": "PaymentMethodTypes",
+          "type": "*[]int64",
+          "tag": "json:\"payment_method_types\""
+        },
+        {
+          "name": "ExternalReference",
+          "type": "*string",
+          "tag": "json:\"external_reference\""
+        },
+        {
+          "name": "Metadata",
+          "type": "map[string]string",
+          "tag": "json:\"metadata\""
+        }
+      ]
+    },
+    "ChargeListItem.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeListItem"
+    },
+    "ChargeListItem.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeListItem"
+    },
+    "ChargeListItemPaymentMethodTypesItemBoleto": {
+      "kind": "const",
+      "type": "int64",
+      "value": "2"
+    },
+    "ChargeListItemPaymentMethodTypesItemPix": {
+      "kind": "const",
+      "type": "int64",
+      "value": "1"
+    },
+    "ChargeListPage": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "PageSize",
+          "type": "int64",
+          "tag": "json:\"page_size\""
+        },
+        {
+          "name": "HasNext",
+          "type": "bool",
+          "tag": "json:\"has_next\""
+        },
+        {
+          "name": "HasPrevious",
+          "type": "bool",
+          "tag": "json:\"has_previous\""
+        },
+        {
+          "name": "NextAfter",
+          "type": "*string",
+          "tag": "json:\"next_after\""
+        },
+        {
+          "name": "PreviousBefore",
+          "type": "*string",
+          "tag": "json:\"previous_before\""
+        }
+      ]
+    },
+    "ChargeListPage.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeListPage"
+    },
+    "ChargeListPage.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeListPage"
+    },
+    "ChargeListResponse": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "List",
+          "type": "[]ChargeListItem",
+          "tag": "json:\"list\""
+        },
+        {
+          "name": "Page",
+          "type": "ChargeListPage",
+          "tag": "json:\"page\""
+        }
+      ]
+    },
+    "ChargeListResponse.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeListResponse"
+    },
+    "ChargeListResponse.NextPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*ChargeListResponse, error)",
+      "receiver": "*ChargeListResponse"
+    },
+    "ChargeListResponse.PreviousPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*ChargeListResponse, error)",
+      "receiver": "*ChargeListResponse"
+    },
+    "ChargeListResponse.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeListResponse"
+    },
+    "ChargePaymentInformation": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Pix",
+          "type": "*ChargePixPaymentInformation",
+          "tag": "json:\"pix\""
+        },
+        {
+          "name": "Boleto",
+          "type": "*ChargeBoletoPaymentInformation",
+          "tag": "json:\"boleto\""
+        },
+        {
+          "name": "PixStatus",
+          "type": "string",
+          "tag": "json:\"pix_status\""
+        },
+        {
+          "name": "PixError",
+          "type": "*Error",
+          "tag": "json:\"pix_error\""
+        },
+        {
+          "name": "BoletoStatus",
+          "type": "string",
+          "tag": "json:\"boleto_status\""
+        },
+        {
+          "name": "BoletoError",
+          "type": "*Error",
+          "tag": "json:\"boleto_error\""
+        },
+        {
+          "name": "BoletoPaymentStatus",
+          "type": "*string",
+          "tag": "json:\"boleto_payment_status\""
+        }
+      ]
+    },
+    "ChargePaymentInformation.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargePaymentInformation"
+    },
+    "ChargePaymentInformation.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargePaymentInformation"
+    },
+    "ChargePaymentInformationBoletoPaymentStatusAwaitingPayment": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"awaiting_payment\""
+    },
+    "ChargePaymentInformationBoletoPaymentStatusCompensated": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"compensated\""
+    },
+    "ChargePaymentInformationBoletoPaymentStatusSettled": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"settled\""
+    },
+    "ChargePaymentInformationBoletoStatusAvailable": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"available\""
+    },
+    "ChargePaymentInformationBoletoStatusFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"failed\""
+    },
+    "ChargePaymentInformationBoletoStatusNotGenerated": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"not_generated\""
+    },
+    "ChargePaymentInformationBoletoStatusPending": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pending\""
+    },
+    "ChargePaymentInformationPixStatusAvailable": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"available\""
+    },
+    "ChargePaymentInformationPixStatusFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"failed\""
+    },
+    "ChargePaymentInformationPixStatusNotGenerated": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"not_generated\""
+    },
+    "ChargePaymentInformationPixStatusPending": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pending\""
+    },
+    "ChargePaymentMethodTypesItemBoleto": {
+      "kind": "const",
+      "type": "int64",
+      "value": "2"
+    },
+    "ChargePaymentMethodTypesItemPix": {
+      "kind": "const",
+      "type": "int64",
+      "value": "1"
+    },
+    "ChargePixPaymentInformation": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "CopyPaste",
+          "type": "string",
+          "tag": "json:\"copy_paste\""
+        },
+        {
+          "name": "ExpiresAt",
+          "type": "int64",
+          "tag": "json:\"expires_at\""
+        },
+        {
+          "name": "QrCodeBase64",
+          "type": "string",
+          "tag": "json:\"qr_code_base64\""
+        }
+      ]
+    },
+    "ChargePixPaymentInformation.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargePixPaymentInformation"
+    },
+    "ChargePixPaymentInformation.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargePixPaymentInformation"
+    },
+    "ChargeRevocationPending": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Status",
+          "type": "int64",
+          "tag": "json:\"status\""
+        },
+        {
+          "name": "Revoked",
+          "type": "bool",
+          "tag": "json:\"revoked\""
+        },
+        {
+          "name": "RevocationPending",
+          "type": "bool",
+          "tag": "json:\"revocation_pending\""
+        }
+      ]
+    },
+    "ChargeRevocationPending.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeRevocationPending"
+    },
+    "ChargeRevocationPending.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeRevocationPending"
+    },
+    "ChargeRevoked": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Status",
+          "type": "int64",
+          "tag": "json:\"status\""
+        },
+        {
+          "name": "Revoked",
+          "type": "bool",
+          "tag": "json:\"revoked\""
+        },
+        {
+          "name": "RevocationPending",
+          "type": "bool",
+          "tag": "json:\"revocation_pending\""
+        }
+      ]
+    },
+    "ChargeRevoked.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeRevoked"
+    },
+    "ChargeRevoked.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeRevoked"
+    },
+    "ChargeScenario": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ChargeID",
+          "type": "string",
+          "tag": "json:\"charge_id\""
+        },
+        {
+          "name": "Action",
+          "type": "string",
+          "tag": "json:\"action\""
+        },
+        {
+          "name": "Outcome",
+          "type": "string",
+          "tag": "json:\"outcome\""
+        },
+        {
+          "name": "State",
+          "type": "string",
+          "tag": "json:\"state\""
+        },
+        {
+          "name": "ChargeStatus",
+          "type": "int64",
+          "tag": "json:\"charge_status\""
+        },
+        {
+          "name": "Duplicate",
+          "type": "bool",
+          "tag": "json:\"duplicate\""
+        }
+      ]
+    },
+    "ChargeScenario.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeScenario"
+    },
+    "ChargeScenario.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeScenario"
+    },
+    "ChargeScenarioActionBoletoIssuance": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto_issuance\""
+    },
+    "ChargeScenarioActionCancellation": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"cancellation\""
+    },
+    "ChargeScenarioActionPixIssuance": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix_issuance\""
+    },
+    "ChargeScenarioOutcomeCompleted": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"completed\""
+    },
+    "ChargeScenarioOutcomeFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"failed\""
+    },
+    "ChargeScenarioOutcomePending": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pending\""
+    },
+    "ChargeScenarioParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Action",
+          "type": "Optional[string]",
+          "tag": "json:\"action,omitzero\""
+        },
+        {
+          "name": "Outcome",
+          "type": "Optional[string]",
+          "tag": "json:\"outcome,omitzero\""
+        }
+      ]
+    },
+    "ChargeScenarioParamsActionBoletoIssuance": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto_issuance\""
+    },
+    "ChargeScenarioParamsActionCancellation": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"cancellation\""
+    },
+    "ChargeScenarioParamsActionPixIssuance": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix_issuance\""
+    },
+    "ChargeScenarioParamsOutcomeFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"failed\""
+    },
+    "ChargeScenarioParamsOutcomePending": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pending\""
+    },
+    "ChargeScenarioStateCompleted": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"completed\""
+    },
+    "ChargeScenarioStateConfigured": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"configured\""
+    },
+    "ChargeScenarioStateFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"failed\""
+    },
+    "ChargeScenarioStatePending": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pending\""
+    },
+    "ChargeSimulation": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ChargeID",
+          "type": "string",
+          "tag": "json:\"charge_id\""
+        },
+        {
+          "name": "Status",
+          "type": "int64",
+          "tag": "json:\"status\""
+        },
+        {
+          "name": "AmountCents",
+          "type": "int64",
+          "tag": "json:\"amount_cents\""
+        },
+        {
+          "name": "Duplicate",
+          "type": "bool",
+          "tag": "json:\"duplicate\""
+        }
+      ]
+    },
+    "ChargeSimulation.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeSimulation"
+    },
+    "ChargeSimulation.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeSimulation"
+    },
+    "ChargeStatistics": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Period",
+          "type": "string",
+          "tag": "json:\"period\""
+        },
+        {
+          "name": "StartAt",
+          "type": "int64",
+          "tag": "json:\"start_at\""
+        },
+        {
+          "name": "EndAt",
+          "type": "int64",
+          "tag": "json:\"end_at\""
+        },
+        {
+          "name": "Issued",
+          "type": "ChargeStatisticsAggregate",
+          "tag": "json:\"issued\""
+        },
+        {
+          "name": "IssuedPaid",
+          "type": "ChargeStatisticsAggregate",
+          "tag": "json:\"issued_paid\""
+        },
+        {
+          "name": "Received",
+          "type": "ChargeStatisticsAggregate",
+          "tag": "json:\"received\""
+        },
+        {
+          "name": "PaymentRate",
+          "type": "encoding/json.Number",
+          "tag": "json:\"payment_rate\""
+        },
+        {
+          "name": "UpdatedAt",
+          "type": "*int64",
+          "tag": "json:\"updated_at\""
+        }
+      ]
+    },
+    "ChargeStatistics.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeStatistics"
+    },
+    "ChargeStatistics.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeStatistics"
+    },
+    "ChargeStatisticsAggregate": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Count",
+          "type": "int64",
+          "tag": "json:\"count\""
+        },
+        {
+          "name": "AmountCents",
+          "type": "int64",
+          "tag": "json:\"amount_cents\""
+        }
+      ]
+    },
+    "ChargeStatisticsAggregate.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeStatisticsAggregate"
+    },
+    "ChargeStatisticsAggregate.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeStatisticsAggregate"
+    },
+    "ChargeStatisticsPeriodLast15Days": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"last_15_days\""
+    },
+    "ChargeStatisticsPeriodLast30Days": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"last_30_days\""
+    },
+    "ChargeStatisticsPeriodLast7Days": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"last_7_days\""
+    },
+    "ChargeStatisticsPeriodToday": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"today\""
+    },
+    "ChargesService": {
+      "kind": "type",
+      "type": "struct"
+    },
+    "ChargesService.Create": {
+      "kind": "method",
+      "type": "func(context.Context, *CreateChargeParams, ...RequestOption) (*ChargeCreated, error)",
+      "receiver": "*ChargesService"
+    },
+    "ChargesService.CreateRefund": {
+      "kind": "method",
+      "type": "func(context.Context, string, *CreateRefundParams, ...RequestOption) (*Refund, error)",
+      "receiver": "*ChargesService"
+    },
+    "ChargesService.Get": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*Charge, error)",
+      "receiver": "*ChargesService"
+    },
+    "ChargesService.GetBoleto": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*FinancialDocument, error)",
+      "receiver": "*ChargesService"
+    },
+    "ChargesService.GetPayment": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*PaymentReceipt, error)",
+      "receiver": "*ChargesService"
+    },
+    "ChargesService.GetReceipt": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*FinancialDocument, error)",
+      "receiver": "*ChargesService"
+    },
+    "ChargesService.GetRefundEligibility": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*RefundEligibility, error)",
+      "receiver": "*ChargesService"
+    },
+    "ChargesService.List": {
+      "kind": "method",
+      "type": "func(context.Context, *ListChargesParams, ...RequestOption) (*ChargeListResponse, error)",
+      "receiver": "*ChargesService"
+    },
+    "ChargesService.ListAll": {
+      "kind": "method",
+      "type": "func(context.Context, *ListChargesParams, ...RequestOption) *Iterator[ChargeListItem]",
+      "receiver": "*ChargesService"
+    },
+    "ChargesService.ListRefunds": {
+      "kind": "method",
+      "type": "func(context.Context, string, *ListChargeRefundsParams, ...RequestOption) (*RefundListResponse, error)",
+      "receiver": "*ChargesService"
+    },
+    "ChargesService.ListRefundsAll": {
+      "kind": "method",
+      "type": "func(context.Context, string, *ListChargeRefundsParams, ...RequestOption) *Iterator[Refund]",
+      "receiver": "*ChargesService"
+    },
+    "ChargesService.Revoke": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*RevokeChargeResult, error)",
+      "receiver": "*ChargesService"
+    },
+    "ChargesService.Statistics": {
+      "kind": "method",
+      "type": "func(context.Context, *GetChargeStatisticsParams, ...RequestOption) (*ChargeStatistics, error)",
+      "receiver": "*ChargesService"
+    },
+    "ChargesService.Update": {
+      "kind": "method",
+      "type": "func(context.Context, string, *UpdateChargeParams, ...RequestOption) (*Charge, error)",
+      "receiver": "*ChargesService"
+    },
+    "CheckoutAsset": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "URL",
+          "type": "*string",
+          "tag": "json:\"url\""
+        },
+        {
+          "name": "Status",
+          "type": "string",
+          "tag": "json:\"status\""
+        },
+        {
+          "name": "ErrorCode",
+          "type": "*string",
+          "tag": "json:\"error_code\""
+        }
+      ]
+    },
+    "CheckoutAsset.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "CheckoutAsset"
+    },
+    "CheckoutAsset.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*CheckoutAsset"
+    },
+    "CheckoutAssetErrorCodeCHECKOUTASSETINVALIDIMAGE": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"CHECKOUT_ASSET_INVALID_IMAGE\""
+    },
+    "CheckoutAssetErrorCodeCHECKOUTASSETPROCESSINGFAILED": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"CHECKOUT_ASSET_PROCESSING_FAILED\""
+    },
+    "CheckoutAssetErrorCodeCHECKOUTASSETUPLOADNOTFOUND": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"CHECKOUT_ASSET_UPLOAD_NOT_FOUND\""
+    },
+    "CheckoutAssetStatusAbsent": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"absent\""
+    },
+    "CheckoutAssetStatusFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"failed\""
+    },
+    "CheckoutAssetStatusPending": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pending\""
+    },
+    "CheckoutAssetStatusReady": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"ready\""
+    },
+    "CheckoutAssetUpload": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "UploadURL",
+          "type": "string",
+          "tag": "json:\"upload_url\""
+        },
+        {
+          "name": "Method",
+          "type": "string",
+          "tag": "json:\"method\""
+        },
+        {
+          "name": "ContentType",
+          "type": "string",
+          "tag": "json:\"content_type\""
+        },
+        {
+          "name": "FileSize",
+          "type": "int64",
+          "tag": "json:\"file_size\""
+        },
+        {
+          "name": "ExpiresAt",
+          "type": "int64",
+          "tag": "json:\"expires_at\""
+        }
+      ]
+    },
+    "CheckoutAssetUpload.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "CheckoutAssetUpload"
+    },
+    "CheckoutAssetUpload.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*CheckoutAssetUpload"
+    },
+    "CheckoutAssetUploadContentTypeImageJpeg": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"image/jpeg\""
+    },
+    "CheckoutAssetUploadContentTypeImagePng": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"image/png\""
+    },
+    "CheckoutAssetUploadDeleted": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Deleted",
+          "type": "bool",
+          "tag": "json:\"deleted\""
+        }
+      ]
+    },
+    "CheckoutAssetUploadDeleted.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "CheckoutAssetUploadDeleted"
+    },
+    "CheckoutAssetUploadDeleted.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*CheckoutAssetUploadDeleted"
+    },
+    "CheckoutSettings": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "SupportEmail",
+          "type": "*string",
+          "tag": "json:\"support_email\""
+        },
+        {
+          "name": "HexPrimaryColor",
+          "type": "string",
+          "tag": "json:\"hex_primary_color\""
+        },
+        {
+          "name": "HexSecondaryColor",
+          "type": "string",
+          "tag": "json:\"hex_secondary_color\""
+        },
+        {
+          "name": "PaymentMethodTypes",
+          "type": "[]int64",
+          "tag": "json:\"payment_method_types\""
+        },
+        {
+          "name": "Logo",
+          "type": "CheckoutAsset",
+          "tag": "json:\"logo\""
+        },
+        {
+          "name": "Favicon",
+          "type": "CheckoutAsset",
+          "tag": "json:\"favicon\""
+        }
+      ]
+    },
+    "CheckoutSettings.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "CheckoutSettings"
+    },
+    "CheckoutSettings.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*CheckoutSettings"
+    },
+    "Client": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Accounts",
+          "type": "*AccountsService"
+        },
+        {
+          "name": "Balances",
+          "type": "*BalancesService"
+        },
+        {
+          "name": "Charges",
+          "type": "*ChargesService"
+        },
+        {
+          "name": "Customers",
+          "type": "*CustomersService"
+        },
+        {
+          "name": "Disputes",
+          "type": "*DisputesService"
+        },
+        {
+          "name": "PaymentLinks",
+          "type": "*PaymentLinksService"
+        },
+        {
+          "name": "Refunds",
+          "type": "*RefundsService"
+        },
+        {
+          "name": "Statements",
+          "type": "*StatementsService"
+        },
+        {
+          "name": "WebhookEventTypes",
+          "type": "*WebhookEventTypesService"
+        },
+        {
+          "name": "Webhooks",
+          "type": "*WebhooksService"
+        },
+        {
+          "name": "WithdrawalDestinations",
+          "type": "*WithdrawalDestinationsService"
+        },
+        {
+          "name": "Withdrawals",
+          "type": "*WithdrawalsService"
+        },
+        {
+          "name": "Simulations",
+          "type": "*SimulationsService"
+        }
+      ]
+    },
+    "Client.CloseIdleConnections": {
+      "kind": "method",
+      "type": "func()",
+      "receiver": "*Client"
+    },
+    "Client.GoString": {
+      "kind": "method",
+      "type": "func() string",
+      "receiver": "*Client"
+    },
+    "Client.String": {
+      "kind": "method",
+      "type": "func() string",
+      "receiver": "*Client"
+    },
+    "ClientOption": {
+      "kind": "type",
+      "type": "func(*clientConfig) error"
+    },
+    "ConnectionError": {
+      "kind": "type",
+      "type": "struct"
+    },
+    "ConnectionError.Error": {
+      "kind": "method",
+      "type": "func() string",
+      "receiver": "*ConnectionError"
+    },
+    "ConnectionError.Unwrap": {
+      "kind": "method",
+      "type": "func() error",
+      "receiver": "*ConnectionError"
+    },
+    "ConstructWebhookEvent": {
+      "kind": "func",
+      "type": "func([]byte, net/http.Header, string, time.Duration, time.Time) (map[string]encoding/json.RawMessage, error)"
+    },
+    "CreateChargeParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "CustomerID",
+          "type": "Optional[string]",
+          "tag": "json:\"customer_id,omitzero\""
+        },
+        {
+          "name": "AmountCents",
+          "type": "Optional[int64]",
+          "tag": "json:\"amount_cents,omitzero\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "Optional[int64]",
+          "tag": "json:\"payment_method,omitzero\""
+        },
+        {
+          "name": "DueDate",
+          "type": "Optional[int64]",
+          "tag": "json:\"due_date,omitzero\""
+        },
+        {
+          "name": "Title",
+          "type": "Optional[string]",
+          "tag": "json:\"title,omitzero\""
+        },
+        {
+          "name": "Description",
+          "type": "Optional[string]",
+          "tag": "json:\"description,omitzero\""
+        },
+        {
+          "name": "SendEmail",
+          "type": "Optional[bool]",
+          "tag": "json:\"send_email,omitzero\""
+        },
+        {
+          "name": "CreateCheckout",
+          "type": "Optional[bool]",
+          "tag": "json:\"create_checkout,omitzero\""
+        },
+        {
+          "name": "SuccessRedirectURL",
+          "type": "Optional[string]",
+          "tag": "json:\"success_redirect_url,omitzero\""
+        },
+        {
+          "name": "CancelRedirectURL",
+          "type": "Optional[string]",
+          "tag": "json:\"cancel_redirect_url,omitzero\""
+        },
+        {
+          "name": "PaymentMethodTypes",
+          "type": "Optional[[]int64]",
+          "tag": "json:\"payment_method_types,omitzero\""
+        },
+        {
+          "name": "ExternalReference",
+          "type": "Optional[string]",
+          "tag": "json:\"external_reference,omitzero\""
+        },
+        {
+          "name": "Metadata",
+          "type": "Optional[map[string]*string]",
+          "tag": "json:\"metadata,omitzero\""
+        }
+      ]
+    },
+    "CreateChargeParamsPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "int64",
+      "value": "2"
+    },
+    "CreateChargeParamsPaymentMethodIndefinido": {
+      "kind": "const",
+      "type": "int64",
+      "value": "0"
+    },
+    "CreateChargeParamsPaymentMethodPix": {
+      "kind": "const",
+      "type": "int64",
+      "value": "1"
+    },
+    "CreateChargeParamsPaymentMethodTypesItemBoleto": {
+      "kind": "const",
+      "type": "int64",
+      "value": "2"
+    },
+    "CreateChargeParamsPaymentMethodTypesItemPix": {
+      "kind": "const",
+      "type": "int64",
+      "value": "1"
+    },
+    "CreateCheckoutFaviconUploadParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "ContentType",
+          "type": "Optional[string]",
+          "tag": "json:\"content_type,omitzero\""
+        },
+        {
+          "name": "FileSize",
+          "type": "Optional[int64]",
+          "tag": "json:\"file_size,omitzero\""
+        },
+        {
+          "name": "Width",
+          "type": "Optional[int64]",
+          "tag": "json:\"width,omitzero\""
+        },
+        {
+          "name": "Height",
+          "type": "Optional[int64]",
+          "tag": "json:\"height,omitzero\""
+        }
+      ]
+    },
+    "CreateCheckoutFaviconUploadParamsContentTypeImageJpeg": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"image/jpeg\""
+    },
+    "CreateCheckoutFaviconUploadParamsContentTypeImagePng": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"image/png\""
+    },
+    "CreateCheckoutLogoUploadParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "ContentType",
+          "type": "Optional[string]",
+          "tag": "json:\"content_type,omitzero\""
+        },
+        {
+          "name": "FileSize",
+          "type": "Optional[int64]",
+          "tag": "json:\"file_size,omitzero\""
+        },
+        {
+          "name": "Width",
+          "type": "Optional[int64]",
+          "tag": "json:\"width,omitzero\""
+        },
+        {
+          "name": "Height",
+          "type": "Optional[int64]",
+          "tag": "json:\"height,omitzero\""
+        }
+      ]
+    },
+    "CreateCheckoutLogoUploadParamsContentTypeImageJpeg": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"image/jpeg\""
+    },
+    "CreateCheckoutLogoUploadParamsContentTypeImagePng": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"image/png\""
+    },
+    "CreateCustomerParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "FullName",
+          "type": "Optional[string]",
+          "tag": "json:\"full_name,omitzero\""
+        },
+        {
+          "name": "TaxID",
+          "type": "Optional[string]",
+          "tag": "json:\"tax_id,omitzero\""
+        },
+        {
+          "name": "Email",
+          "type": "Optional[string]",
+          "tag": "json:\"email,omitzero\""
+        },
+        {
+          "name": "DialCode",
+          "type": "Optional[string]",
+          "tag": "json:\"dial_code,omitzero\""
+        },
+        {
+          "name": "PhoneLocal",
+          "type": "Optional[string]",
+          "tag": "json:\"phone_local,omitzero\""
+        },
+        {
+          "name": "ZipCode",
+          "type": "Optional[string]",
+          "tag": "json:\"zip_code,omitzero\""
+        },
+        {
+          "name": "Street",
+          "type": "Optional[string]",
+          "tag": "json:\"street,omitzero\""
+        },
+        {
+          "name": "StreetNumber",
+          "type": "Optional[string]",
+          "tag": "json:\"street_number,omitzero\""
+        },
+        {
+          "name": "Complement",
+          "type": "Optional[string]",
+          "tag": "json:\"complement,omitzero\""
+        },
+        {
+          "name": "Neigh",
+          "type": "Optional[string]",
+          "tag": "json:\"neigh,omitzero\""
+        },
+        {
+          "name": "City",
+          "type": "Optional[string]",
+          "tag": "json:\"city,omitzero\""
+        },
+        {
+          "name": "Uf",
+          "type": "Optional[string]",
+          "tag": "json:\"uf,omitzero\""
+        },
+        {
+          "name": "ExternalReference",
+          "type": "Optional[string]",
+          "tag": "json:\"external_reference,omitzero\""
+        },
+        {
+          "name": "Metadata",
+          "type": "Optional[map[string]*string]",
+          "tag": "json:\"metadata,omitzero\""
+        }
+      ]
+    },
+    "CreatePaymentLinkParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "ChargeID",
+          "type": "Optional[string]",
+          "tag": "json:\"charge_id,omitzero\""
+        },
+        {
+          "name": "SuccessRedirectURL",
+          "type": "Optional[string]",
+          "tag": "json:\"success_redirect_url,omitzero\""
+        },
+        {
+          "name": "CancelRedirectURL",
+          "type": "Optional[string]",
+          "tag": "json:\"cancel_redirect_url,omitzero\""
+        },
+        {
+          "name": "PaymentMethodTypes",
+          "type": "Optional[[]int64]",
+          "tag": "json:\"payment_method_types,omitzero\""
+        }
+      ]
+    },
+    "CreatePaymentLinkParamsPaymentMethodTypesItemBoleto": {
+      "kind": "const",
+      "type": "int64",
+      "value": "2"
+    },
+    "CreatePaymentLinkParamsPaymentMethodTypesItemPix": {
+      "kind": "const",
+      "type": "int64",
+      "value": "1"
+    },
+    "CreateRefundParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "AmountCents",
+          "type": "Optional[int64]",
+          "tag": "json:\"amount_cents,omitzero\""
+        },
+        {
+          "name": "Description",
+          "type": "Optional[string]",
+          "tag": "json:\"description,omitzero\""
+        }
+      ]
+    },
+    "CreateWebhookParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Name",
+          "type": "Optional[string]",
+          "tag": "json:\"name,omitzero\""
+        },
+        {
+          "name": "URL",
+          "type": "Optional[string]",
+          "tag": "json:\"url,omitzero\""
+        },
+        {
+          "name": "Events",
+          "type": "Optional[[]string]",
+          "tag": "json:\"events,omitzero\""
+        },
+        {
+          "name": "IsActive",
+          "type": "Optional[bool]",
+          "tag": "json:\"is_active,omitzero\""
+        }
+      ]
+    },
+    "CreateWebhookParamsEventsItemChargeCanceled": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"charge.canceled\""
+    },
+    "CreateWebhookParamsEventsItemChargeCreated": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"charge.created\""
+    },
+    "CreateWebhookParamsEventsItemChargeFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"charge.failed\""
+    },
+    "CreateWebhookParamsEventsItemChargePaid": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"charge.paid\""
+    },
+    "CreateWebhookParamsEventsItemRefundCompleted": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"refund.completed\""
+    },
+    "CreateWebhookParamsEventsItemRefundFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"refund.failed\""
+    },
+    "CreateWebhookParamsEventsItemRefundRequested": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"refund.requested\""
+    },
+    "CreateWithdrawalParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "AmountCents",
+          "type": "Optional[int64]",
+          "tag": "json:\"amount_cents,omitzero\""
+        },
+        {
+          "name": "ExpectedDestinationID",
+          "type": "Optional[string]",
+          "tag": "json:\"expected_destination_id,omitzero\""
+        }
+      ]
+    },
+    "CustomerBatchDeleted": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Removed",
+          "type": "[]string",
+          "tag": "json:\"removed\""
+        },
+        {
+          "name": "Blocked",
+          "type": "[]string",
+          "tag": "json:\"blocked\""
+        },
+        {
+          "name": "Invalid",
+          "type": "[]*string",
+          "tag": "json:\"invalid\""
+        },
+        {
+          "name": "Errors",
+          "type": "[]FieldError",
+          "tag": "json:\"errors\""
+        }
+      ]
+    },
+    "CustomerBatchDeleted.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "CustomerBatchDeleted"
+    },
+    "CustomerBatchDeleted.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*CustomerBatchDeleted"
+    },
+    "CustomerCreated": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "TaxID",
+          "type": "string",
+          "tag": "json:\"tax_id\""
+        },
+        {
+          "name": "TaxIDType",
+          "type": "string",
+          "tag": "json:\"tax_id_type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "int64",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "ExternalReference",
+          "type": "*string",
+          "tag": "json:\"external_reference\""
+        },
+        {
+          "name": "Metadata",
+          "type": "map[string]string",
+          "tag": "json:\"metadata\""
+        }
+      ]
+    },
+    "CustomerCreated.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "CustomerCreated"
+    },
+    "CustomerCreated.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*CustomerCreated"
+    },
+    "CustomerCreatedTaxIDTypeCNPJ": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"cnpj\""
+    },
+    "CustomerCreatedTaxIDTypeCPF": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"cpf\""
+    },
+    "CustomerDeleted": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Deleted",
+          "type": "bool",
+          "tag": "json:\"deleted\""
+        }
+      ]
+    },
+    "CustomerDeleted.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "CustomerDeleted"
+    },
+    "CustomerDeleted.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*CustomerDeleted"
+    },
+    "CustomerListItem": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Name",
+          "type": "string",
+          "tag": "json:\"name\""
+        },
+        {
+          "name": "FirstName",
+          "type": "string",
+          "tag": "json:\"first_name\""
+        },
+        {
+          "name": "LastName",
+          "type": "string",
+          "tag": "json:\"last_name\""
+        },
+        {
+          "name": "Email",
+          "type": "string",
+          "tag": "json:\"email\""
+        },
+        {
+          "name": "TaxID",
+          "type": "string",
+          "tag": "json:\"tax_id\""
+        },
+        {
+          "name": "TaxIDType",
+          "type": "string",
+          "tag": "json:\"tax_id_type\""
+        },
+        {
+          "name": "DialCode",
+          "type": "string",
+          "tag": "json:\"dial_code\""
+        },
+        {
+          "name": "PhoneLocal",
+          "type": "string",
+          "tag": "json:\"phone_local\""
+        },
+        {
+          "name": "ZipCode",
+          "type": "string",
+          "tag": "json:\"zip_code\""
+        },
+        {
+          "name": "Street",
+          "type": "string",
+          "tag": "json:\"street\""
+        },
+        {
+          "name": "StreetNumber",
+          "type": "string",
+          "tag": "json:\"street_number\""
+        },
+        {
+          "name": "Complement",
+          "type": "*string",
+          "tag": "json:\"complement\""
+        },
+        {
+          "name": "Neigh",
+          "type": "string",
+          "tag": "json:\"neigh\""
+        },
+        {
+          "name": "City",
+          "type": "string",
+          "tag": "json:\"city\""
+        },
+        {
+          "name": "State",
+          "type": "string",
+          "tag": "json:\"state\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "int64",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "UpdatedAt",
+          "type": "int64",
+          "tag": "json:\"updated_at\""
+        },
+        {
+          "name": "ExternalReference",
+          "type": "*string",
+          "tag": "json:\"external_reference\""
+        },
+        {
+          "name": "Metadata",
+          "type": "map[string]string",
+          "tag": "json:\"metadata\""
+        }
+      ]
+    },
+    "CustomerListItem.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "CustomerListItem"
+    },
+    "CustomerListItem.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*CustomerListItem"
+    },
+    "CustomerListItemTaxIDTypeCNPJ": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"cnpj\""
+    },
+    "CustomerListItemTaxIDTypeCPF": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"cpf\""
+    },
+    "CustomerListPage": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "PageSize",
+          "type": "int64",
+          "tag": "json:\"page_size\""
+        },
+        {
+          "name": "HasNext",
+          "type": "bool",
+          "tag": "json:\"has_next\""
+        },
+        {
+          "name": "HasPrevious",
+          "type": "bool",
+          "tag": "json:\"has_previous\""
+        },
+        {
+          "name": "NextAfter",
+          "type": "*string",
+          "tag": "json:\"next_after\""
+        },
+        {
+          "name": "PreviousBefore",
+          "type": "*string",
+          "tag": "json:\"previous_before\""
+        }
+      ]
+    },
+    "CustomerListPage.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "CustomerListPage"
+    },
+    "CustomerListPage.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*CustomerListPage"
+    },
+    "CustomerListResponse": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "List",
+          "type": "[]CustomerListItem",
+          "tag": "json:\"list\""
+        },
+        {
+          "name": "Page",
+          "type": "CustomerListPage",
+          "tag": "json:\"page\""
+        }
+      ]
+    },
+    "CustomerListResponse.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "CustomerListResponse"
+    },
+    "CustomerListResponse.NextPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*CustomerListResponse, error)",
+      "receiver": "*CustomerListResponse"
+    },
+    "CustomerListResponse.PreviousPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*CustomerListResponse, error)",
+      "receiver": "*CustomerListResponse"
+    },
+    "CustomerListResponse.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*CustomerListResponse"
+    },
+    "CustomersService": {
+      "kind": "type",
+      "type": "struct"
+    },
+    "CustomersService.Create": {
+      "kind": "method",
+      "type": "func(context.Context, *CreateCustomerParams, ...RequestOption) (*CustomerCreated, error)",
+      "receiver": "*CustomersService"
+    },
+    "CustomersService.Delete": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*CustomerDeleted, error)",
+      "receiver": "*CustomersService"
+    },
+    "CustomersService.DeleteBatch": {
+      "kind": "method",
+      "type": "func(context.Context, *RemoveCustomersParams, ...RequestOption) (*CustomerBatchDeleted, error)",
+      "receiver": "*CustomersService"
+    },
+    "CustomersService.Get": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*CustomerListItem, error)",
+      "receiver": "*CustomersService"
+    },
+    "CustomersService.List": {
+      "kind": "method",
+      "type": "func(context.Context, *ListCustomersParams, ...RequestOption) (*CustomerListResponse, error)",
+      "receiver": "*CustomersService"
+    },
+    "CustomersService.ListAll": {
+      "kind": "method",
+      "type": "func(context.Context, *ListCustomersParams, ...RequestOption) *Iterator[CustomerListItem]",
+      "receiver": "*CustomersService"
+    },
+    "CustomersService.Update": {
+      "kind": "method",
+      "type": "func(context.Context, string, *UpdateCustomerParams, ...RequestOption) (*CustomerListItem, error)",
+      "receiver": "*CustomersService"
+    },
+    "DefaultBaseURL": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"https://api.raims.com\""
+    },
+    "DefaultWebhookTolerance": {
+      "kind": "const",
+      "type": "time.Duration",
+      "value": "300000000000"
+    },
+    "Dispute": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "OpenedAt",
+          "type": "*int64",
+          "tag": "json:\"opened_at\""
+        },
+        {
+          "name": "DueAt",
+          "type": "*int64",
+          "tag": "json:\"due_at\""
+        },
+        {
+          "name": "ComplaintDetails",
+          "type": "*string",
+          "tag": "json:\"complaint_details\""
+        },
+        {
+          "name": "CompanyResponse",
+          "type": "*string",
+          "tag": "json:\"company_response\""
+        },
+        {
+          "name": "RespondedAt",
+          "type": "*int64",
+          "tag": "json:\"responded_at\""
+        },
+        {
+          "name": "ResolvedAt",
+          "type": "*int64",
+          "tag": "json:\"resolved_at\""
+        },
+        {
+          "name": "WonAmountCents",
+          "type": "*int64",
+          "tag": "json:\"won_amount_cents\""
+        },
+        {
+          "name": "LostAmountCents",
+          "type": "*int64",
+          "tag": "json:\"lost_amount_cents\""
+        },
+        {
+          "name": "RefundedAmountCents",
+          "type": "*int64",
+          "tag": "json:\"refunded_amount_cents\""
+        },
+        {
+          "name": "InfractionResult",
+          "type": "*string",
+          "tag": "json:\"infraction_result\""
+        },
+        {
+          "name": "RefundResult",
+          "type": "*string",
+          "tag": "json:\"refund_result\""
+        },
+        {
+          "name": "LossReasonCode",
+          "type": "*int64",
+          "tag": "json:\"loss_reason_code\""
+        },
+        {
+          "name": "LossReasonNote",
+          "type": "*string",
+          "tag": "json:\"loss_reason_note\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "ChargeID",
+          "type": "*string",
+          "tag": "json:\"charge_id\""
+        },
+        {
+          "name": "Kind",
+          "type": "string",
+          "tag": "json:\"kind\""
+        },
+        {
+          "name": "Stage",
+          "type": "string",
+          "tag": "json:\"stage\""
+        },
+        {
+          "name": "ReasonCode",
+          "type": "*int64",
+          "tag": "json:\"reason_code\""
+        },
+        {
+          "name": "DisputedAmountCents",
+          "type": "int64",
+          "tag": "json:\"disputed_amount_cents\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "int64",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "UpdatedAt",
+          "type": "int64",
+          "tag": "json:\"updated_at\""
+        }
+      ]
+    },
+    "Dispute.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "Dispute"
+    },
+    "Dispute.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*Dispute"
+    },
+    "DisputeInfractionResultAgreed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"agreed\""
+    },
+    "DisputeInfractionResultDisagreed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"disagreed\""
+    },
+    "DisputeKindChargeback": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"chargeback\""
+    },
+    "DisputeKindMed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"med\""
+    },
+    "DisputeListItem": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "ChargeID",
+          "type": "*string",
+          "tag": "json:\"charge_id\""
+        },
+        {
+          "name": "Kind",
+          "type": "string",
+          "tag": "json:\"kind\""
+        },
+        {
+          "name": "Stage",
+          "type": "string",
+          "tag": "json:\"stage\""
+        },
+        {
+          "name": "ReasonCode",
+          "type": "*int64",
+          "tag": "json:\"reason_code\""
+        },
+        {
+          "name": "DisputedAmountCents",
+          "type": "int64",
+          "tag": "json:\"disputed_amount_cents\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "int64",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "UpdatedAt",
+          "type": "int64",
+          "tag": "json:\"updated_at\""
+        }
+      ]
+    },
+    "DisputeListItem.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "DisputeListItem"
+    },
+    "DisputeListItem.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*DisputeListItem"
+    },
+    "DisputeListItemKindChargeback": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"chargeback\""
+    },
+    "DisputeListItemKindMed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"med\""
+    },
+    "DisputeListItemStageCancelled": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"cancelled\""
+    },
+    "DisputeListItemStageClosed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"closed\""
+    },
+    "DisputeListItemStageFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"failed\""
+    },
+    "DisputeListItemStageInAnalysis": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"in_analysis\""
+    },
+    "DisputeListItemStageOpen": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"open\""
+    },
+    "DisputeListItemStageRefundInAnalysis": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"refund_in_analysis\""
+    },
+    "DisputeListItemStageRejected": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"rejected\""
+    },
+    "DisputeListPage": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "PageSize",
+          "type": "int64",
+          "tag": "json:\"page_size\""
+        },
+        {
+          "name": "HasNext",
+          "type": "bool",
+          "tag": "json:\"has_next\""
+        },
+        {
+          "name": "HasPrevious",
+          "type": "bool",
+          "tag": "json:\"has_previous\""
+        },
+        {
+          "name": "NextAfter",
+          "type": "*string",
+          "tag": "json:\"next_after\""
+        },
+        {
+          "name": "PreviousBefore",
+          "type": "*string",
+          "tag": "json:\"previous_before\""
+        }
+      ]
+    },
+    "DisputeListPage.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "DisputeListPage"
+    },
+    "DisputeListPage.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*DisputeListPage"
+    },
+    "DisputeListResponse": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "List",
+          "type": "[]DisputeListItem",
+          "tag": "json:\"list\""
+        },
+        {
+          "name": "Page",
+          "type": "DisputeListPage",
+          "tag": "json:\"page\""
+        }
+      ]
+    },
+    "DisputeListResponse.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "DisputeListResponse"
+    },
+    "DisputeListResponse.NextPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*DisputeListResponse, error)",
+      "receiver": "*DisputeListResponse"
+    },
+    "DisputeListResponse.PreviousPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*DisputeListResponse, error)",
+      "receiver": "*DisputeListResponse"
+    },
+    "DisputeListResponse.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*DisputeListResponse"
+    },
+    "DisputeRefundResultPartiallyAccepted": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"partially_accepted\""
+    },
+    "DisputeRefundResultRejected": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"rejected\""
+    },
+    "DisputeRefundResultTotallyAccepted": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"totally_accepted\""
+    },
+    "DisputeStageCancelled": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"cancelled\""
+    },
+    "DisputeStageClosed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"closed\""
+    },
+    "DisputeStageFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"failed\""
+    },
+    "DisputeStageInAnalysis": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"in_analysis\""
+    },
+    "DisputeStageOpen": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"open\""
+    },
+    "DisputeStageRefundInAnalysis": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"refund_in_analysis\""
+    },
+    "DisputeStageRejected": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"rejected\""
+    },
+    "DisputesService": {
+      "kind": "type",
+      "type": "struct"
+    },
+    "DisputesService.Get": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*Dispute, error)",
+      "receiver": "*DisputesService"
+    },
+    "DisputesService.List": {
+      "kind": "method",
+      "type": "func(context.Context, *ListDisputesParams, ...RequestOption) (*DisputeListResponse, error)",
+      "receiver": "*DisputesService"
+    },
+    "DisputesService.ListAll": {
+      "kind": "method",
+      "type": "func(context.Context, *ListDisputesParams, ...RequestOption) *Iterator[DisputeListItem]",
+      "receiver": "*DisputesService"
+    },
+    "Environment": {
+      "kind": "type",
+      "type": "string"
+    },
+    "Error": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Code",
+          "type": "string",
+          "tag": "json:\"code\""
+        },
+        {
+          "name": "Message",
+          "type": "string",
+          "tag": "json:\"message\""
+        },
+        {
+          "name": "Details",
+          "type": "*[]FieldError",
+          "tag": "json:\"details\""
+        }
+      ]
+    },
+    "Error.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "Error"
+    },
+    "Error.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*Error"
+    },
+    "ErrorResponse": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Error",
+          "type": "Error",
+          "tag": "json:\"error\""
+        }
+      ]
+    },
+    "ErrorResponse.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ErrorResponse"
+    },
+    "ErrorResponse.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ErrorResponse"
+    },
+    "FieldError": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Field",
+          "type": "string",
+          "tag": "json:\"field\""
+        },
+        {
+          "name": "Code",
+          "type": "string",
+          "tag": "json:\"code\""
+        },
+        {
+          "name": "Message",
+          "type": "string",
+          "tag": "json:\"message\""
+        }
+      ]
+    },
+    "FieldError.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "FieldError"
+    },
+    "FieldError.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*FieldError"
+    },
+    "FinancialDocument": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "URL",
+          "type": "string",
+          "tag": "json:\"url\""
+        },
+        {
+          "name": "ExpiresAt",
+          "type": "int64",
+          "tag": "json:\"expires_at\""
+        }
+      ]
+    },
+    "FinancialDocument.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "FinancialDocument"
+    },
+    "FinancialDocument.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*FinancialDocument"
+    },
+    "GetBalanceForecastParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Period",
+          "type": "Optional[string]",
+          "tag": "json:\"period,omitzero\""
+        }
+      ]
+    },
+    "GetBalanceForecastParamsPeriodLast15Days": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"last_15_days\""
+    },
+    "GetBalanceForecastParamsPeriodLast30Days": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"last_30_days\""
+    },
+    "GetBalanceForecastParamsPeriodLast7Days": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"last_7_days\""
+    },
+    "GetBalanceForecastParamsPeriodToday": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"today\""
+    },
+    "GetChargeStatisticsParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Period",
+          "type": "Optional[string]",
+          "tag": "json:\"period,omitzero\""
+        }
+      ]
+    },
+    "GetChargeStatisticsParamsPeriodLast15Days": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"last_15_days\""
+    },
+    "GetChargeStatisticsParamsPeriodLast30Days": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"last_30_days\""
+    },
+    "GetChargeStatisticsParamsPeriodLast7Days": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"last_7_days\""
+    },
+    "GetChargeStatisticsParamsPeriodToday": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"today\""
+    },
+    "IssueSimulationPaymentParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "PaymentMethod",
+          "type": "Optional[int64]",
+          "tag": "json:\"payment_method,omitzero\""
+        }
+      ]
+    },
+    "Iterator": {
+      "kind": "type",
+      "type": "struct",
+      "type_parameters": [
+        "T any"
+      ]
+    },
+    "Iterator.All": {
+      "kind": "method",
+      "type": "func() iter.Seq2[*T, error]",
+      "receiver": "*Iterator[T]"
+    },
+    "Iterator.Current": {
+      "kind": "method",
+      "type": "func() *T",
+      "receiver": "*Iterator[T]"
+    },
+    "Iterator.Err": {
+      "kind": "method",
+      "type": "func() error",
+      "receiver": "*Iterator[T]"
+    },
+    "Iterator.Next": {
+      "kind": "method",
+      "type": "func() bool",
+      "receiver": "*Iterator[T]"
+    },
+    "ListChargeRefundsParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "PageSize",
+          "type": "Optional[int64]",
+          "tag": "json:\"page_size,omitzero\""
+        },
+        {
+          "name": "After",
+          "type": "Optional[string]",
+          "tag": "json:\"after,omitzero\""
+        },
+        {
+          "name": "Before",
+          "type": "Optional[string]",
+          "tag": "json:\"before,omitzero\""
+        },
+        {
+          "name": "CreatedGte",
+          "type": "Optional[int64]",
+          "tag": "json:\"created_gte,omitzero\""
+        },
+        {
+          "name": "CreatedLte",
+          "type": "Optional[int64]",
+          "tag": "json:\"created_lte,omitzero\""
+        }
+      ]
+    },
+    "ListChargesParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "PageSize",
+          "type": "Optional[int64]",
+          "tag": "json:\"page_size,omitzero\""
+        },
+        {
+          "name": "After",
+          "type": "Optional[string]",
+          "tag": "json:\"after,omitzero\""
+        },
+        {
+          "name": "Before",
+          "type": "Optional[string]",
+          "tag": "json:\"before,omitzero\""
+        },
+        {
+          "name": "Identifier",
+          "type": "Optional[string]",
+          "tag": "json:\"identifier,omitzero\""
+        },
+        {
+          "name": "CustomerID",
+          "type": "Optional[string]",
+          "tag": "json:\"customer_id,omitzero\""
+        },
+        {
+          "name": "ExternalReference",
+          "type": "Optional[string]",
+          "tag": "json:\"external_reference,omitzero\""
+        },
+        {
+          "name": "Email",
+          "type": "Optional[string]",
+          "tag": "json:\"email,omitzero\""
+        },
+        {
+          "name": "Status",
+          "type": "Optional[string]",
+          "tag": "json:\"status,omitzero\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "Optional[string]",
+          "tag": "json:\"payment_method,omitzero\""
+        },
+        {
+          "name": "CreatedGte",
+          "type": "Optional[int64]",
+          "tag": "json:\"created_gte,omitzero\""
+        },
+        {
+          "name": "CreatedLte",
+          "type": "Optional[int64]",
+          "tag": "json:\"created_lte,omitzero\""
+        },
+        {
+          "name": "DueGte",
+          "type": "Optional[int64]",
+          "tag": "json:\"due_gte,omitzero\""
+        },
+        {
+          "name": "DueLte",
+          "type": "Optional[int64]",
+          "tag": "json:\"due_lte,omitzero\""
+        },
+        {
+          "name": "PaidGte",
+          "type": "Optional[int64]",
+          "tag": "json:\"paid_gte,omitzero\""
+        },
+        {
+          "name": "PaidLte",
+          "type": "Optional[int64]",
+          "tag": "json:\"paid_lte,omitzero\""
+        },
+        {
+          "name": "SortKey",
+          "type": "Optional[string]",
+          "tag": "json:\"sort_key,omitzero\""
+        },
+        {
+          "name": "SortOrder",
+          "type": "Optional[string]",
+          "tag": "json:\"sort_order,omitzero\""
+        }
+      ]
+    },
+    "ListChargesParamsSortKeyAmountCents": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"amount_cents\""
+    },
+    "ListChargesParamsSortKeyCreatedAt": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"created_at\""
+    },
+    "ListChargesParamsSortOrderAsc": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"asc\""
+    },
+    "ListChargesParamsSortOrderDesc": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"desc\""
+    },
+    "ListCustomersParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "PageSize",
+          "type": "Optional[int64]",
+          "tag": "json:\"page_size,omitzero\""
+        },
+        {
+          "name": "After",
+          "type": "Optional[string]",
+          "tag": "json:\"after,omitzero\""
+        },
+        {
+          "name": "Before",
+          "type": "Optional[string]",
+          "tag": "json:\"before,omitzero\""
+        },
+        {
+          "name": "Identifier",
+          "type": "Optional[string]",
+          "tag": "json:\"identifier,omitzero\""
+        },
+        {
+          "name": "Name",
+          "type": "Optional[string]",
+          "tag": "json:\"name,omitzero\""
+        },
+        {
+          "name": "Email",
+          "type": "Optional[string]",
+          "tag": "json:\"email,omitzero\""
+        },
+        {
+          "name": "Document",
+          "type": "Optional[string]",
+          "tag": "json:\"document,omitzero\""
+        },
+        {
+          "name": "ExternalReference",
+          "type": "Optional[string]",
+          "tag": "json:\"external_reference,omitzero\""
+        }
+      ]
+    },
+    "ListDisputesParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "PageSize",
+          "type": "Optional[int64]",
+          "tag": "json:\"page_size,omitzero\""
+        },
+        {
+          "name": "After",
+          "type": "Optional[string]",
+          "tag": "json:\"after,omitzero\""
+        },
+        {
+          "name": "Before",
+          "type": "Optional[string]",
+          "tag": "json:\"before,omitzero\""
+        },
+        {
+          "name": "Stage",
+          "type": "Optional[string]",
+          "tag": "json:\"stage,omitzero\""
+        },
+        {
+          "name": "ChargeID",
+          "type": "Optional[string]",
+          "tag": "json:\"charge_id,omitzero\""
+        },
+        {
+          "name": "DisputedAmountCents",
+          "type": "Optional[int64]",
+          "tag": "json:\"disputed_amount_cents,omitzero\""
+        },
+        {
+          "name": "CreatedGte",
+          "type": "Optional[int64]",
+          "tag": "json:\"created_gte,omitzero\""
+        },
+        {
+          "name": "CreatedLte",
+          "type": "Optional[int64]",
+          "tag": "json:\"created_lte,omitzero\""
+        },
+        {
+          "name": "SortKey",
+          "type": "Optional[string]",
+          "tag": "json:\"sort_key,omitzero\""
+        },
+        {
+          "name": "SortOrder",
+          "type": "Optional[string]",
+          "tag": "json:\"sort_order,omitzero\""
+        }
+      ]
+    },
+    "ListDisputesParamsSortKeyCreatedAt": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"created_at\""
+    },
+    "ListDisputesParamsSortKeyDisputedAmountCents": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"disputed_amount_cents\""
+    },
+    "ListDisputesParamsSortOrderAsc": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"asc\""
+    },
+    "ListDisputesParamsSortOrderDesc": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"desc\""
+    },
+    "ListPaymentLinksParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "PageSize",
+          "type": "Optional[int64]",
+          "tag": "json:\"page_size,omitzero\""
+        },
+        {
+          "name": "After",
+          "type": "Optional[string]",
+          "tag": "json:\"after,omitzero\""
+        },
+        {
+          "name": "Before",
+          "type": "Optional[string]",
+          "tag": "json:\"before,omitzero\""
+        },
+        {
+          "name": "ChargeID",
+          "type": "Optional[string]",
+          "tag": "json:\"charge_id,omitzero\""
+        }
+      ]
+    },
+    "ListRefundsParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "PageSize",
+          "type": "Optional[int64]",
+          "tag": "json:\"page_size,omitzero\""
+        },
+        {
+          "name": "After",
+          "type": "Optional[string]",
+          "tag": "json:\"after,omitzero\""
+        },
+        {
+          "name": "Before",
+          "type": "Optional[string]",
+          "tag": "json:\"before,omitzero\""
+        },
+        {
+          "name": "CreatedGte",
+          "type": "Optional[int64]",
+          "tag": "json:\"created_gte,omitzero\""
+        },
+        {
+          "name": "CreatedLte",
+          "type": "Optional[int64]",
+          "tag": "json:\"created_lte,omitzero\""
+        }
+      ]
+    },
+    "ListStatementsParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "PageSize",
+          "type": "Optional[int64]",
+          "tag": "json:\"page_size,omitzero\""
+        },
+        {
+          "name": "After",
+          "type": "Optional[string]",
+          "tag": "json:\"after,omitzero\""
+        },
+        {
+          "name": "Before",
+          "type": "Optional[string]",
+          "tag": "json:\"before,omitzero\""
+        },
+        {
+          "name": "StatementType",
+          "type": "Optional[string]",
+          "tag": "json:\"statement_type,omitzero\""
+        },
+        {
+          "name": "ReferenceID",
+          "type": "Optional[string]",
+          "tag": "json:\"reference_id,omitzero\""
+        },
+        {
+          "name": "CreatedGte",
+          "type": "Optional[int64]",
+          "tag": "json:\"created_gte,omitzero\""
+        },
+        {
+          "name": "CreatedLte",
+          "type": "Optional[int64]",
+          "tag": "json:\"created_lte,omitzero\""
+        },
+        {
+          "name": "SortOrder",
+          "type": "Optional[string]",
+          "tag": "json:\"sort_order,omitzero\""
+        }
+      ]
+    },
+    "ListStatementsParamsSortOrderAsc": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"asc\""
+    },
+    "ListStatementsParamsSortOrderDesc": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"desc\""
+    },
+    "ListWebhooksParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "PageSize",
+          "type": "Optional[int64]",
+          "tag": "json:\"page_size,omitzero\""
+        },
+        {
+          "name": "After",
+          "type": "Optional[string]",
+          "tag": "json:\"after,omitzero\""
+        },
+        {
+          "name": "Before",
+          "type": "Optional[string]",
+          "tag": "json:\"before,omitzero\""
+        }
+      ]
+    },
+    "ListWithdrawalDestinationsParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "PageSize",
+          "type": "Optional[int64]",
+          "tag": "json:\"page_size,omitzero\""
+        },
+        {
+          "name": "After",
+          "type": "Optional[string]",
+          "tag": "json:\"after,omitzero\""
+        },
+        {
+          "name": "Before",
+          "type": "Optional[string]",
+          "tag": "json:\"before,omitzero\""
+        }
+      ]
+    },
+    "ListWithdrawalsParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "PageSize",
+          "type": "Optional[int64]",
+          "tag": "json:\"page_size,omitzero\""
+        },
+        {
+          "name": "After",
+          "type": "Optional[string]",
+          "tag": "json:\"after,omitzero\""
+        },
+        {
+          "name": "Before",
+          "type": "Optional[string]",
+          "tag": "json:\"before,omitzero\""
+        },
+        {
+          "name": "Status",
+          "type": "Optional[string]",
+          "tag": "json:\"status,omitzero\""
+        },
+        {
+          "name": "RequestedGte",
+          "type": "Optional[int64]",
+          "tag": "json:\"requested_gte,omitzero\""
+        },
+        {
+          "name": "RequestedLte",
+          "type": "Optional[int64]",
+          "tag": "json:\"requested_lte,omitzero\""
+        },
+        {
+          "name": "SortOrder",
+          "type": "Optional[string]",
+          "tag": "json:\"sort_order,omitzero\""
+        }
+      ]
+    },
+    "ListWithdrawalsParamsSortOrderAsc": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"asc\""
+    },
+    "ListWithdrawalsParamsSortOrderDesc": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"desc\""
+    },
+    "NewClient": {
+      "kind": "func",
+      "type": "func(string, ...ClientOption) (*Client, error)"
+    },
+    "NewOAuthClient": {
+      "kind": "func",
+      "type": "func(string, Environment, []Environment, ...ClientOption) (*Client, error)"
+    },
+    "Null": {
+      "kind": "func",
+      "type": "func[T any]() Optional[T]"
+    },
+    "Optional": {
+      "kind": "type",
+      "type": "struct",
+      "type_parameters": [
+        "T any"
+      ]
+    },
+    "Optional.IsNull": {
+      "kind": "method",
+      "type": "func() bool",
+      "receiver": "Optional[T]"
+    },
+    "Optional.IsSet": {
+      "kind": "method",
+      "type": "func() bool",
+      "receiver": "Optional[T]"
+    },
+    "Optional.IsZero": {
+      "kind": "method",
+      "type": "func() bool",
+      "receiver": "Optional[T]"
+    },
+    "Optional.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "Optional[T]"
+    },
+    "Optional.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*Optional[T]"
+    },
+    "Optional.Value": {
+      "kind": "method",
+      "type": "func() (T, bool)",
+      "receiver": "Optional[T]"
+    },
+    "PaymentLink": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "ChargeID",
+          "type": "string",
+          "tag": "json:\"charge_id\""
+        },
+        {
+          "name": "URL",
+          "type": "string",
+          "tag": "json:\"url\""
+        },
+        {
+          "name": "SuccessRedirectURL",
+          "type": "*string",
+          "tag": "json:\"success_redirect_url\""
+        },
+        {
+          "name": "CancelRedirectURL",
+          "type": "*string",
+          "tag": "json:\"cancel_redirect_url\""
+        },
+        {
+          "name": "PaymentMethodTypes",
+          "type": "*[]int64",
+          "tag": "json:\"payment_method_types\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "int64",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "UpdatedAt",
+          "type": "int64",
+          "tag": "json:\"updated_at\""
+        },
+        {
+          "name": "IsActive",
+          "type": "bool",
+          "tag": "json:\"is_active\""
+        }
+      ]
+    },
+    "PaymentLink.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "PaymentLink"
+    },
+    "PaymentLink.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*PaymentLink"
+    },
+    "PaymentLinkDetails": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "ChargeID",
+          "type": "string",
+          "tag": "json:\"charge_id\""
+        },
+        {
+          "name": "URL",
+          "type": "string",
+          "tag": "json:\"url\""
+        },
+        {
+          "name": "SuccessRedirectURL",
+          "type": "*string",
+          "tag": "json:\"success_redirect_url\""
+        },
+        {
+          "name": "CancelRedirectURL",
+          "type": "*string",
+          "tag": "json:\"cancel_redirect_url\""
+        },
+        {
+          "name": "PaymentMethodTypes",
+          "type": "*[]int64",
+          "tag": "json:\"payment_method_types\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "int64",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "UpdatedAt",
+          "type": "int64",
+          "tag": "json:\"updated_at\""
+        },
+        {
+          "name": "IsPayable",
+          "type": "bool",
+          "tag": "json:\"is_payable\""
+        },
+        {
+          "name": "EffectivePaymentMethodTypes",
+          "type": "[]int64",
+          "tag": "json:\"effective_payment_method_types\""
+        },
+        {
+          "name": "UnavailableReason",
+          "type": "*PaymentLinkUnavailableReason",
+          "tag": "json:\"unavailable_reason\""
+        },
+        {
+          "name": "IsActive",
+          "type": "bool",
+          "tag": "json:\"is_active\""
+        }
+      ]
+    },
+    "PaymentLinkDetails.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "PaymentLinkDetails"
+    },
+    "PaymentLinkDetails.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*PaymentLinkDetails"
+    },
+    "PaymentLinkDetailsEffectivePaymentMethodTypesItemBoleto": {
+      "kind": "const",
+      "type": "int64",
+      "value": "2"
+    },
+    "PaymentLinkDetailsEffectivePaymentMethodTypesItemPix": {
+      "kind": "const",
+      "type": "int64",
+      "value": "1"
+    },
+    "PaymentLinkDetailsPaymentMethodTypesItemBoleto": {
+      "kind": "const",
+      "type": "int64",
+      "value": "2"
+    },
+    "PaymentLinkDetailsPaymentMethodTypesItemPix": {
+      "kind": "const",
+      "type": "int64",
+      "value": "1"
+    },
+    "PaymentLinkEmailRequestAccepted": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "ChargeID",
+          "type": "string",
+          "tag": "json:\"charge_id\""
+        },
+        {
+          "name": "RecipientEmail",
+          "type": "string",
+          "tag": "json:\"recipient_email\""
+        },
+        {
+          "name": "RetryAfterSeconds",
+          "type": "int64",
+          "tag": "json:\"retry_after_seconds\""
+        },
+        {
+          "name": "RetryAfterUntil",
+          "type": "int64",
+          "tag": "json:\"retry_after_until\""
+        }
+      ]
+    },
+    "PaymentLinkEmailRequestAccepted.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "PaymentLinkEmailRequestAccepted"
+    },
+    "PaymentLinkEmailRequestAccepted.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*PaymentLinkEmailRequestAccepted"
+    },
+    "PaymentLinkListPage": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "PageSize",
+          "type": "int64",
+          "tag": "json:\"page_size\""
+        },
+        {
+          "name": "HasNext",
+          "type": "bool",
+          "tag": "json:\"has_next\""
+        },
+        {
+          "name": "HasPrevious",
+          "type": "bool",
+          "tag": "json:\"has_previous\""
+        },
+        {
+          "name": "NextAfter",
+          "type": "*string",
+          "tag": "json:\"next_after\""
+        },
+        {
+          "name": "PreviousBefore",
+          "type": "*string",
+          "tag": "json:\"previous_before\""
+        }
+      ]
+    },
+    "PaymentLinkListPage.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "PaymentLinkListPage"
+    },
+    "PaymentLinkListPage.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*PaymentLinkListPage"
+    },
+    "PaymentLinkListResponse": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "List",
+          "type": "[]PaymentLink",
+          "tag": "json:\"list\""
+        },
+        {
+          "name": "Page",
+          "type": "PaymentLinkListPage",
+          "tag": "json:\"page\""
+        }
+      ]
+    },
+    "PaymentLinkListResponse.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "PaymentLinkListResponse"
+    },
+    "PaymentLinkListResponse.NextPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*PaymentLinkListResponse, error)",
+      "receiver": "*PaymentLinkListResponse"
+    },
+    "PaymentLinkListResponse.PreviousPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*PaymentLinkListResponse, error)",
+      "receiver": "*PaymentLinkListResponse"
+    },
+    "PaymentLinkListResponse.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*PaymentLinkListResponse"
+    },
+    "PaymentLinkPaymentMethodTypesItemBoleto": {
+      "kind": "const",
+      "type": "int64",
+      "value": "2"
+    },
+    "PaymentLinkPaymentMethodTypesItemPix": {
+      "kind": "const",
+      "type": "int64",
+      "value": "1"
+    },
+    "PaymentLinkUnavailableReason": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Code",
+          "type": "string",
+          "tag": "json:\"code\""
+        },
+        {
+          "name": "Message",
+          "type": "string",
+          "tag": "json:\"message\""
+        }
+      ]
+    },
+    "PaymentLinkUnavailableReason.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "PaymentLinkUnavailableReason"
+    },
+    "PaymentLinkUnavailableReason.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*PaymentLinkUnavailableReason"
+    },
+    "PaymentLinkUnavailableReasonCodeBOLETOAWAITINGSETTLEMENT": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"BOLETO_AWAITING_SETTLEMENT\""
+    },
+    "PaymentLinkUnavailableReasonCodeCHARGEEXPIRED": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"CHARGE_EXPIRED\""
+    },
+    "PaymentLinkUnavailableReasonCodeCHARGENOTOPEN": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"CHARGE_NOT_OPEN\""
+    },
+    "PaymentLinkUnavailableReasonCodePAYMENTLINKPAUSED": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"PAYMENT_LINK_PAUSED\""
+    },
+    "PaymentLinkUnavailableReasonCodePAYMENTMETHODSUNAVAILABLE": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"PAYMENT_METHODS_UNAVAILABLE\""
+    },
+    "PaymentLinkUnavailableReasonCodePIXCANCELLATIONPENDING": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"PIX_CANCELLATION_PENDING\""
+    },
+    "PaymentLinkUnavailableReasonCodePIXCANCELLED": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"PIX_CANCELLED\""
+    },
+    "PaymentLinksService": {
+      "kind": "type",
+      "type": "struct"
+    },
+    "PaymentLinksService.Create": {
+      "kind": "method",
+      "type": "func(context.Context, *CreatePaymentLinkParams, ...RequestOption) (*PaymentLink, error)",
+      "receiver": "*PaymentLinksService"
+    },
+    "PaymentLinksService.Get": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*PaymentLinkDetails, error)",
+      "receiver": "*PaymentLinksService"
+    },
+    "PaymentLinksService.List": {
+      "kind": "method",
+      "type": "func(context.Context, *ListPaymentLinksParams, ...RequestOption) (*PaymentLinkListResponse, error)",
+      "receiver": "*PaymentLinksService"
+    },
+    "PaymentLinksService.ListAll": {
+      "kind": "method",
+      "type": "func(context.Context, *ListPaymentLinksParams, ...RequestOption) *Iterator[PaymentLink]",
+      "receiver": "*PaymentLinksService"
+    },
+    "PaymentLinksService.SendEmail": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*PaymentLinkEmailRequestAccepted, error)",
+      "receiver": "*PaymentLinksService"
+    },
+    "PaymentLinksService.Update": {
+      "kind": "method",
+      "type": "func(context.Context, string, *UpdatePaymentLinkParams, ...RequestOption) (*PaymentLink, error)",
+      "receiver": "*PaymentLinksService"
+    },
+    "PaymentReceipt": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ChargeID",
+          "type": "string",
+          "tag": "json:\"charge_id\""
+        },
+        {
+          "name": "CustomerID",
+          "type": "string",
+          "tag": "json:\"customer_id\""
+        },
+        {
+          "name": "AmountCents",
+          "type": "int64",
+          "tag": "json:\"amount_cents\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "int64",
+          "tag": "json:\"payment_method\""
+        },
+        {
+          "name": "PaidAt",
+          "type": "int64",
+          "tag": "json:\"paid_at\""
+        },
+        {
+          "name": "Customer",
+          "type": "ReceiptParty",
+          "tag": "json:\"customer\""
+        },
+        {
+          "name": "Merchant",
+          "type": "ReceiptParty",
+          "tag": "json:\"merchant\""
+        },
+        {
+          "name": "IsSandbox",
+          "type": "bool",
+          "tag": "json:\"is_sandbox\""
+        },
+        {
+          "name": "IsFiscalDocument",
+          "type": "bool",
+          "tag": "json:\"is_fiscal_document\""
+        },
+        {
+          "name": "EndToEndID",
+          "type": "*string",
+          "tag": "json:\"end_to_end_id\""
+        }
+      ]
+    },
+    "PaymentReceipt.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "PaymentReceipt"
+    },
+    "PaymentReceipt.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*PaymentReceipt"
+    },
+    "Production": {
+      "kind": "const",
+      "type": "Environment",
+      "value": "\"Production\""
+    },
+    "ProtocolError": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Reason",
+          "type": "string"
+        },
+        {
+          "name": "Response",
+          "type": "*Response"
+        }
+      ]
+    },
+    "ProtocolError.Error": {
+      "kind": "method",
+      "type": "func() string",
+      "receiver": "*ProtocolError"
+    },
+    "ReceiptParty": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Name",
+          "type": "*string",
+          "tag": "json:\"name\""
+        },
+        {
+          "name": "TaxID",
+          "type": "*string",
+          "tag": "json:\"tax_id\""
+        }
+      ]
+    },
+    "ReceiptParty.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ReceiptParty"
+    },
+    "ReceiptParty.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ReceiptParty"
+    },
+    "Refund": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "ChargeID",
+          "type": "string",
+          "tag": "json:\"charge_id\""
+        },
+        {
+          "name": "AmountCents",
+          "type": "int64",
+          "tag": "json:\"amount_cents\""
+        },
+        {
+          "name": "Description",
+          "type": "*string",
+          "tag": "json:\"description\""
+        },
+        {
+          "name": "Status",
+          "type": "string",
+          "tag": "json:\"status\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "int64",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "CompletedAt",
+          "type": "*int64",
+          "tag": "json:\"completed_at\""
+        },
+        {
+          "name": "FailedAt",
+          "type": "*int64",
+          "tag": "json:\"failed_at\""
+        },
+        {
+          "name": "FailureReason",
+          "type": "*RefundFailureReason",
+          "tag": "json:\"failure_reason\""
+        }
+      ]
+    },
+    "Refund.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "Refund"
+    },
+    "Refund.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*Refund"
+    },
+    "RefundEligibility": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ChargeID",
+          "type": "string",
+          "tag": "json:\"charge_id\""
+        },
+        {
+          "name": "Eligible",
+          "type": "bool",
+          "tag": "json:\"eligible\""
+        },
+        {
+          "name": "Reason",
+          "type": "*RefundUnavailableReason",
+          "tag": "json:\"reason\""
+        },
+        {
+          "name": "RefundableAmountCents",
+          "type": "int64",
+          "tag": "json:\"refundable_amount_cents\""
+        },
+        {
+          "name": "PendingAmountCents",
+          "type": "int64",
+          "tag": "json:\"pending_amount_cents\""
+        },
+        {
+          "name": "MaxRefundAmountCents",
+          "type": "int64",
+          "tag": "json:\"max_refund_amount_cents\""
+        }
+      ]
+    },
+    "RefundEligibility.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "RefundEligibility"
+    },
+    "RefundEligibility.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*RefundEligibility"
+    },
+    "RefundFailureReason": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Code",
+          "type": "string",
+          "tag": "json:\"code\""
+        },
+        {
+          "name": "Message",
+          "type": "string",
+          "tag": "json:\"message\""
+        }
+      ]
+    },
+    "RefundFailureReason.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "RefundFailureReason"
+    },
+    "RefundFailureReason.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*RefundFailureReason"
+    },
+    "RefundFailureReasonCodeREFUNDFAILUREREASONUNAVAILABLE": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"REFUND_FAILURE_REASON_UNAVAILABLE\""
+    },
+    "RefundFailureReasonCodeREFUNDNOTSUBMITTED": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"REFUND_NOT_SUBMITTED\""
+    },
+    "RefundFailureReasonCodeREFUNDPROCESSINGFAILED": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"REFUND_PROCESSING_FAILED\""
+    },
+    "RefundFailureReasonCodeREFUNDPROCESSINGUNAVAILABLE": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"REFUND_PROCESSING_UNAVAILABLE\""
+    },
+    "RefundFailureReasonCodeREFUNDREJECTED": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"REFUND_REJECTED\""
+    },
+    "RefundListPage": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "PageSize",
+          "type": "int64",
+          "tag": "json:\"page_size\""
+        },
+        {
+          "name": "HasNext",
+          "type": "bool",
+          "tag": "json:\"has_next\""
+        },
+        {
+          "name": "HasPrevious",
+          "type": "bool",
+          "tag": "json:\"has_previous\""
+        },
+        {
+          "name": "NextAfter",
+          "type": "*string",
+          "tag": "json:\"next_after\""
+        },
+        {
+          "name": "PreviousBefore",
+          "type": "*string",
+          "tag": "json:\"previous_before\""
+        }
+      ]
+    },
+    "RefundListPage.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "RefundListPage"
+    },
+    "RefundListPage.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*RefundListPage"
+    },
+    "RefundListResponse": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "List",
+          "type": "[]Refund",
+          "tag": "json:\"list\""
+        },
+        {
+          "name": "Page",
+          "type": "RefundListPage",
+          "tag": "json:\"page\""
+        }
+      ]
+    },
+    "RefundListResponse.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "RefundListResponse"
+    },
+    "RefundListResponse.NextPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*RefundListResponse, error)",
+      "receiver": "*RefundListResponse"
+    },
+    "RefundListResponse.PreviousPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*RefundListResponse, error)",
+      "receiver": "*RefundListResponse"
+    },
+    "RefundListResponse.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*RefundListResponse"
+    },
+    "RefundStatusAccepted": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"accepted\""
+    },
+    "RefundStatusCompleted": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"completed\""
+    },
+    "RefundStatusFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"failed\""
+    },
+    "RefundStatusReserved": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"reserved\""
+    },
+    "RefundStatusUnknown": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"unknown\""
+    },
+    "RefundUnavailableReason": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Code",
+          "type": "string",
+          "tag": "json:\"code\""
+        },
+        {
+          "name": "Message",
+          "type": "string",
+          "tag": "json:\"message\""
+        }
+      ]
+    },
+    "RefundUnavailableReason.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "RefundUnavailableReason"
+    },
+    "RefundUnavailableReason.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*RefundUnavailableReason"
+    },
+    "RefundUnavailableReasonCodePIXREFUNDALREADYCOMPLETED": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"PIX_REFUND_ALREADY_COMPLETED\""
+    },
+    "RefundUnavailableReasonCodePIXREFUNDCASHINNOTFOUND": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"PIX_REFUND_CASHIN_NOT_FOUND\""
+    },
+    "RefundUnavailableReasonCodePIXREFUNDINPROGRESS": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"PIX_REFUND_IN_PROGRESS\""
+    },
+    "RefundUnavailableReasonCodePIXREFUNDINSUFFICIENTBALANCE": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"PIX_REFUND_INSUFFICIENT_BALANCE\""
+    },
+    "RefundUnavailableReasonCodePIXREFUNDNOTAVAILABLE": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"PIX_REFUND_NOT_AVAILABLE\""
+    },
+    "RefundUnavailableReasonCodePIXREFUNDPROVIDERACCOUNTNOTREADY": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"PIX_REFUND_PROVIDER_ACCOUNT_NOT_READY\""
+    },
+    "RefundUnavailableReasonCodePIXREFUNDPROVIDERUNAVAILABLE": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"PIX_REFUND_PROVIDER_UNAVAILABLE\""
+    },
+    "RefundsService": {
+      "kind": "type",
+      "type": "struct"
+    },
+    "RefundsService.Get": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*Refund, error)",
+      "receiver": "*RefundsService"
+    },
+    "RefundsService.GetReceipt": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*FinancialDocument, error)",
+      "receiver": "*RefundsService"
+    },
+    "RefundsService.List": {
+      "kind": "method",
+      "type": "func(context.Context, *ListRefundsParams, ...RequestOption) (*RefundListResponse, error)",
+      "receiver": "*RefundsService"
+    },
+    "RefundsService.ListAll": {
+      "kind": "method",
+      "type": "func(context.Context, *ListRefundsParams, ...RequestOption) *Iterator[Refund]",
+      "receiver": "*RefundsService"
+    },
+    "RemoveCustomersParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Identifiers",
+          "type": "Optional[[]*string]",
+          "tag": "json:\"identifiers,omitzero\""
+        }
+      ]
+    },
+    "RequestDiagnostics": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Method",
+          "type": "string"
+        },
+        {
+          "name": "Path",
+          "type": "string"
+        },
+        {
+          "name": "Attempt",
+          "type": "int"
+        },
+        {
+          "name": "Duration",
+          "type": "time.Duration"
+        },
+        {
+          "name": "StatusCode",
+          "type": "int"
+        },
+        {
+          "name": "RequestID",
+          "type": "string"
+        }
+      ]
+    },
+    "RequestOption": {
+      "kind": "type",
+      "type": "func(*requestConfig) error"
+    },
+    "ResolveChargeScenarioParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Action",
+          "type": "Optional[string]",
+          "tag": "json:\"action,omitzero\""
+        },
+        {
+          "name": "Outcome",
+          "type": "Optional[string]",
+          "tag": "json:\"outcome,omitzero\""
+        }
+      ]
+    },
+    "ResolveChargeScenarioParamsActionBoletoIssuance": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto_issuance\""
+    },
+    "ResolveChargeScenarioParamsActionCancellation": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"cancellation\""
+    },
+    "ResolveChargeScenarioParamsActionPixIssuance": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix_issuance\""
+    },
+    "ResolveChargeScenarioParamsOutcomeCompleted": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"completed\""
+    },
+    "ResolveChargeScenarioParamsOutcomeFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"failed\""
+    },
+    "Resource": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "LastResponse",
+          "type": "*Response",
+          "tag": "json:\"-\""
+        },
+        {
+          "name": "RawJSON",
+          "type": "encoding/json.RawMessage",
+          "tag": "json:\"-\""
+        },
+        {
+          "name": "ExtraFields",
+          "type": "map[string]encoding/json.RawMessage",
+          "tag": "json:\"-\""
+        }
+      ]
+    },
+    "Resource.HasField": {
+      "kind": "method",
+      "type": "func(string) bool",
+      "receiver": "Resource"
+    },
+    "Resource.IsNull": {
+      "kind": "method",
+      "type": "func(string) bool",
+      "receiver": "Resource"
+    },
+    "Response": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "StatusCode",
+          "type": "int"
+        },
+        {
+          "name": "RequestID",
+          "type": "string"
+        },
+        {
+          "name": "RetryAfter",
+          "type": "time.Duration"
+        },
+        {
+          "name": "IdempotencyReplayed",
+          "type": "bool"
+        }
+      ]
+    },
+    "RevokeChargeResult": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Status",
+          "type": "int64",
+          "tag": "json:\"status\""
+        },
+        {
+          "name": "Revoked",
+          "type": "bool",
+          "tag": "json:\"revoked\""
+        },
+        {
+          "name": "RevocationPending",
+          "type": "bool",
+          "tag": "json:\"revocation_pending\""
+        }
+      ]
+    },
+    "RevokeChargeResult.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "RevokeChargeResult"
+    },
+    "RevokeChargeResult.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*RevokeChargeResult"
+    },
+    "RotateWebhookSecretParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "GracePeriodSeconds",
+          "type": "Optional[int64]",
+          "tag": "json:\"grace_period_seconds,omitzero\""
+        }
+      ]
+    },
+    "Sandbox": {
+      "kind": "const",
+      "type": "Environment",
+      "value": "\"Sandbox\""
+    },
+    "Set": {
+      "kind": "func",
+      "type": "func[T any](T) Optional[T]"
+    },
+    "SetWebhookPauseParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "IsPaused",
+          "type": "Optional[bool]",
+          "tag": "json:\"is_paused,omitzero\""
+        }
+      ]
+    },
+    "SignatureError": {
+      "kind": "type",
+      "type": "struct"
+    },
+    "SignatureError.Error": {
+      "kind": "method",
+      "type": "func() string",
+      "receiver": "*SignatureError"
+    },
+    "SimulationChargesService": {
+      "kind": "type",
+      "type": "struct"
+    },
+    "SimulationChargesService.CompensateBoleto": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*ChargeBoletoCompensation, error)",
+      "receiver": "*SimulationChargesService"
+    },
+    "SimulationChargesService.ConfigureScenario": {
+      "kind": "method",
+      "type": "func(context.Context, string, *ChargeScenarioParams, ...RequestOption) (*ChargeScenario, error)",
+      "receiver": "*SimulationChargesService"
+    },
+    "SimulationChargesService.ConfirmPayment": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*ChargeSimulation, error)",
+      "receiver": "*SimulationChargesService"
+    },
+    "SimulationChargesService.CreateRefund": {
+      "kind": "method",
+      "type": "func(context.Context, string, *CreateRefundParams, ...RequestOption) (*Refund, error)",
+      "receiver": "*SimulationChargesService"
+    },
+    "SimulationChargesService.FailPayment": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*ChargeSimulation, error)",
+      "receiver": "*SimulationChargesService"
+    },
+    "SimulationChargesService.IssuePayment": {
+      "kind": "method",
+      "type": "func(context.Context, string, *IssueSimulationPaymentParams, ...RequestOption) (*Charge, error)",
+      "receiver": "*SimulationChargesService"
+    },
+    "SimulationChargesService.ResolveScenario": {
+      "kind": "method",
+      "type": "func(context.Context, string, *ResolveChargeScenarioParams, ...RequestOption) (*ChargeScenario, error)",
+      "receiver": "*SimulationChargesService"
+    },
+    "SimulationRefundsService": {
+      "kind": "type",
+      "type": "struct"
+    },
+    "SimulationRefundsService.Complete": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*Refund, error)",
+      "receiver": "*SimulationRefundsService"
+    },
+    "SimulationRefundsService.Fail": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*Refund, error)",
+      "receiver": "*SimulationRefundsService"
+    },
+    "SimulationsService": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Charges",
+          "type": "*SimulationChargesService"
+        },
+        {
+          "name": "Refunds",
+          "type": "*SimulationRefundsService"
+        }
+      ]
+    },
+    "Statement": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "ReferenceID",
+          "type": "*string",
+          "tag": "json:\"reference_id\""
+        },
+        {
+          "name": "ReferenceType",
+          "type": "*int64",
+          "tag": "json:\"reference_type\""
+        },
+        {
+          "name": "StatementType",
+          "type": "int64",
+          "tag": "json:\"statement_type\""
+        },
+        {
+          "name": "AmountCents",
+          "type": "int64",
+          "tag": "json:\"amount_cents\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "int64",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "RefundID",
+          "type": "*string",
+          "tag": "json:\"refund_id\""
+        },
+        {
+          "name": "DisputeID",
+          "type": "*string",
+          "tag": "json:\"dispute_id\""
+        }
+      ]
+    },
+    "Statement.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "Statement"
+    },
+    "Statement.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*Statement"
+    },
+    "StatementListPage": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "PageSize",
+          "type": "int64",
+          "tag": "json:\"page_size\""
+        },
+        {
+          "name": "HasNext",
+          "type": "bool",
+          "tag": "json:\"has_next\""
+        },
+        {
+          "name": "HasPrevious",
+          "type": "bool",
+          "tag": "json:\"has_previous\""
+        },
+        {
+          "name": "NextAfter",
+          "type": "*string",
+          "tag": "json:\"next_after\""
+        },
+        {
+          "name": "PreviousBefore",
+          "type": "*string",
+          "tag": "json:\"previous_before\""
+        }
+      ]
+    },
+    "StatementListPage.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "StatementListPage"
+    },
+    "StatementListPage.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*StatementListPage"
+    },
+    "StatementListResponse": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "List",
+          "type": "[]Statement",
+          "tag": "json:\"list\""
+        },
+        {
+          "name": "Page",
+          "type": "StatementListPage",
+          "tag": "json:\"page\""
+        }
+      ]
+    },
+    "StatementListResponse.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "StatementListResponse"
+    },
+    "StatementListResponse.NextPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*StatementListResponse, error)",
+      "receiver": "*StatementListResponse"
+    },
+    "StatementListResponse.PreviousPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*StatementListResponse, error)",
+      "receiver": "*StatementListResponse"
+    },
+    "StatementListResponse.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*StatementListResponse"
+    },
+    "StatementReferenceTypeAjuste": {
+      "kind": "const",
+      "type": "int64",
+      "value": "4"
+    },
+    "StatementReferenceTypeCobranca": {
+      "kind": "const",
+      "type": "int64",
+      "value": "1"
+    },
+    "StatementReferenceTypeContestacao": {
+      "kind": "const",
+      "type": "int64",
+      "value": "2"
+    },
+    "StatementReferenceTypeManual": {
+      "kind": "const",
+      "type": "int64",
+      "value": "5"
+    },
+    "StatementReferenceTypeSaque": {
+      "kind": "const",
+      "type": "int64",
+      "value": "3"
+    },
+    "StatementStatementTypeBloqueio": {
+      "kind": "const",
+      "type": "int64",
+      "value": "9"
+    },
+    "StatementStatementTypeCreditoPorAjuste": {
+      "kind": "const",
+      "type": "int64",
+      "value": "7"
+    },
+    "StatementStatementTypeDebitoPorAjuste": {
+      "kind": "const",
+      "type": "int64",
+      "value": "8"
+    },
+    "StatementStatementTypeDevolucao": {
+      "kind": "const",
+      "type": "int64",
+      "value": "5"
+    },
+    "StatementStatementTypeDevolucaoParcial": {
+      "kind": "const",
+      "type": "int64",
+      "value": "6"
+    },
+    "StatementStatementTypeLiberacao": {
+      "kind": "const",
+      "type": "int64",
+      "value": "10"
+    },
+    "StatementStatementTypeRecebimento": {
+      "kind": "const",
+      "type": "int64",
+      "value": "1"
+    },
+    "StatementStatementTypeSaque": {
+      "kind": "const",
+      "type": "int64",
+      "value": "4"
+    },
+    "StatementStatementTypeTarifa": {
+      "kind": "const",
+      "type": "int64",
+      "value": "2"
+    },
+    "StatementStatementTypeTarifaDeServico": {
+      "kind": "const",
+      "type": "int64",
+      "value": "3"
+    },
+    "StatementsService": {
+      "kind": "type",
+      "type": "struct"
+    },
+    "StatementsService.Get": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*Statement, error)",
+      "receiver": "*StatementsService"
+    },
+    "StatementsService.List": {
+      "kind": "method",
+      "type": "func(context.Context, *ListStatementsParams, ...RequestOption) (*StatementListResponse, error)",
+      "receiver": "*StatementsService"
+    },
+    "StatementsService.ListAll": {
+      "kind": "method",
+      "type": "func(context.Context, *ListStatementsParams, ...RequestOption) *Iterator[Statement]",
+      "receiver": "*StatementsService"
+    },
+    "UpdateAutomaticWithdrawalSettingsParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Enabled",
+          "type": "Optional[bool]",
+          "tag": "json:\"enabled,omitzero\""
+        },
+        {
+          "name": "MinimumAmountCents",
+          "type": "Optional[int64]",
+          "tag": "json:\"minimum_amount_cents,omitzero\""
+        },
+        {
+          "name": "Time",
+          "type": "Optional[string]",
+          "tag": "json:\"time,omitzero\""
+        }
+      ]
+    },
+    "UpdateChargeParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Title",
+          "type": "Optional[string]",
+          "tag": "json:\"title,omitzero\""
+        },
+        {
+          "name": "Description",
+          "type": "Optional[string]",
+          "tag": "json:\"description,omitzero\""
+        },
+        {
+          "name": "ExternalReference",
+          "type": "Optional[string]",
+          "tag": "json:\"external_reference,omitzero\""
+        },
+        {
+          "name": "Metadata",
+          "type": "Optional[map[string]*string]",
+          "tag": "json:\"metadata,omitzero\""
+        }
+      ]
+    },
+    "UpdateCheckoutSettingsParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "SupportEmail",
+          "type": "Optional[string]",
+          "tag": "json:\"support_email,omitzero\""
+        },
+        {
+          "name": "HexPrimaryColor",
+          "type": "Optional[string]",
+          "tag": "json:\"hex_primary_color,omitzero\""
+        },
+        {
+          "name": "HexSecondaryColor",
+          "type": "Optional[string]",
+          "tag": "json:\"hex_secondary_color,omitzero\""
+        },
+        {
+          "name": "LogoUploadID",
+          "type": "Optional[string]",
+          "tag": "json:\"logo_upload_id,omitzero\""
+        },
+        {
+          "name": "FaviconUploadID",
+          "type": "Optional[string]",
+          "tag": "json:\"favicon_upload_id,omitzero\""
+        }
+      ]
+    },
+    "UpdateCustomerParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "FullName",
+          "type": "Optional[string]",
+          "tag": "json:\"full_name,omitzero\""
+        },
+        {
+          "name": "Email",
+          "type": "Optional[string]",
+          "tag": "json:\"email,omitzero\""
+        },
+        {
+          "name": "DialCode",
+          "type": "Optional[string]",
+          "tag": "json:\"dial_code,omitzero\""
+        },
+        {
+          "name": "PhoneLocal",
+          "type": "Optional[string]",
+          "tag": "json:\"phone_local,omitzero\""
+        },
+        {
+          "name": "ZipCode",
+          "type": "Optional[string]",
+          "tag": "json:\"zip_code,omitzero\""
+        },
+        {
+          "name": "Street",
+          "type": "Optional[string]",
+          "tag": "json:\"street,omitzero\""
+        },
+        {
+          "name": "StreetNumber",
+          "type": "Optional[string]",
+          "tag": "json:\"street_number,omitzero\""
+        },
+        {
+          "name": "Complement",
+          "type": "Optional[string]",
+          "tag": "json:\"complement,omitzero\""
+        },
+        {
+          "name": "Neigh",
+          "type": "Optional[string]",
+          "tag": "json:\"neigh,omitzero\""
+        },
+        {
+          "name": "City",
+          "type": "Optional[string]",
+          "tag": "json:\"city,omitzero\""
+        },
+        {
+          "name": "Uf",
+          "type": "Optional[string]",
+          "tag": "json:\"uf,omitzero\""
+        },
+        {
+          "name": "ExternalReference",
+          "type": "Optional[string]",
+          "tag": "json:\"external_reference,omitzero\""
+        },
+        {
+          "name": "Metadata",
+          "type": "Optional[map[string]*string]",
+          "tag": "json:\"metadata,omitzero\""
+        }
+      ]
+    },
+    "UpdatePaymentLinkParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "IsActive",
+          "type": "Optional[bool]",
+          "tag": "json:\"is_active,omitzero\""
+        },
+        {
+          "name": "SuccessRedirectURL",
+          "type": "Optional[string]",
+          "tag": "json:\"success_redirect_url,omitzero\""
+        },
+        {
+          "name": "CancelRedirectURL",
+          "type": "Optional[string]",
+          "tag": "json:\"cancel_redirect_url,omitzero\""
+        },
+        {
+          "name": "ClearSuccessRedirectURL",
+          "type": "Optional[bool]",
+          "tag": "json:\"clear_success_redirect_url,omitzero\""
+        },
+        {
+          "name": "ClearCancelRedirectURL",
+          "type": "Optional[bool]",
+          "tag": "json:\"clear_cancel_redirect_url,omitzero\""
+        },
+        {
+          "name": "PaymentMethodTypes",
+          "type": "Optional[[]int64]",
+          "tag": "json:\"payment_method_types,omitzero\""
+        }
+      ]
+    },
+    "UpdatePaymentLinkParamsPaymentMethodTypesItemBoleto": {
+      "kind": "const",
+      "type": "int64",
+      "value": "2"
+    },
+    "UpdatePaymentLinkParamsPaymentMethodTypesItemPix": {
+      "kind": "const",
+      "type": "int64",
+      "value": "1"
+    },
+    "UpdateWebhookParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Name",
+          "type": "Optional[string]",
+          "tag": "json:\"name,omitzero\""
+        },
+        {
+          "name": "URL",
+          "type": "Optional[string]",
+          "tag": "json:\"url,omitzero\""
+        },
+        {
+          "name": "Events",
+          "type": "Optional[[]string]",
+          "tag": "json:\"events,omitzero\""
+        },
+        {
+          "name": "IsActive",
+          "type": "Optional[bool]",
+          "tag": "json:\"is_active,omitzero\""
+        }
+      ]
+    },
+    "ValidationError": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Field",
+          "type": "string"
+        },
+        {
+          "name": "Reason",
+          "type": "string"
+        }
+      ]
+    },
+    "ValidationError.Error": {
+      "kind": "method",
+      "type": "func() string",
+      "receiver": "*ValidationError"
+    },
+    "VerifyWebhookSignature": {
+      "kind": "func",
+      "type": "func([]byte, net/http.Header, string, time.Duration, time.Time) error"
+    },
+    "Version": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"0.1.0\""
+    },
+    "Webhook": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Name",
+          "type": "string",
+          "tag": "json:\"name\""
+        },
+        {
+          "name": "URL",
+          "type": "string",
+          "tag": "json:\"url\""
+        },
+        {
+          "name": "Events",
+          "type": "[]string",
+          "tag": "json:\"events\""
+        },
+        {
+          "name": "IsActive",
+          "type": "bool",
+          "tag": "json:\"is_active\""
+        },
+        {
+          "name": "DisabledReason",
+          "type": "*string",
+          "tag": "json:\"disabled_reason\""
+        },
+        {
+          "name": "DisabledAt",
+          "type": "*int64",
+          "tag": "json:\"disabled_at\""
+        },
+        {
+          "name": "PreviousSecretExpiresAt",
+          "type": "*int64",
+          "tag": "json:\"previous_secret_expires_at\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "int64",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "UpdatedAt",
+          "type": "int64",
+          "tag": "json:\"updated_at\""
+        },
+        {
+          "name": "IsPaused",
+          "type": "bool",
+          "tag": "json:\"is_paused\""
+        },
+        {
+          "name": "PausedAt",
+          "type": "*int64",
+          "tag": "json:\"paused_at\""
+        }
+      ]
+    },
+    "Webhook.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "Webhook"
+    },
+    "Webhook.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*Webhook"
+    },
+    "WebhookCreated": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Name",
+          "type": "string",
+          "tag": "json:\"name\""
+        },
+        {
+          "name": "URL",
+          "type": "string",
+          "tag": "json:\"url\""
+        },
+        {
+          "name": "Events",
+          "type": "[]string",
+          "tag": "json:\"events\""
+        },
+        {
+          "name": "IsActive",
+          "type": "bool",
+          "tag": "json:\"is_active\""
+        },
+        {
+          "name": "DisabledReason",
+          "type": "*string",
+          "tag": "json:\"disabled_reason\""
+        },
+        {
+          "name": "DisabledAt",
+          "type": "*int64",
+          "tag": "json:\"disabled_at\""
+        },
+        {
+          "name": "PreviousSecretExpiresAt",
+          "type": "*int64",
+          "tag": "json:\"previous_secret_expires_at\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "int64",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "UpdatedAt",
+          "type": "int64",
+          "tag": "json:\"updated_at\""
+        },
+        {
+          "name": "SecretKey",
+          "type": "string",
+          "tag": "json:\"secret_key\""
+        },
+        {
+          "name": "IsPaused",
+          "type": "bool",
+          "tag": "json:\"is_paused\""
+        },
+        {
+          "name": "PausedAt",
+          "type": "*int64",
+          "tag": "json:\"paused_at\""
+        }
+      ]
+    },
+    "WebhookCreated.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookCreated"
+    },
+    "WebhookCreated.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookCreated"
+    },
+    "WebhookCreatedDisabledReasonContinuousFailure": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"continuous_failure\""
+    },
+    "WebhookCreatedDisabledReasonManual": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"manual\""
+    },
+    "WebhookDisabledReasonContinuousFailure": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"continuous_failure\""
+    },
+    "WebhookDisabledReasonManual": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"manual\""
+    },
+    "WebhookEventType": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Code",
+          "type": "string",
+          "tag": "json:\"code\""
+        }
+      ]
+    },
+    "WebhookEventType.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookEventType"
+    },
+    "WebhookEventType.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookEventType"
+    },
+    "WebhookEventTypeCodeChargeCanceled": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"charge.canceled\""
+    },
+    "WebhookEventTypeCodeChargeCreated": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"charge.created\""
+    },
+    "WebhookEventTypeCodeChargeFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"charge.failed\""
+    },
+    "WebhookEventTypeCodeChargePaid": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"charge.paid\""
+    },
+    "WebhookEventTypeCodeRefundCompleted": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"refund.completed\""
+    },
+    "WebhookEventTypeCodeRefundFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"refund.failed\""
+    },
+    "WebhookEventTypeCodeRefundRequested": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"refund.requested\""
+    },
+    "WebhookEventTypeListResponse": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "List",
+          "type": "[]WebhookEventType",
+          "tag": "json:\"list\""
+        }
+      ]
+    },
+    "WebhookEventTypeListResponse.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookEventTypeListResponse"
+    },
+    "WebhookEventTypeListResponse.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookEventTypeListResponse"
+    },
+    "WebhookEventTypesService": {
+      "kind": "type",
+      "type": "struct"
+    },
+    "WebhookEventTypesService.List": {
+      "kind": "method",
+      "type": "func(context.Context, ...RequestOption) (*WebhookEventTypeListResponse, error)",
+      "receiver": "*WebhookEventTypesService"
+    },
+    "WebhookHealth": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "WebhookID",
+          "type": "string",
+          "tag": "json:\"webhook_id\""
+        },
+        {
+          "name": "Status",
+          "type": "string",
+          "tag": "json:\"status\""
+        },
+        {
+          "name": "FirstFailureAt",
+          "type": "*int64",
+          "tag": "json:\"first_failure_at\""
+        },
+        {
+          "name": "LastFailureAt",
+          "type": "*int64",
+          "tag": "json:\"last_failure_at\""
+        },
+        {
+          "name": "LastSuccessAt",
+          "type": "*int64",
+          "tag": "json:\"last_success_at\""
+        },
+        {
+          "name": "FailureDurationSeconds",
+          "type": "*int64",
+          "tag": "json:\"failure_duration_seconds\""
+        },
+        {
+          "name": "ObservedAt",
+          "type": "*int64",
+          "tag": "json:\"observed_at\""
+        }
+      ]
+    },
+    "WebhookHealth.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookHealth"
+    },
+    "WebhookHealth.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookHealth"
+    },
+    "WebhookHealthStatusDisabled": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"disabled\""
+    },
+    "WebhookHealthStatusFailing": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"failing\""
+    },
+    "WebhookHealthStatusHealthy": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"healthy\""
+    },
+    "WebhookHealthStatusUnknown": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"unknown\""
+    },
+    "WebhookListPage": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "PageSize",
+          "type": "int64",
+          "tag": "json:\"page_size\""
+        },
+        {
+          "name": "HasNext",
+          "type": "bool",
+          "tag": "json:\"has_next\""
+        },
+        {
+          "name": "HasPrevious",
+          "type": "bool",
+          "tag": "json:\"has_previous\""
+        },
+        {
+          "name": "NextAfter",
+          "type": "*string",
+          "tag": "json:\"next_after\""
+        },
+        {
+          "name": "PreviousBefore",
+          "type": "*string",
+          "tag": "json:\"previous_before\""
+        }
+      ]
+    },
+    "WebhookListPage.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookListPage"
+    },
+    "WebhookListPage.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookListPage"
+    },
+    "WebhookListResponse": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "List",
+          "type": "[]Webhook",
+          "tag": "json:\"list\""
+        },
+        {
+          "name": "Page",
+          "type": "WebhookListPage",
+          "tag": "json:\"page\""
+        }
+      ]
+    },
+    "WebhookListResponse.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookListResponse"
+    },
+    "WebhookListResponse.NextPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*WebhookListResponse, error)",
+      "receiver": "*WebhookListResponse"
+    },
+    "WebhookListResponse.PreviousPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*WebhookListResponse, error)",
+      "receiver": "*WebhookListResponse"
+    },
+    "WebhookListResponse.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookListResponse"
+    },
+    "WebhookPause": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "IsPaused",
+          "type": "bool",
+          "tag": "json:\"is_paused\""
+        },
+        {
+          "name": "PausedAt",
+          "type": "*int64",
+          "tag": "json:\"paused_at\""
+        }
+      ]
+    },
+    "WebhookPause.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookPause"
+    },
+    "WebhookPause.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookPause"
+    },
+    "WebhookSecretRotation": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "SecretKey",
+          "type": "string",
+          "tag": "json:\"secret_key\""
+        },
+        {
+          "name": "PreviousSecretExpiresAt",
+          "type": "*int64",
+          "tag": "json:\"previous_secret_expires_at\""
+        }
+      ]
+    },
+    "WebhookSecretRotation.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookSecretRotation"
+    },
+    "WebhookSecretRotation.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookSecretRotation"
+    },
+    "WebhookTestAccepted": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "EventID",
+          "type": "string",
+          "tag": "json:\"event_id\""
+        },
+        {
+          "name": "DeliveryID",
+          "type": "string",
+          "tag": "json:\"delivery_id\""
+        }
+      ]
+    },
+    "WebhookTestAccepted.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookTestAccepted"
+    },
+    "WebhookTestAccepted.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookTestAccepted"
+    },
+    "WebhooksService": {
+      "kind": "type",
+      "type": "struct"
+    },
+    "WebhooksService.Create": {
+      "kind": "method",
+      "type": "func(context.Context, *CreateWebhookParams, ...RequestOption) (*WebhookCreated, error)",
+      "receiver": "*WebhooksService"
+    },
+    "WebhooksService.Delete": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*Response, error)",
+      "receiver": "*WebhooksService"
+    },
+    "WebhooksService.Get": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*Webhook, error)",
+      "receiver": "*WebhooksService"
+    },
+    "WebhooksService.GetHealth": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*WebhookHealth, error)",
+      "receiver": "*WebhooksService"
+    },
+    "WebhooksService.List": {
+      "kind": "method",
+      "type": "func(context.Context, *ListWebhooksParams, ...RequestOption) (*WebhookListResponse, error)",
+      "receiver": "*WebhooksService"
+    },
+    "WebhooksService.ListAll": {
+      "kind": "method",
+      "type": "func(context.Context, *ListWebhooksParams, ...RequestOption) *Iterator[Webhook]",
+      "receiver": "*WebhooksService"
+    },
+    "WebhooksService.RotateSecret": {
+      "kind": "method",
+      "type": "func(context.Context, string, *RotateWebhookSecretParams, ...RequestOption) (*WebhookSecretRotation, error)",
+      "receiver": "*WebhooksService"
+    },
+    "WebhooksService.SetPause": {
+      "kind": "method",
+      "type": "func(context.Context, string, *SetWebhookPauseParams, ...RequestOption) (*WebhookPause, error)",
+      "receiver": "*WebhooksService"
+    },
+    "WebhooksService.Test": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*WebhookTestAccepted, error)",
+      "receiver": "*WebhooksService"
+    },
+    "WebhooksService.Update": {
+      "kind": "method",
+      "type": "func(context.Context, string, *UpdateWebhookParams, ...RequestOption) (*Webhook, error)",
+      "receiver": "*WebhooksService"
+    },
+    "WithBaseURL": {
+      "kind": "func",
+      "type": "func(string) ClientOption"
+    },
+    "WithHTTPClient": {
+      "kind": "func",
+      "type": "func(*net/http.Client) ClientOption"
+    },
+    "WithIdempotencyKey": {
+      "kind": "func",
+      "type": "func(string) RequestOption"
+    },
+    "WithMaxNetworkRetries": {
+      "kind": "func",
+      "type": "func(int) ClientOption"
+    },
+    "WithRequestObserver": {
+      "kind": "func",
+      "type": "func(func(RequestDiagnostics)) ClientOption"
+    },
+    "WithRequestTimeout": {
+      "kind": "func",
+      "type": "func(time.Duration) RequestOption"
+    },
+    "WithTimeout": {
+      "kind": "func",
+      "type": "func(time.Duration) ClientOption"
+    },
+    "Withdrawal": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "AmountCents",
+          "type": "int64",
+          "tag": "json:\"amount_cents\""
+        },
+        {
+          "name": "FeeAmountCents",
+          "type": "int64",
+          "tag": "json:\"fee_amount_cents\""
+        },
+        {
+          "name": "NetAmountCents",
+          "type": "int64",
+          "tag": "json:\"net_amount_cents\""
+        },
+        {
+          "name": "Status",
+          "type": "string",
+          "tag": "json:\"status\""
+        },
+        {
+          "name": "FailureReason",
+          "type": "*WithdrawalFailureReason",
+          "tag": "json:\"failure_reason\""
+        },
+        {
+          "name": "BankAccount",
+          "type": "*WithdrawalBankAccount",
+          "tag": "json:\"bank_account\""
+        },
+        {
+          "name": "PixDestination",
+          "type": "*WithdrawalPixDestination",
+          "tag": "json:\"pix_destination\""
+        },
+        {
+          "name": "RequestedAt",
+          "type": "int64",
+          "tag": "json:\"requested_at\""
+        },
+        {
+          "name": "CompletedAt",
+          "type": "*int64",
+          "tag": "json:\"completed_at\""
+        },
+        {
+          "name": "FailedAt",
+          "type": "*int64",
+          "tag": "json:\"failed_at\""
+        },
+        {
+          "name": "CanceledAt",
+          "type": "*int64",
+          "tag": "json:\"canceled_at\""
+        }
+      ]
+    },
+    "Withdrawal.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "Withdrawal"
+    },
+    "Withdrawal.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*Withdrawal"
+    },
+    "WithdrawalBankAccount": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "BankCode",
+          "type": "string",
+          "tag": "json:\"bank_code\""
+        },
+        {
+          "name": "Branch",
+          "type": "*string",
+          "tag": "json:\"branch\""
+        },
+        {
+          "name": "AccountNumberMasked",
+          "type": "*string",
+          "tag": "json:\"account_number_masked\""
+        }
+      ]
+    },
+    "WithdrawalBankAccount.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WithdrawalBankAccount"
+    },
+    "WithdrawalBankAccount.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WithdrawalBankAccount"
+    },
+    "WithdrawalDestination": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "KeyType",
+          "type": "string",
+          "tag": "json:\"key_type\""
+        },
+        {
+          "name": "KeyMasked",
+          "type": "string",
+          "tag": "json:\"key_masked\""
+        },
+        {
+          "name": "HolderName",
+          "type": "string",
+          "tag": "json:\"holder_name\""
+        },
+        {
+          "name": "BankIspb",
+          "type": "string",
+          "tag": "json:\"bank_ispb\""
+        },
+        {
+          "name": "IsDefault",
+          "type": "bool",
+          "tag": "json:\"is_default\""
+        },
+        {
+          "name": "VerifiedAt",
+          "type": "int64",
+          "tag": "json:\"verified_at\""
+        }
+      ]
+    },
+    "WithdrawalDestination.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WithdrawalDestination"
+    },
+    "WithdrawalDestination.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WithdrawalDestination"
+    },
+    "WithdrawalDestinationKeyTypeCNPJ": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"CNPJ\""
+    },
+    "WithdrawalDestinationKeyTypeEMAIL": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"EMAIL\""
+    },
+    "WithdrawalDestinationKeyTypeEVP": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"EVP\""
+    },
+    "WithdrawalDestinationKeyTypePHONE": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"PHONE\""
+    },
+    "WithdrawalDestinationListPage": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "PageSize",
+          "type": "int64",
+          "tag": "json:\"page_size\""
+        },
+        {
+          "name": "HasNext",
+          "type": "bool",
+          "tag": "json:\"has_next\""
+        },
+        {
+          "name": "HasPrevious",
+          "type": "bool",
+          "tag": "json:\"has_previous\""
+        },
+        {
+          "name": "NextAfter",
+          "type": "*string",
+          "tag": "json:\"next_after\""
+        },
+        {
+          "name": "PreviousBefore",
+          "type": "*string",
+          "tag": "json:\"previous_before\""
+        }
+      ]
+    },
+    "WithdrawalDestinationListPage.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WithdrawalDestinationListPage"
+    },
+    "WithdrawalDestinationListPage.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WithdrawalDestinationListPage"
+    },
+    "WithdrawalDestinationListResponse": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "List",
+          "type": "[]WithdrawalDestination",
+          "tag": "json:\"list\""
+        },
+        {
+          "name": "Page",
+          "type": "WithdrawalDestinationListPage",
+          "tag": "json:\"page\""
+        }
+      ]
+    },
+    "WithdrawalDestinationListResponse.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WithdrawalDestinationListResponse"
+    },
+    "WithdrawalDestinationListResponse.NextPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*WithdrawalDestinationListResponse, error)",
+      "receiver": "*WithdrawalDestinationListResponse"
+    },
+    "WithdrawalDestinationListResponse.PreviousPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*WithdrawalDestinationListResponse, error)",
+      "receiver": "*WithdrawalDestinationListResponse"
+    },
+    "WithdrawalDestinationListResponse.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WithdrawalDestinationListResponse"
+    },
+    "WithdrawalDestinationsService": {
+      "kind": "type",
+      "type": "struct"
+    },
+    "WithdrawalDestinationsService.Get": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*WithdrawalDestination, error)",
+      "receiver": "*WithdrawalDestinationsService"
+    },
+    "WithdrawalDestinationsService.List": {
+      "kind": "method",
+      "type": "func(context.Context, *ListWithdrawalDestinationsParams, ...RequestOption) (*WithdrawalDestinationListResponse, error)",
+      "receiver": "*WithdrawalDestinationsService"
+    },
+    "WithdrawalDestinationsService.ListAll": {
+      "kind": "method",
+      "type": "func(context.Context, *ListWithdrawalDestinationsParams, ...RequestOption) *Iterator[WithdrawalDestination]",
+      "receiver": "*WithdrawalDestinationsService"
+    },
+    "WithdrawalFailureReason": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Code",
+          "type": "string",
+          "tag": "json:\"code\""
+        },
+        {
+          "name": "Message",
+          "type": "string",
+          "tag": "json:\"message\""
+        }
+      ]
+    },
+    "WithdrawalFailureReason.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WithdrawalFailureReason"
+    },
+    "WithdrawalFailureReason.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WithdrawalFailureReason"
+    },
+    "WithdrawalFailureReasonCodeABOVEMAXIMUMWITHDRAWAL": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"ABOVE_MAXIMUM_WITHDRAWAL\""
+    },
+    "WithdrawalFailureReasonCodeBANKACCOUNTUNAVAILABLE": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"BANK_ACCOUNT_UNAVAILABLE\""
+    },
+    "WithdrawalFailureReasonCodeBANKPROCESSINGFAILURE": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"BANK_PROCESSING_FAILURE\""
+    },
+    "WithdrawalFailureReasonCodeBANKTIMEOUT": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"BANK_TIMEOUT\""
+    },
+    "WithdrawalFailureReasonCodeBANKUNSUPPORTED": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"BANK_UNSUPPORTED\""
+    },
+    "WithdrawalFailureReasonCodeBELOWMINIMUMWITHDRAWAL": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"BELOW_MINIMUM_WITHDRAWAL\""
+    },
+    "WithdrawalFailureReasonCodeBLOCKEDBALANCE": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"BLOCKED_BALANCE\""
+    },
+    "WithdrawalFailureReasonCodeDUPLICATEDREQUEST": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"DUPLICATED_REQUEST\""
+    },
+    "WithdrawalFailureReasonCodeINSUFFICIENTBALANCE": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"INSUFFICIENT_BALANCE\""
+    },
+    "WithdrawalFailureReasonCodeINTERNALERROR": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"INTERNAL_ERROR\""
+    },
+    "WithdrawalFailureReasonCodeINVALIDACCOUNTTYPE": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"INVALID_ACCOUNT_TYPE\""
+    },
+    "WithdrawalFailureReasonCodeINVALIDBANKACCOUNT": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"INVALID_BANK_ACCOUNT\""
+    },
+    "WithdrawalFailureReasonCodeRISKPOLICYREJECTED": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"RISK_POLICY_REJECTED\""
+    },
+    "WithdrawalFailureReasonCodeWITHDRAWALFAILUREREASONUNAVAILABLE": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"WITHDRAWAL_FAILURE_REASON_UNAVAILABLE\""
+    },
+    "WithdrawalFailureReasonCodeWITHDRAWALLIMITREACHED": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"WITHDRAWAL_LIMIT_REACHED\""
+    },
+    "WithdrawalFailureReasonCodeWITHDRAWALTEMPORARILYUNAVAILABLE": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"WITHDRAWAL_TEMPORARILY_UNAVAILABLE\""
+    },
+    "WithdrawalLimits": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "MinimumAmountCents",
+          "type": "int64",
+          "tag": "json:\"minimum_amount_cents\""
+        },
+        {
+          "name": "FeeThresholdAmountCents",
+          "type": "int64",
+          "tag": "json:\"fee_threshold_amount_cents\""
+        },
+        {
+          "name": "FeeBelowThresholdCents",
+          "type": "int64",
+          "tag": "json:\"fee_below_threshold_cents\""
+        },
+        {
+          "name": "AvailableAmountCents",
+          "type": "int64",
+          "tag": "json:\"available_amount_cents\""
+        },
+        {
+          "name": "DestinationConfigured",
+          "type": "bool",
+          "tag": "json:\"destination_configured\""
+        },
+        {
+          "name": "Limits",
+          "type": "*WithdrawalPeriodLimits",
+          "tag": "json:\"limits\""
+        }
+      ]
+    },
+    "WithdrawalLimits.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WithdrawalLimits"
+    },
+    "WithdrawalLimits.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WithdrawalLimits"
+    },
+    "WithdrawalListPage": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "PageSize",
+          "type": "int64",
+          "tag": "json:\"page_size\""
+        },
+        {
+          "name": "HasNext",
+          "type": "bool",
+          "tag": "json:\"has_next\""
+        },
+        {
+          "name": "HasPrevious",
+          "type": "bool",
+          "tag": "json:\"has_previous\""
+        },
+        {
+          "name": "NextAfter",
+          "type": "*string",
+          "tag": "json:\"next_after\""
+        },
+        {
+          "name": "PreviousBefore",
+          "type": "*string",
+          "tag": "json:\"previous_before\""
+        }
+      ]
+    },
+    "WithdrawalListPage.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WithdrawalListPage"
+    },
+    "WithdrawalListPage.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WithdrawalListPage"
+    },
+    "WithdrawalListResponse": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "List",
+          "type": "[]Withdrawal",
+          "tag": "json:\"list\""
+        },
+        {
+          "name": "Page",
+          "type": "WithdrawalListPage",
+          "tag": "json:\"page\""
+        }
+      ]
+    },
+    "WithdrawalListResponse.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WithdrawalListResponse"
+    },
+    "WithdrawalListResponse.NextPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*WithdrawalListResponse, error)",
+      "receiver": "*WithdrawalListResponse"
+    },
+    "WithdrawalListResponse.PreviousPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*WithdrawalListResponse, error)",
+      "receiver": "*WithdrawalListResponse"
+    },
+    "WithdrawalListResponse.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WithdrawalListResponse"
+    },
+    "WithdrawalPeriodLimits": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "DayLimitCents",
+          "type": "int64",
+          "tag": "json:\"day_limit_cents\""
+        },
+        {
+          "name": "NightLimitCents",
+          "type": "int64",
+          "tag": "json:\"night_limit_cents\""
+        },
+        {
+          "name": "PeriodLimitCents",
+          "type": "int64",
+          "tag": "json:\"period_limit_cents\""
+        },
+        {
+          "name": "PeriodUsedCents",
+          "type": "int64",
+          "tag": "json:\"period_used_cents\""
+        },
+        {
+          "name": "PeriodRemainingCents",
+          "type": "int64",
+          "tag": "json:\"period_remaining_cents\""
+        },
+        {
+          "name": "RequestMaximumAmountCents",
+          "type": "int64",
+          "tag": "json:\"request_maximum_amount_cents\""
+        },
+        {
+          "name": "Period",
+          "type": "string",
+          "tag": "json:\"period\""
+        },
+        {
+          "name": "PeriodEndsAt",
+          "type": "int64",
+          "tag": "json:\"period_ends_at\""
+        }
+      ]
+    },
+    "WithdrawalPeriodLimits.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WithdrawalPeriodLimits"
+    },
+    "WithdrawalPeriodLimits.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WithdrawalPeriodLimits"
+    },
+    "WithdrawalPixDestination": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "KeyType",
+          "type": "string",
+          "tag": "json:\"key_type\""
+        },
+        {
+          "name": "KeyMasked",
+          "type": "string",
+          "tag": "json:\"key_masked\""
+        },
+        {
+          "name": "HolderName",
+          "type": "string",
+          "tag": "json:\"holder_name\""
+        },
+        {
+          "name": "BankIspb",
+          "type": "string",
+          "tag": "json:\"bank_ispb\""
+        }
+      ]
+    },
+    "WithdrawalPixDestination.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WithdrawalPixDestination"
+    },
+    "WithdrawalPixDestination.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WithdrawalPixDestination"
+    },
+    "WithdrawalPixDestinationKeyTypeCNPJ": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"CNPJ\""
+    },
+    "WithdrawalPixDestinationKeyTypeEMAIL": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"EMAIL\""
+    },
+    "WithdrawalPixDestinationKeyTypeEVP": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"EVP\""
+    },
+    "WithdrawalPixDestinationKeyTypePHONE": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"PHONE\""
+    },
+    "WithdrawalStatusCANCELED": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"CANCELED\""
+    },
+    "WithdrawalStatusCOMPLETED": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"COMPLETED\""
+    },
+    "WithdrawalStatusFAILED": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"FAILED\""
+    },
+    "WithdrawalStatusPENDING": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"PENDING\""
+    },
+    "WithdrawalStatusPROCESSING": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"PROCESSING\""
+    },
+    "WithdrawalStatusUNKNOWN": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"UNKNOWN\""
+    },
+    "WithdrawalSummary": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ProcessingCount",
+          "type": "int64",
+          "tag": "json:\"processing_count\""
+        },
+        {
+          "name": "ProcessingAmountCents",
+          "type": "int64",
+          "tag": "json:\"processing_amount_cents\""
+        }
+      ]
+    },
+    "WithdrawalSummary.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WithdrawalSummary"
+    },
+    "WithdrawalSummary.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WithdrawalSummary"
+    },
+    "WithdrawalsService": {
+      "kind": "type",
+      "type": "struct"
+    },
+    "WithdrawalsService.Create": {
+      "kind": "method",
+      "type": "func(context.Context, *CreateWithdrawalParams, ...RequestOption) (*Withdrawal, error)",
+      "receiver": "*WithdrawalsService"
+    },
+    "WithdrawalsService.Get": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*Withdrawal, error)",
+      "receiver": "*WithdrawalsService"
+    },
+    "WithdrawalsService.GetAutomaticSettings": {
+      "kind": "method",
+      "type": "func(context.Context, ...RequestOption) (*AutomaticWithdrawalSettings, error)",
+      "receiver": "*WithdrawalsService"
+    },
+    "WithdrawalsService.GetLimits": {
+      "kind": "method",
+      "type": "func(context.Context, ...RequestOption) (*WithdrawalLimits, error)",
+      "receiver": "*WithdrawalsService"
+    },
+    "WithdrawalsService.GetSummary": {
+      "kind": "method",
+      "type": "func(context.Context, ...RequestOption) (*WithdrawalSummary, error)",
+      "receiver": "*WithdrawalsService"
+    },
+    "WithdrawalsService.List": {
+      "kind": "method",
+      "type": "func(context.Context, *ListWithdrawalsParams, ...RequestOption) (*WithdrawalListResponse, error)",
+      "receiver": "*WithdrawalsService"
+    },
+    "WithdrawalsService.ListAll": {
+      "kind": "method",
+      "type": "func(context.Context, *ListWithdrawalsParams, ...RequestOption) *Iterator[Withdrawal]",
+      "receiver": "*WithdrawalsService"
+    },
+    "WithdrawalsService.UpdateAutomaticSettings": {
+      "kind": "method",
+      "type": "func(context.Context, *UpdateAutomaticWithdrawalSettingsParams, ...RequestOption) (*AutomaticWithdrawalSettings, error)",
+      "receiver": "*WithdrawalsService"
+    }
+  }
+}

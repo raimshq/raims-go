@@ -1,0 +1,36 @@
+rules:
+  - id: raims.go.tls-validation-disabled
+    languages: [go]
+    severity: ERROR
+    message: Keep TLS certificate and hostname validation enabled.
+    pattern-either:
+      - pattern: "tls.Config{..., InsecureSkipVerify: true, ...}"
+      - pattern: $CONFIG.InsecureSkipVerify = true
+  - id: raims.go.global-http-configuration
+    languages: [go]
+    severity: ERROR
+    message: Configure HTTP clients without replacing process-global defaults.
+    pattern-either:
+      - pattern: http.DefaultClient = $CLIENT
+      - pattern: http.DefaultTransport = $TRANSPORT
+  - id: raims.go.shell-command
+    languages: [go]
+    severity: ERROR
+    message: Do not execute shell commands from the SDK.
+    patterns:
+      - pattern-either:
+          - pattern: exec.Command($SHELL, ...)
+          - pattern: exec.CommandContext($CONTEXT, $SHELL, ...)
+      - metavariable-regex:
+          metavariable: $SHELL
+          regex: (?i)["'](?:cmd(?:\.exe)?|powershell(?:\.exe)?|pwsh(?:\.exe)?|/bin/(?:sh|bash))["']
+  - id: raims.go.embedded-private-key
+    languages: [generic]
+    severity: ERROR
+    message: Load private keys from the application's secret store.
+    pattern-regex: '-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----[\s]+[A-Za-z0-9+/=]{32}'
+  - id: raims.go.embedded-github-token
+    languages: [generic]
+    severity: ERROR
+    message: Keep access tokens outside source files.
+    pattern-regex: '\b(?:gh[pousr]_[A-Za-z0-9]{36}|github_pat_[A-Za-z0-9_]{82})\b'

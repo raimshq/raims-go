@@ -67,7 +67,8 @@ do not pin a release in installation examples.
 This guidance belongs to the existing `raims-developer-docs` catalog used by
 Raims-Chat. The SDK does not change authenticated context, Dashboard permissions
 or financial query tools. This library does not require a context schema change.
-Keep the TODO item open until the sources are published, the catalog is
-regenerated and the guidance is validated in both languages. Do not present a
+Keep the corresponding item in the private workspace backlog, maintained outside
+Git, open until the sources are published, the catalog is regenerated and the
+guidance is validated in both languages. Do not present a
 local checkout as an available package. Do not index this repository's internal
 documents in the chat.

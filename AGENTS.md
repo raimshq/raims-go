@@ -3,6 +3,9 @@
 Read the README, CONTRIBUTING.md and docs/maintenance.md before changing the SDK.
 
 - Keep repository descriptions and Markdown documentation in English.
+- Keep internal TODO lists, backlogs, and roadmaps out of this public repository
+  and its packages. Track operational work in the private workspace backlog
+  maintained outside Git. Do not publish its contents, location, or links.
 - The module is `github.com/raimshq/raims-go`, with package `raims` and only
   standard library dependencies at runtime. Preserve the client that can be
   shared by goroutines, services grouped by resource and `context.Context` on

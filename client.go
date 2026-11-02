@@ -19,7 +19,7 @@ import (
 )
 
 // Version identifies this SDK in the HTTP User-Agent.
-const Version = "0.1.0"
+const Version = "0.1.1"
 
 // DefaultBaseURL is the origin of the Raims public API.
 const DefaultBaseURL = "https://api.raims.com"

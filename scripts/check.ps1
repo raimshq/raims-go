@@ -6,7 +6,7 @@ param(
 
 $ErrorActionPreference = 'Stop'
 $sdkRoot = [System.IO.Path]::GetFullPath((Join-Path $PSScriptRoot '..'))
-$workspaceRoot = [System.IO.Directory]::GetParent($sdkRoot).FullName
+$workspaceRoot = [System.IO.Path]::GetFullPath((Join-Path $sdkRoot $(if ([System.IO.File]::Exists((Join-Path $sdkRoot '../Developer-Toolkit/scripts/release-preflight/go_sdk.py'))) { '..' } else { '../..' })))
 $validator = Join-Path $workspaceRoot 'Developer-Toolkit\scripts\release-preflight\go_sdk.py'
 if (-not [System.IO.File]::Exists($validator)) {
     throw 'O validador canônico do Developer Toolkit não está disponível no workspace. Consulte CONTRIBUTING.md.'

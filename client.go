@@ -19,7 +19,7 @@ import (
 )
 
 // Version identifies this SDK in the HTTP User-Agent.
-const Version = "0.1.1"
+const Version = "0.1.2"
 
 // DefaultBaseURL is the origin of the Raims public API.
 const DefaultBaseURL = "https://api.raims.com"
@@ -517,9 +517,6 @@ func (c *Client) execute(ctx context.Context, key string, paths map[string]strin
 
 func responseMetadata(response *http.Response) *Response {
 	requestID := response.Header.Get("Request-Id")
-	if requestID == "" {
-		requestID = response.Header.Get("X-Request-Id")
-	}
 	return &Response{StatusCode: response.StatusCode, RequestID: requestID, RetryAfter: parseRetryAfter(response.Header.Get("Retry-After"), time.Now()), IdempotencyReplayed: strings.EqualFold(response.Header.Get("Idempotency-Replayed"), "true")}
 }
 

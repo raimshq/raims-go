@@ -928,7 +928,7 @@ func (v CheckoutSettings) MarshalJSON() ([]byte, error) {
 
 // CreateChargeParams contains the fields defined by the public API.
 type CreateChargeParams struct {
-	// CustomerID ID de um cliente da empresa e do ambiente autenticado. Copie o id retornado no cadastro ou na consulta. Pix direto exige CPF/CNPJ válido. Boleto direto exige nome, e-mail válido, CPF/CNPJ e endereço, incluindo CEP e número; complete esses dados no cadastro do cliente.
+	// CustomerID ID de um cliente da empresa e do ambiente autenticado. Use o id retornado no cadastro assim que receber a resposta ou consulte o cliente pelo ID. Pix direto exige CPF/CNPJ válido. Boleto direto exige nome, e-mail válido, CPF/CNPJ e endereço, incluindo CEP e número.
 	CustomerID Optional[string] `json:"customer_id,omitzero"`
 	// AmountCents Valor da cobrança em centavos de real. Por exemplo, 10000 representa R$ 100,00.
 	AmountCents Optional[int64] `json:"amount_cents,omitzero"`
@@ -1602,11 +1602,11 @@ type ListChargesParams struct {
 	Identifier Optional[string] `json:"identifier,omitzero"`
 	// CustomerID Filtra pelo ID público completo do cliente, retornado no cadastro ou na consulta. O vínculo permanece o mesmo se nome ou e-mail mudar. Pode ser combinado com os demais filtros; mantenha o mesmo customer_id ao mudar de página. Um ID válido sem cobranças na empresa e no ambiente autenticado retorna list vazio. Vazio ou ausência não aplica o filtro. Comprimento máximo: 100. Exemplo: "cus_1Q2W3E4R5T6Y7U8I9O0P".
 	CustomerID Optional[string] `json:"customer_id,omitzero"`
-	// ExternalReference Filtra pela referência atual da cobrança no seu sistema, com igualdade do valor completo, incluindo maiúsculas, minúsculas e acentos. Vazio ou ausência não aplica o filtro. Pode ser combinado com os demais filtros; preserve o valor ao navegar por cursor. Após criar ou editar uma cobrança, pode levar alguns segundos para a busca refletir a referência. Comprimento máximo: 120. Exemplo: "pedido_12345".
+	// ExternalReference Filtra pela referência atual da cobrança no seu sistema. Compara o valor completo, com distinção de maiúsculas, minúsculas e acentos. Cobranças novas ou alteradas podem ficar temporariamente fora dos resultados. Vazio ou ausência ignora o filtro. Mantenha o valor ao navegar por cursor. Comprimento máximo: 120. Exemplo: "pedido_12345".
 	ExternalReference Optional[string] `json:"external_reference,omitzero"`
 	// Email Filtra pelo e-mail completo registrado na cobrança. Alterar o cadastro do cliente não altera esse e-mail. Comprimento máximo: 254. Exemplo: "cliente@example.com".
 	Email Optional[string] `json:"email,omitzero"`
-	// Status Filtra por um ou mais códigos separados por vírgula, como 0,1. 0 criado, 1 aguardando pagamento, 2 autorizado, 3 em processamento, 4 pago, 5 parcialmente devolvido, 6 devolvido, 7 cancelado, 8 expirado, 9 falha, 10 chargeback, 11 chargeback em análise, 12 chargeback perdido e 13 chargeback ganho. Pode levar alguns segundos para refletir alterações. Comprimento máximo: 64. Exemplo: "0,1".
+	// Status Filtra por um ou mais códigos separados por vírgula, como 0,1. 0 criado, 1 aguardando pagamento, 2 autorizado, 3 em processamento, 4 pago, 5 parcialmente devolvido, 6 devolvido, 7 cancelado, 8 expirado, 9 falha, 10 chargeback, 11 chargeback em análise, 12 chargeback perdido e 13 chargeback ganho. A busca pode demorar a refletir o status atual. Comprimento máximo: 64. Exemplo: "0,1".
 	Status Optional[string] `json:"status,omitzero"`
 	// PaymentMethod Filtra pelo meio de pagamento da cobrança: 1 para Pix e 2 para boleto. Para combinar, envie 1,2. Uma cobrança com meio indefinido pode passar a usar Pix ou boleto quando o código Pix ou boleto é gerado no checkout. A seleção na tela, por si só, não altera o filtro. Comprimento máximo: 32. Exemplo: "1,2".
 	PaymentMethod Optional[string] `json:"payment_method,omitzero"`
@@ -1638,13 +1638,13 @@ type ListCustomersParams struct {
 	Before Optional[string] `json:"before,omitzero"`
 	// Identifier Identificador público do cliente, com prefixo cus_. Comprimento máximo: 100. Exemplo: "cus_3AbHiWSrsZBoaTg47OcMzC".
 	Identifier Optional[string] `json:"identifier,omitzero"`
-	// Name Busca pelo nome do cliente, com os cadastros mais recentes primeiro. Deixe vazio para ignorar este filtro. Comprimento mínimo: 2. Comprimento máximo: 120. Exemplo: "Maria Silva".
+	// Name Busca pelo nome do cliente, com os cadastros mais recentes primeiro. Cadastros novos ou alterados podem ficar temporariamente fora dos resultados. Após renomear um cliente, a busca pelo nome anterior ainda pode devolver o cadastro com o nome novo. Deixe vazio para ignorar este filtro. Comprimento mínimo: 2. Comprimento máximo: 120. Exemplo: "Maria Silva".
 	Name Optional[string] `json:"name,omitzero"`
 	// Email Filtra pelo e-mail completo do cliente. Comprimento máximo: 254. Exemplo: "cliente@example.com".
 	Email Optional[string] `json:"email,omitzero"`
 	// Document Filtra pelo CPF ou CNPJ completo do cliente, com ou sem pontos, barra, hífen e espaços. Comprimento máximo: 20. Exemplo: "12345678909".
 	Document Optional[string] `json:"document,omitzero"`
-	// ExternalReference Filtra pela referência atual do cliente no seu sistema, com igualdade do valor completo, incluindo maiúsculas, minúsculas e acentos. Pode ser combinada com os demais filtros. Após criar ou editar o cliente, a busca pode levar alguns segundos para refletir a referência. Mantenha o valor ao navegar por cursor. Comprimento máximo: 120. Exemplo: "cliente_12345".
+	// ExternalReference Filtra pela referência atual do cliente no seu sistema. Compara o valor completo, com distinção de maiúsculas, minúsculas e acentos. Cadastros novos ou alterados podem ficar temporariamente fora dos resultados. Mantenha o valor ao navegar por cursor. Comprimento máximo: 120. Exemplo: "cliente_12345".
 	ExternalReference Optional[string] `json:"external_reference,omitzero"`
 }
 
@@ -2286,7 +2286,7 @@ func (v RevokeChargeResult) MarshalJSON() ([]byte, error) {
 
 // RotateWebhookSecretParams Prazo de transição entre os segredos de assinatura.
 type RotateWebhookSecretParams struct {
-	// GracePeriodSeconds Período em que o segredo anterior pode continuar assinando envios. Zero gera uma nova assinatura e encerra a validade dos segredos anteriores, inclusive durante uma transição ativa. Requisições já autorizadas ou em andamento podem chegar com a assinatura anterior.
+	// GracePeriodSeconds Período em que o segredo anterior pode continuar assinando envios. Zero gera um novo segredo e encerra a validade dos segredos anteriores, inclusive durante uma transição ativa. Requisições já autorizadas ou em andamento podem chegar com a assinatura anterior.
 	GracePeriodSeconds Optional[int64] `json:"grace_period_seconds,omitzero"`
 }
 

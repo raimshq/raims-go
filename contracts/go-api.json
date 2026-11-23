@@ -2192,6 +2192,36 @@
         }
       ]
     },
+    "CreateWebhookParamsEventsItemAccountRestored": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"account.restored\""
+    },
+    "CreateWebhookParamsEventsItemBalanceHoldCreated": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"balance.hold.created\""
+    },
+    "CreateWebhookParamsEventsItemBalanceHoldReleased": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"balance.hold.released\""
+    },
+    "CreateWebhookParamsEventsItemBoletoAvailable": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto.available\""
+    },
+    "CreateWebhookParamsEventsItemBoletoCompensated": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto.compensated\""
+    },
+    "CreateWebhookParamsEventsItemBoletoIssuanceFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto.issuance_failed\""
+    },
     "CreateWebhookParamsEventsItemChargeCanceled": {
       "kind": "const",
       "type": "untyped string",
@@ -2202,15 +2232,95 @@
       "type": "untyped string",
       "value": "\"charge.created\""
     },
+    "CreateWebhookParamsEventsItemChargeExpired": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"charge.expired\""
+    },
     "CreateWebhookParamsEventsItemChargeFailed": {
       "kind": "const",
       "type": "untyped string",
       "value": "\"charge.failed\""
     },
+    "CreateWebhookParamsEventsItemChargeFullyRefunded": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"charge.fully_refunded\""
+    },
     "CreateWebhookParamsEventsItemChargePaid": {
       "kind": "const",
       "type": "untyped string",
       "value": "\"charge.paid\""
+    },
+    "CreateWebhookParamsEventsItemChargeUpdated": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"charge.updated\""
+    },
+    "CreateWebhookParamsEventsItemCustomerCreated": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"customer.created\""
+    },
+    "CreateWebhookParamsEventsItemCustomerDeleted": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"customer.deleted\""
+    },
+    "CreateWebhookParamsEventsItemCustomerUpdated": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"customer.updated\""
+    },
+    "CreateWebhookParamsEventsItemDisputeClosed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"dispute.closed\""
+    },
+    "CreateWebhookParamsEventsItemDisputeFundsDebited": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"dispute.funds_debited\""
+    },
+    "CreateWebhookParamsEventsItemDisputeOpened": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"dispute.opened\""
+    },
+    "CreateWebhookParamsEventsItemDisputeUpdated": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"dispute.updated\""
+    },
+    "CreateWebhookParamsEventsItemPaymentLinkCreated": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"payment_link.created\""
+    },
+    "CreateWebhookParamsEventsItemPaymentLinkUpdated": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"payment_link.updated\""
+    },
+    "CreateWebhookParamsEventsItemPixAvailable": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix.available\""
+    },
+    "CreateWebhookParamsEventsItemPixIssuanceFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix.issuance_failed\""
+    },
+    "CreateWebhookParamsEventsItemPixRefundReceived": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix_refund.received\""
+    },
+    "CreateWebhookParamsEventsItemRefundAccepted": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"refund.accepted\""
     },
     "CreateWebhookParamsEventsItemRefundCompleted": {
       "kind": "const",
@@ -2226,6 +2336,36 @@
       "kind": "const",
       "type": "untyped string",
       "value": "\"refund.requested\""
+    },
+    "CreateWebhookParamsEventsItemStatementCreated": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"statement.created\""
+    },
+    "CreateWebhookParamsEventsItemTedReceived": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"ted.received\""
+    },
+    "CreateWebhookParamsEventsItemWithdrawalAccepted": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"withdrawal.accepted\""
+    },
+    "CreateWebhookParamsEventsItemWithdrawalCompleted": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"withdrawal.completed\""
+    },
+    "CreateWebhookParamsEventsItemWithdrawalFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"withdrawal.failed\""
+    },
+    "CreateWebhookParamsEventsItemWithdrawalRequested": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"withdrawal.requested\""
     },
     "CreateWithdrawalParams": {
       "kind": "type",
@@ -5527,7 +5667,7 @@
     "Version": {
       "kind": "const",
       "type": "untyped string",
-      "value": "\"0.1.2\""
+      "value": "\"0.1.3\""
     },
     "Webhook": {
       "kind": "type",
@@ -5745,6 +5885,36 @@
       "type": "func([]byte) error",
       "receiver": "*WebhookEventType"
     },
+    "WebhookEventTypeCodeAccountRestored": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"account.restored\""
+    },
+    "WebhookEventTypeCodeBalanceHoldCreated": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"balance.hold.created\""
+    },
+    "WebhookEventTypeCodeBalanceHoldReleased": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"balance.hold.released\""
+    },
+    "WebhookEventTypeCodeBoletoAvailable": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto.available\""
+    },
+    "WebhookEventTypeCodeBoletoCompensated": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto.compensated\""
+    },
+    "WebhookEventTypeCodeBoletoIssuanceFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto.issuance_failed\""
+    },
     "WebhookEventTypeCodeChargeCanceled": {
       "kind": "const",
       "type": "untyped string",
@@ -5755,15 +5925,95 @@
       "type": "untyped string",
       "value": "\"charge.created\""
     },
+    "WebhookEventTypeCodeChargeExpired": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"charge.expired\""
+    },
     "WebhookEventTypeCodeChargeFailed": {
       "kind": "const",
       "type": "untyped string",
       "value": "\"charge.failed\""
     },
+    "WebhookEventTypeCodeChargeFullyRefunded": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"charge.fully_refunded\""
+    },
     "WebhookEventTypeCodeChargePaid": {
       "kind": "const",
       "type": "untyped string",
       "value": "\"charge.paid\""
+    },
+    "WebhookEventTypeCodeChargeUpdated": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"charge.updated\""
+    },
+    "WebhookEventTypeCodeCustomerCreated": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"customer.created\""
+    },
+    "WebhookEventTypeCodeCustomerDeleted": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"customer.deleted\""
+    },
+    "WebhookEventTypeCodeCustomerUpdated": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"customer.updated\""
+    },
+    "WebhookEventTypeCodeDisputeClosed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"dispute.closed\""
+    },
+    "WebhookEventTypeCodeDisputeFundsDebited": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"dispute.funds_debited\""
+    },
+    "WebhookEventTypeCodeDisputeOpened": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"dispute.opened\""
+    },
+    "WebhookEventTypeCodeDisputeUpdated": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"dispute.updated\""
+    },
+    "WebhookEventTypeCodePaymentLinkCreated": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"payment_link.created\""
+    },
+    "WebhookEventTypeCodePaymentLinkUpdated": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"payment_link.updated\""
+    },
+    "WebhookEventTypeCodePixAvailable": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix.available\""
+    },
+    "WebhookEventTypeCodePixIssuanceFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix.issuance_failed\""
+    },
+    "WebhookEventTypeCodePixRefundReceived": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix_refund.received\""
+    },
+    "WebhookEventTypeCodeRefundAccepted": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"refund.accepted\""
     },
     "WebhookEventTypeCodeRefundCompleted": {
       "kind": "const",
@@ -5779,6 +6029,36 @@
       "kind": "const",
       "type": "untyped string",
       "value": "\"refund.requested\""
+    },
+    "WebhookEventTypeCodeStatementCreated": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"statement.created\""
+    },
+    "WebhookEventTypeCodeTedReceived": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"ted.received\""
+    },
+    "WebhookEventTypeCodeWithdrawalAccepted": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"withdrawal.accepted\""
+    },
+    "WebhookEventTypeCodeWithdrawalCompleted": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"withdrawal.completed\""
+    },
+    "WebhookEventTypeCodeWithdrawalFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"withdrawal.failed\""
+    },
+    "WebhookEventTypeCodeWithdrawalRequested": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"withdrawal.requested\""
     },
     "WebhookEventTypeListResponse": {
       "kind": "type",

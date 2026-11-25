@@ -436,6 +436,125 @@ func (s *WebhooksService) Test(ctx context.Context, webhook_id string, options .
 	return request[WebhookTestAccepted](ctx, s.client, "TestWebhook", map[string]string{"webhook_id": webhook_id}, nil, options...)
 }
 
+// WebhookEventsService provides the endpoints available through Client.WebhookEvents.
+type WebhookEventsService struct{ client *Client }
+
+// List Listar eventos de webhook
+func (s *WebhookEventsService) List(ctx context.Context, params *ListWebhookEventsParams, options ...RequestOption) (*WebhookEventListResponse, error) {
+	return request[WebhookEventListResponse](ctx, s.client, "ListWebhookEvents", nil, params, options...)
+}
+
+// ListAll lazily follows forward cursors and preserves the original filters.
+func (s *WebhookEventsService) ListAll(ctx context.Context, params *ListWebhookEventsParams, options ...RequestOption) *Iterator[WebhookEvent] {
+	return newIterator[WebhookEvent](ctx, s.client, "ListWebhookEvents", nil, params, options...)
+}
+
+func (v *WebhookEventListResponse) pagination() pageInfo {
+	return pageInfo{HasNext: v.Page.HasNext, HasPrevious: v.Page.HasPrevious, NextAfter: v.Page.NextAfter, PreviousBefore: v.Page.PreviousBefore}
+}
+
+// NextPage loads the next page with the original filters and request options.
+// It returns nil when there is no continuation. The context controls the new request.
+func (v *WebhookEventListResponse) NextPage(ctx context.Context) (*WebhookEventListResponse, error) {
+	return fetchPage[WebhookEventListResponse](ctx, &v.Resource, v.pagination(), false)
+}
+
+// PreviousPage loads the previous page with the original filters and request options.
+// It returns nil when there is no previous page. The context controls the new request.
+func (v *WebhookEventListResponse) PreviousPage(ctx context.Context) (*WebhookEventListResponse, error) {
+	return fetchPage[WebhookEventListResponse](ctx, &v.Resource, v.pagination(), true)
+}
+
+// Get Recuperar um evento de webhook
+func (s *WebhookEventsService) Get(ctx context.Context, event_id string, options ...RequestOption) (*WebhookEventDetail, error) {
+	return request[WebhookEventDetail](ctx, s.client, "GetWebhookEvent", map[string]string{"event_id": event_id}, nil, options...)
+}
+
+// Deliver Enviar um evento para um webhook
+func (s *WebhookEventsService) Deliver(ctx context.Context, event_id string, params *DeliverWebhookEventParams, options ...RequestOption) (*WebhookDeliveryResendAccepted, error) {
+	return request[WebhookDeliveryResendAccepted](ctx, s.client, "DeliverWebhookEvent", map[string]string{"event_id": event_id}, params, options...)
+}
+
+// WebhookDeliveriesService provides the endpoints available through Client.WebhookDeliveries.
+type WebhookDeliveriesService struct{ client *Client }
+
+// List Listar entregas de webhooks
+func (s *WebhookDeliveriesService) List(ctx context.Context, params *ListWebhookDeliveriesParams, options ...RequestOption) (*WebhookDeliveryListResponse, error) {
+	return request[WebhookDeliveryListResponse](ctx, s.client, "ListWebhookDeliveries", nil, params, options...)
+}
+
+// ListAll lazily follows forward cursors and preserves the original filters.
+func (s *WebhookDeliveriesService) ListAll(ctx context.Context, params *ListWebhookDeliveriesParams, options ...RequestOption) *Iterator[WebhookDelivery] {
+	return newIterator[WebhookDelivery](ctx, s.client, "ListWebhookDeliveries", nil, params, options...)
+}
+
+func (v *WebhookDeliveryListResponse) pagination() pageInfo {
+	return pageInfo{HasNext: v.Page.HasNext, HasPrevious: v.Page.HasPrevious, NextAfter: v.Page.NextAfter, PreviousBefore: v.Page.PreviousBefore}
+}
+
+// NextPage loads the next page with the original filters and request options.
+// It returns nil when there is no continuation. The context controls the new request.
+func (v *WebhookDeliveryListResponse) NextPage(ctx context.Context) (*WebhookDeliveryListResponse, error) {
+	return fetchPage[WebhookDeliveryListResponse](ctx, &v.Resource, v.pagination(), false)
+}
+
+// PreviousPage loads the previous page with the original filters and request options.
+// It returns nil when there is no previous page. The context controls the new request.
+func (v *WebhookDeliveryListResponse) PreviousPage(ctx context.Context) (*WebhookDeliveryListResponse, error) {
+	return fetchPage[WebhookDeliveryListResponse](ctx, &v.Resource, v.pagination(), true)
+}
+
+// Get Recuperar uma entrega
+func (s *WebhookDeliveriesService) Get(ctx context.Context, delivery_id string, options ...RequestOption) (*WebhookDelivery, error) {
+	return request[WebhookDelivery](ctx, s.client, "GetWebhookDelivery", map[string]string{"delivery_id": delivery_id}, nil, options...)
+}
+
+// ListAttempts Listar as tentativas de uma entrega
+func (s *WebhookDeliveriesService) ListAttempts(ctx context.Context, delivery_id string, params *ListWebhookDeliveryAttemptsParams, options ...RequestOption) (*WebhookAttemptListResponse, error) {
+	return request[WebhookAttemptListResponse](ctx, s.client, "ListWebhookDeliveryAttempts", map[string]string{"delivery_id": delivery_id}, params, options...)
+}
+
+// ListAttemptsAll lazily follows forward cursors and preserves the original filters.
+func (s *WebhookDeliveriesService) ListAttemptsAll(ctx context.Context, delivery_id string, params *ListWebhookDeliveryAttemptsParams, options ...RequestOption) *Iterator[WebhookAttempt] {
+	return newIterator[WebhookAttempt](ctx, s.client, "ListWebhookDeliveryAttempts", map[string]string{"delivery_id": delivery_id}, params, options...)
+}
+
+func (v *WebhookAttemptListResponse) pagination() pageInfo {
+	return pageInfo{HasNext: v.Page.HasNext, HasPrevious: v.Page.HasPrevious, NextAfter: v.Page.NextAfter, PreviousBefore: v.Page.PreviousBefore}
+}
+
+// NextPage loads the next page with the original filters and request options.
+// It returns nil when there is no continuation. The context controls the new request.
+func (v *WebhookAttemptListResponse) NextPage(ctx context.Context) (*WebhookAttemptListResponse, error) {
+	return fetchPage[WebhookAttemptListResponse](ctx, &v.Resource, v.pagination(), false)
+}
+
+// PreviousPage loads the previous page with the original filters and request options.
+// It returns nil when there is no previous page. The context controls the new request.
+func (v *WebhookAttemptListResponse) PreviousPage(ctx context.Context) (*WebhookAttemptListResponse, error) {
+	return fetchPage[WebhookAttemptListResponse](ctx, &v.Resource, v.pagination(), true)
+}
+
+// GetAttempt Recuperar uma tentativa
+func (s *WebhookDeliveriesService) GetAttempt(ctx context.Context, delivery_id string, attempt_id string, options ...RequestOption) (*WebhookAttemptDetail, error) {
+	return request[WebhookAttemptDetail](ctx, s.client, "GetWebhookDeliveryAttempt", map[string]string{"delivery_id": delivery_id, "attempt_id": attempt_id}, nil, options...)
+}
+
+// Advance Antecipar próxima tentativa
+func (s *WebhookDeliveriesService) Advance(ctx context.Context, delivery_id string, options ...RequestOption) (*WebhookAdvanceAccepted, error) {
+	return request[WebhookAdvanceAccepted](ctx, s.client, "AdvanceWebhookDelivery", map[string]string{"delivery_id": delivery_id}, nil, options...)
+}
+
+// Resend Reenviar um evento
+func (s *WebhookDeliveriesService) Resend(ctx context.Context, delivery_id string, options ...RequestOption) (*WebhookDeliveryResendAccepted, error) {
+	return request[WebhookDeliveryResendAccepted](ctx, s.client, "ResendWebhookDelivery", map[string]string{"delivery_id": delivery_id}, nil, options...)
+}
+
+// ResendMany Reenviar várias entregas
+func (s *WebhookDeliveriesService) ResendMany(ctx context.Context, params *ResendWebhookDeliveriesParams, options ...RequestOption) (*WebhookBulkResendAccepted, error) {
+	return request[WebhookBulkResendAccepted](ctx, s.client, "ResendWebhookDeliveries", nil, params, options...)
+}
+
 // WithdrawalDestinationsService provides the endpoints available through Client.WithdrawalDestinations.
 type WithdrawalDestinationsService struct{ client *Client }
 

@@ -19,7 +19,7 @@ import (
 )
 
 // Version identifies this SDK in the HTTP User-Agent.
-const Version = "0.1.3"
+const Version = "0.2.0"
 
 // DefaultBaseURL is the origin of the Raims public API.
 const DefaultBaseURL = "https://api.raims.com"
@@ -50,6 +50,10 @@ type Client struct {
 	WebhookEventTypes *WebhookEventTypesService
 	// Webhooks provides webhook subscriptions, health, pause, tests and secret rotation.
 	Webhooks *WebhooksService
+	// WebhookEvents lists, reads and delivers webhook events.
+	WebhookEvents *WebhookEventsService
+	// WebhookDeliveries provides delivery history, attempts and delivery controls.
+	WebhookDeliveries *WebhookDeliveriesService
 	// WithdrawalDestinations provides the configured withdrawal destinations.
 	WithdrawalDestinations *WithdrawalDestinationsService
 	// Withdrawals provides withdrawals, limits, summaries and automatic settings.
@@ -258,6 +262,20 @@ func WithRequestTimeout(timeout time.Duration) RequestOption {
 		return nil
 	}
 }
+func matchesPathPattern(pattern, value string) bool {
+	// OpenAPI uses a lookahead to disallow the nil UUID. Go's regexp does not
+	// implement lookaheads, so check that condition before compiling the shape.
+	const nilUUID = "00000000-0000-0000-0000-000000000000"
+	if shape, remaining := strings.CutPrefix(pattern, "^(?!"+nilUUID+"$)"); remaining {
+		if value == nilUUID {
+			return false
+		}
+		pattern = "^" + shape
+	}
+	expression, err := regexp.Compile(pattern)
+	return err == nil && expression.MatchString(value)
+}
+
 func visibleASCII(value string) bool {
 	for i := 0; i < len(value); i++ {
 		if value[i] < 33 || value[i] > 126 {
@@ -339,11 +357,8 @@ func (c *Client) execute(ctx context.Context, key string, paths map[string]strin
 		if value == "" || !visibleASCII(value) || strings.ContainsAny(value, "/\\?#%") || value == "." || value == ".." {
 			return nil, &ValidationError{Field: "path parameter", Reason: "is invalid"}
 		}
-		if spec.Pattern != "" {
-			expression, err := regexp.Compile(spec.Pattern)
-			if err != nil || !expression.MatchString(value) {
-				return nil, &ValidationError{Field: "path parameter", Reason: "does not match the public format"}
-			}
+		if spec.Pattern != "" && !matchesPathPattern(spec.Pattern, value) {
+			return nil, &ValidationError{Field: "path parameter", Reason: "does not match the public format"}
 		}
 		path = strings.ReplaceAll(path, "{"+name+"}", url.PathEscape(value))
 	}

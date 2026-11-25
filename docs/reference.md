@@ -54,6 +54,16 @@ Generated from the pinned public contract. `Params` uses `Set(value)` to send a 
 | `Webhooks.SetPause` | `PATCH /v1/webhooks/{webhook_id}/pause` | `SetWebhookPauseParams` | `WebhookPause` | 200 | Sandbox, Production | Yes |
 | `Webhooks.RotateSecret` | `POST /v1/webhooks/{webhook_id}/rotate_secret` | `RotateWebhookSecretParams` | `WebhookSecretRotation` | 200 | Sandbox, Production | Yes |
 | `Webhooks.Test` | `POST /v1/webhooks/{webhook_id}/test` | `none` | `WebhookTestAccepted` | 202 | Sandbox, Production | Yes |
+| `WebhookEvents.List` | `GET /v1/webhook_events` | `ListWebhookEventsParams` | `WebhookEventListResponse` | 200 | Sandbox, Production | No |
+| `WebhookEvents.Get` | `GET /v1/webhook_events/{event_id}` | `none` | `WebhookEventDetail` | 200 | Sandbox, Production | No |
+| `WebhookEvents.Deliver` | `POST /v1/webhook_events/{event_id}/deliveries` | `DeliverWebhookEventParams` | `WebhookDeliveryResendAccepted` | 202 | Sandbox, Production | Yes |
+| `WebhookDeliveries.List` | `GET /v1/webhook_deliveries` | `ListWebhookDeliveriesParams` | `WebhookDeliveryListResponse` | 200 | Sandbox, Production | No |
+| `WebhookDeliveries.Get` | `GET /v1/webhook_deliveries/{delivery_id}` | `none` | `WebhookDelivery` | 200 | Sandbox, Production | No |
+| `WebhookDeliveries.ListAttempts` | `GET /v1/webhook_deliveries/{delivery_id}/attempts` | `ListWebhookDeliveryAttemptsParams` | `WebhookAttemptListResponse` | 200 | Sandbox, Production | No |
+| `WebhookDeliveries.GetAttempt` | `GET /v1/webhook_deliveries/{delivery_id}/attempts/{attempt_id}` | `none` | `WebhookAttemptDetail` | 200 | Sandbox, Production | No |
+| `WebhookDeliveries.Advance` | `POST /v1/webhook_deliveries/{delivery_id}/advance` | `none` | `WebhookAdvanceAccepted` | 202 | Sandbox, Production | Yes |
+| `WebhookDeliveries.Resend` | `POST /v1/webhook_deliveries/{delivery_id}/resend` | `none` | `WebhookDeliveryResendAccepted` | 202 | Sandbox, Production | Yes |
+| `WebhookDeliveries.ResendMany` | `POST /v1/webhook_deliveries/resend` | `ResendWebhookDeliveriesParams` | `WebhookBulkResendAccepted` | 202 | Sandbox, Production | Yes |
 | `WithdrawalDestinations.List` | `GET /v1/withdrawal_destinations` | `ListWithdrawalDestinationsParams` | `WithdrawalDestinationListResponse` | 200 | Production | No |
 | `WithdrawalDestinations.Get` | `GET /v1/withdrawal_destinations/{id}` | `none` | `WithdrawalDestination` | 200 | Production | No |
 | `Withdrawals.Create` | `POST /v1/withdrawals` | `CreateWithdrawalParams` | `Withdrawal` | 200, 202 | Production | Yes |

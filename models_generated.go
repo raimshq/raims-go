@@ -136,6 +136,40 @@ func (v AccountNumber) MarshalJSON() ([]byte, error) {
 	return encodeResource(v.Resource, plain(v), "AccountNumber")
 }
 
+// AccountRestoredWebhookEvent contains the fields defined by the public API.
+type AccountRestoredWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data AccountRestoredWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public AccountRestoredWebhookEvent response.
+func (v *AccountRestoredWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain AccountRestoredWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "AccountRestoredWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = AccountRestoredWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v AccountRestoredWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain AccountRestoredWebhookEvent
+	return encodeResource(v.Resource, plain(v), "AccountRestoredWebhookEvent")
+}
+
 // AutomaticWithdrawalSettings Configuração da tentativa diária de saque para o destino próprio da empresa.
 type AutomaticWithdrawalSettings struct {
 	Resource `json:"-"`
@@ -236,6 +270,244 @@ func (v BalanceForecast) MarshalJSON() ([]byte, error) {
 	return encodeResource(v.Resource, plain(v), "BalanceForecast")
 }
 
+// BalanceHoldCreatedWebhookEvent contains the fields defined by the public API.
+type BalanceHoldCreatedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data BalanceHoldCreatedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public BalanceHoldCreatedWebhookEvent response.
+func (v *BalanceHoldCreatedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain BalanceHoldCreatedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "BalanceHoldCreatedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = BalanceHoldCreatedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v BalanceHoldCreatedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain BalanceHoldCreatedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "BalanceHoldCreatedWebhookEvent")
+}
+
+// BalanceHoldReleasedWebhookEvent contains the fields defined by the public API.
+type BalanceHoldReleasedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data BalanceHoldReleasedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public BalanceHoldReleasedWebhookEvent response.
+func (v *BalanceHoldReleasedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain BalanceHoldReleasedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "BalanceHoldReleasedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = BalanceHoldReleasedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v BalanceHoldReleasedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain BalanceHoldReleasedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "BalanceHoldReleasedWebhookEvent")
+}
+
+// BoletoAvailableWebhookEvent contains the fields defined by the public API.
+type BoletoAvailableWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data BoletoAvailableWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public BoletoAvailableWebhookEvent response.
+func (v *BoletoAvailableWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain BoletoAvailableWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "BoletoAvailableWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = BoletoAvailableWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v BoletoAvailableWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain BoletoAvailableWebhookEvent
+	return encodeResource(v.Resource, plain(v), "BoletoAvailableWebhookEvent")
+}
+
+// BoletoCompensatedWebhookEvent contains the fields defined by the public API.
+type BoletoCompensatedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data BoletoCompensatedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public BoletoCompensatedWebhookEvent response.
+func (v *BoletoCompensatedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain BoletoCompensatedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "BoletoCompensatedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = BoletoCompensatedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v BoletoCompensatedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain BoletoCompensatedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "BoletoCompensatedWebhookEvent")
+}
+
+// BoletoIssuanceFailedWebhookEvent contains the fields defined by the public API.
+type BoletoIssuanceFailedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data BoletoIssuanceFailedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public BoletoIssuanceFailedWebhookEvent response.
+func (v *BoletoIssuanceFailedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain BoletoIssuanceFailedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "BoletoIssuanceFailedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = BoletoIssuanceFailedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v BoletoIssuanceFailedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain BoletoIssuanceFailedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "BoletoIssuanceFailedWebhookEvent")
+}
+
+// BoletoOverpaymentReceivedWebhookEvent contains the fields defined by the public API.
+type BoletoOverpaymentReceivedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data BoletoOverpaymentReceivedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public BoletoOverpaymentReceivedWebhookEvent response.
+func (v *BoletoOverpaymentReceivedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain BoletoOverpaymentReceivedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "BoletoOverpaymentReceivedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = BoletoOverpaymentReceivedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v BoletoOverpaymentReceivedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain BoletoOverpaymentReceivedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "BoletoOverpaymentReceivedWebhookEvent")
+}
+
+// BoletoPartialSettlementDetectedWebhookEvent contains the fields defined by the public API.
+type BoletoPartialSettlementDetectedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data BoletoPartialSettlementDetectedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public BoletoPartialSettlementDetectedWebhookEvent response.
+func (v *BoletoPartialSettlementDetectedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain BoletoPartialSettlementDetectedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "BoletoPartialSettlementDetectedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = BoletoPartialSettlementDetectedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v BoletoPartialSettlementDetectedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain BoletoPartialSettlementDetectedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "BoletoPartialSettlementDetectedWebhookEvent")
+}
+
 // Charge contains the fields defined by the public API.
 type Charge struct {
 	Resource `json:"-"`
@@ -271,6 +543,8 @@ type Charge struct {
 	ExternalReference *string `json:"external_reference"`
 	// Metadata Dados de integração associados ao recurso. Retorna {} quando não há valores. Esse mapa não é usado como filtro de busca nem incluído automaticamente nos eventos de webhook.
 	Metadata map[string]string `json:"metadata"`
+	// BoletoSettlement is defined by the public API.
+	BoletoSettlement *ChargeBoletoSettlement `json:"boleto_settlement"`
 }
 
 // UnmarshalJSON validates and reads the public Charge response.
@@ -354,6 +628,70 @@ func (v ChargeBoletoPaymentInformation) MarshalJSON() ([]byte, error) {
 	return encodeResource(v.Resource, plain(v), "ChargeBoletoPaymentInformation")
 }
 
+// ChargeBoletoSettlement contains the fields defined by the public API.
+type ChargeBoletoSettlement struct {
+	Resource `json:"-"`
+	// ObservedAmountCents is defined by the public API.
+	ObservedAmountCents *int64 `json:"observed_amount_cents"`
+	// ConfirmedTotalCents is defined by the public API.
+	ConfirmedTotalCents *int64 `json:"confirmed_total_cents"`
+	// OverpaymentCents is defined by the public API.
+	OverpaymentCents *int64 `json:"overpayment_cents"`
+}
+
+// UnmarshalJSON validates and reads the public ChargeBoletoSettlement response.
+func (v *ChargeBoletoSettlement) UnmarshalJSON(data []byte) error {
+	type plain ChargeBoletoSettlement
+	var decoded plain
+	resource, err := decodeResource(data, "ChargeBoletoSettlement", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = ChargeBoletoSettlement(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v ChargeBoletoSettlement) MarshalJSON() ([]byte, error) {
+	type plain ChargeBoletoSettlement
+	return encodeResource(v.Resource, plain(v), "ChargeBoletoSettlement")
+}
+
+// ChargeCanceledWebhookEvent contains the fields defined by the public API.
+type ChargeCanceledWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data ChargeCanceledWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public ChargeCanceledWebhookEvent response.
+func (v *ChargeCanceledWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain ChargeCanceledWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "ChargeCanceledWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = ChargeCanceledWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v ChargeCanceledWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain ChargeCanceledWebhookEvent
+	return encodeResource(v.Resource, plain(v), "ChargeCanceledWebhookEvent")
+}
+
 // ChargeCreated contains the fields defined by the public API.
 type ChargeCreated struct {
 	Resource `json:"-"`
@@ -404,6 +742,142 @@ func (v *ChargeCreated) UnmarshalJSON(data []byte) error {
 func (v ChargeCreated) MarshalJSON() ([]byte, error) {
 	type plain ChargeCreated
 	return encodeResource(v.Resource, plain(v), "ChargeCreated")
+}
+
+// ChargeCreatedWebhookEvent contains the fields defined by the public API.
+type ChargeCreatedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data ChargeCreatedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public ChargeCreatedWebhookEvent response.
+func (v *ChargeCreatedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain ChargeCreatedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "ChargeCreatedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = ChargeCreatedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v ChargeCreatedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain ChargeCreatedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "ChargeCreatedWebhookEvent")
+}
+
+// ChargeExpiredWebhookEvent contains the fields defined by the public API.
+type ChargeExpiredWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data ChargeExpiredWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public ChargeExpiredWebhookEvent response.
+func (v *ChargeExpiredWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain ChargeExpiredWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "ChargeExpiredWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = ChargeExpiredWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v ChargeExpiredWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain ChargeExpiredWebhookEvent
+	return encodeResource(v.Resource, plain(v), "ChargeExpiredWebhookEvent")
+}
+
+// ChargeFailedWebhookEvent contains the fields defined by the public API.
+type ChargeFailedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data ChargeFailedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public ChargeFailedWebhookEvent response.
+func (v *ChargeFailedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain ChargeFailedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "ChargeFailedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = ChargeFailedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v ChargeFailedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain ChargeFailedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "ChargeFailedWebhookEvent")
+}
+
+// ChargeFullyRefundedWebhookEvent contains the fields defined by the public API.
+type ChargeFullyRefundedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data ChargeFullyRefundedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public ChargeFullyRefundedWebhookEvent response.
+func (v *ChargeFullyRefundedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain ChargeFullyRefundedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "ChargeFullyRefundedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = ChargeFullyRefundedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v ChargeFullyRefundedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain ChargeFullyRefundedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "ChargeFullyRefundedWebhookEvent")
 }
 
 // ChargeListItem contains the fields defined by the public API.
@@ -520,6 +994,74 @@ func (v ChargeListResponse) MarshalJSON() ([]byte, error) {
 	return encodeResource(v.Resource, plain(v), "ChargeListResponse")
 }
 
+// ChargePaidWebhookEvent contains the fields defined by the public API.
+type ChargePaidWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data ChargePaidWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public ChargePaidWebhookEvent response.
+func (v *ChargePaidWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain ChargePaidWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "ChargePaidWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = ChargePaidWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v ChargePaidWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain ChargePaidWebhookEvent
+	return encodeResource(v.Resource, plain(v), "ChargePaidWebhookEvent")
+}
+
+// ChargePartiallyRefundedWebhookEvent contains the fields defined by the public API.
+type ChargePartiallyRefundedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data ChargePartiallyRefundedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public ChargePartiallyRefundedWebhookEvent response.
+func (v *ChargePartiallyRefundedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain ChargePartiallyRefundedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "ChargePartiallyRefundedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = ChargePartiallyRefundedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v ChargePartiallyRefundedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain ChargePartiallyRefundedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "ChargePartiallyRefundedWebhookEvent")
+}
+
 // ChargePaymentInformation contains the fields defined by the public API.
 type ChargePaymentInformation struct {
 	Resource `json:"-"`
@@ -556,6 +1098,74 @@ func (v *ChargePaymentInformation) UnmarshalJSON(data []byte) error {
 func (v ChargePaymentInformation) MarshalJSON() ([]byte, error) {
 	type plain ChargePaymentInformation
 	return encodeResource(v.Resource, plain(v), "ChargePaymentInformation")
+}
+
+// ChargePaymentInstructionsAvailableWebhookEvent contains the fields defined by the public API.
+type ChargePaymentInstructionsAvailableWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data ChargePaymentInstructionsAvailableWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public ChargePaymentInstructionsAvailableWebhookEvent response.
+func (v *ChargePaymentInstructionsAvailableWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain ChargePaymentInstructionsAvailableWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "ChargePaymentInstructionsAvailableWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = ChargePaymentInstructionsAvailableWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v ChargePaymentInstructionsAvailableWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain ChargePaymentInstructionsAvailableWebhookEvent
+	return encodeResource(v.Resource, plain(v), "ChargePaymentInstructionsAvailableWebhookEvent")
+}
+
+// ChargePaymentInstructionsFailedWebhookEvent contains the fields defined by the public API.
+type ChargePaymentInstructionsFailedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data ChargePaymentInstructionsFailedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public ChargePaymentInstructionsFailedWebhookEvent response.
+func (v *ChargePaymentInstructionsFailedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain ChargePaymentInstructionsFailedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "ChargePaymentInstructionsFailedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = ChargePaymentInstructionsFailedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v ChargePaymentInstructionsFailedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain ChargePaymentInstructionsFailedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "ChargePaymentInstructionsFailedWebhookEvent")
 }
 
 // ChargePixPaymentInformation contains the fields defined by the public API.
@@ -794,6 +1404,40 @@ func (v *ChargeStatisticsAggregate) UnmarshalJSON(data []byte) error {
 func (v ChargeStatisticsAggregate) MarshalJSON() ([]byte, error) {
 	type plain ChargeStatisticsAggregate
 	return encodeResource(v.Resource, plain(v), "ChargeStatisticsAggregate")
+}
+
+// ChargeUpdatedWebhookEvent contains the fields defined by the public API.
+type ChargeUpdatedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data ChargeUpdatedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public ChargeUpdatedWebhookEvent response.
+func (v *ChargeUpdatedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain ChargeUpdatedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "ChargeUpdatedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = ChargeUpdatedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v ChargeUpdatedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain ChargeUpdatedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "ChargeUpdatedWebhookEvent")
 }
 
 // CheckoutAsset Endereço da imagem atual e andamento da última alteração solicitada.
@@ -1122,6 +1766,40 @@ func (v CustomerCreated) MarshalJSON() ([]byte, error) {
 	return encodeResource(v.Resource, plain(v), "CustomerCreated")
 }
 
+// CustomerCreatedWebhookEvent contains the fields defined by the public API.
+type CustomerCreatedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data CustomerCreatedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public CustomerCreatedWebhookEvent response.
+func (v *CustomerCreatedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain CustomerCreatedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "CustomerCreatedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = CustomerCreatedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v CustomerCreatedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain CustomerCreatedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "CustomerCreatedWebhookEvent")
+}
+
 // CustomerDeleted contains the fields defined by the public API.
 type CustomerDeleted struct {
 	Resource `json:"-"`
@@ -1148,6 +1826,40 @@ func (v *CustomerDeleted) UnmarshalJSON(data []byte) error {
 func (v CustomerDeleted) MarshalJSON() ([]byte, error) {
 	type plain CustomerDeleted
 	return encodeResource(v.Resource, plain(v), "CustomerDeleted")
+}
+
+// CustomerDeletedWebhookEvent contains the fields defined by the public API.
+type CustomerDeletedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data CustomerDeletedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public CustomerDeletedWebhookEvent response.
+func (v *CustomerDeletedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain CustomerDeletedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "CustomerDeletedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = CustomerDeletedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v CustomerDeletedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain CustomerDeletedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "CustomerDeletedWebhookEvent")
 }
 
 // CustomerListItem contains the fields defined by the public API.
@@ -1276,6 +1988,46 @@ func (v CustomerListResponse) MarshalJSON() ([]byte, error) {
 	return encodeResource(v.Resource, plain(v), "CustomerListResponse")
 }
 
+// CustomerUpdatedWebhookEvent contains the fields defined by the public API.
+type CustomerUpdatedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data CustomerUpdatedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public CustomerUpdatedWebhookEvent response.
+func (v *CustomerUpdatedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain CustomerUpdatedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "CustomerUpdatedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = CustomerUpdatedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v CustomerUpdatedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain CustomerUpdatedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "CustomerUpdatedWebhookEvent")
+}
+
+// DeliverWebhookEventParams Destino para uma nova entrega do evento original.
+type DeliverWebhookEventParams struct {
+	// WebhookID Identificador do webhook ativo que seleciona o tipo do evento. Use um cadastro da mesma empresa e ambiente da chave.
+	WebhookID Optional[string] `json:"webhook_id,omitzero"`
+}
+
 // Dispute Detalhes e resultados disponíveis de uma contestação.
 type Dispute struct {
 	Resource `json:"-"`
@@ -1340,6 +2092,74 @@ func (v *Dispute) UnmarshalJSON(data []byte) error {
 func (v Dispute) MarshalJSON() ([]byte, error) {
 	type plain Dispute
 	return encodeResource(v.Resource, plain(v), "Dispute")
+}
+
+// DisputeClosedWebhookEvent contains the fields defined by the public API.
+type DisputeClosedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data DisputeClosedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public DisputeClosedWebhookEvent response.
+func (v *DisputeClosedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain DisputeClosedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "DisputeClosedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = DisputeClosedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v DisputeClosedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain DisputeClosedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "DisputeClosedWebhookEvent")
+}
+
+// DisputeFundsDebitedWebhookEvent contains the fields defined by the public API.
+type DisputeFundsDebitedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data DisputeFundsDebitedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public DisputeFundsDebitedWebhookEvent response.
+func (v *DisputeFundsDebitedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain DisputeFundsDebitedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "DisputeFundsDebitedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = DisputeFundsDebitedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v DisputeFundsDebitedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain DisputeFundsDebitedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "DisputeFundsDebitedWebhookEvent")
 }
 
 // DisputeListItem Dados de uma contestação presentes na listagem.
@@ -1442,6 +2262,74 @@ func (v *DisputeListResponse) UnmarshalJSON(data []byte) error {
 func (v DisputeListResponse) MarshalJSON() ([]byte, error) {
 	type plain DisputeListResponse
 	return encodeResource(v.Resource, plain(v), "DisputeListResponse")
+}
+
+// DisputeOpenedWebhookEvent contains the fields defined by the public API.
+type DisputeOpenedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data DisputeOpenedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public DisputeOpenedWebhookEvent response.
+func (v *DisputeOpenedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain DisputeOpenedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "DisputeOpenedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = DisputeOpenedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v DisputeOpenedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain DisputeOpenedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "DisputeOpenedWebhookEvent")
+}
+
+// DisputeUpdatedWebhookEvent contains the fields defined by the public API.
+type DisputeUpdatedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data DisputeUpdatedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public DisputeUpdatedWebhookEvent response.
+func (v *DisputeUpdatedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain DisputeUpdatedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "DisputeUpdatedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = DisputeUpdatedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v DisputeUpdatedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain DisputeUpdatedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "DisputeUpdatedWebhookEvent")
 }
 
 // Error contains the fields defined by the public API.
@@ -1718,6 +2606,56 @@ type ListStatementsParams struct {
 	SortOrder Optional[string] `json:"sort_order,omitzero"`
 }
 
+// ListWebhookDeliveriesParams contains the fields defined by the public API.
+type ListWebhookDeliveriesParams struct {
+	// PageSize Quantidade de registros por página. A resposta informa o tamanho efetivo em page.page_size. Padrão: 10. Mínimo: 1. Máximo: 100.
+	PageSize Optional[int64] `json:"page_size,omitzero"`
+	// After Para avançar, copie page.next_after da resposta anterior. Use apenas after ou before. Comprimento máximo: 128.
+	After Optional[string] `json:"after,omitzero"`
+	// Before Para voltar, copie page.previous_before da resposta anterior. Use apenas after ou before. Comprimento máximo: 128.
+	Before Optional[string] `json:"before,omitzero"`
+	// WebhookID Filtra as entregas de um destino, inclusive quando o cadastro já foi excluído e seu histórico ainda está disponível. Comprimento máximo: 26. Exemplo: "whk_1AbXiWSrsCBoaTg47OcMzC".
+	WebhookID Optional[string] `json:"webhook_id,omitzero"`
+	// EventType Filtra pelo código do evento recebido pelo webhook. Comprimento máximo: 100. Exemplo: "charge.paid".
+	EventType Optional[string] `json:"event_type,omitzero"`
+	// EventID Filtra as entregas de um evento pelo seu identificador. Inclui as entregas originais e os reenvios desse evento. Mantenha o valor ao navegar por cursor. Exemplo: "d36ffb51-e0c6-8a8f-904d-e426cc0b76bb".
+	EventID Optional[string] `json:"event_id,omitzero"`
+	// Status Filtra pela situação atual da entrega. Comprimento máximo: 32. Exemplo: "delivered".
+	Status Optional[string] `json:"status,omitzero"`
+	// CreatedGte Inclui entregas criadas a partir deste instante, em segundos Unix UTC. O filtro considera a criação da entrega, não a data do evento original. Mínimo: 0. Máximo: 253402300799. Exemplo: 1792281600.
+	CreatedGte Optional[int64] `json:"created_gte,omitzero"`
+	// CreatedLte Inclui entregas criadas até este instante, em segundos Unix UTC. O filtro considera a criação da entrega, não o horário da última tentativa. Mínimo: 0. Máximo: 253402300799. Exemplo: 1792368000.
+	CreatedLte Optional[int64] `json:"created_lte,omitzero"`
+}
+
+// ListWebhookDeliveryAttemptsParams contains the fields defined by the public API.
+type ListWebhookDeliveryAttemptsParams struct {
+	// PageSize Quantidade de registros por página. A resposta informa o tamanho efetivo em page.page_size. Padrão: 10. Mínimo: 1. Máximo: 100.
+	PageSize Optional[int64] `json:"page_size,omitzero"`
+	// After Para avançar, copie page.next_after da resposta anterior. Use apenas after ou before. Comprimento máximo: 128.
+	After Optional[string] `json:"after,omitzero"`
+	// Before Para voltar, copie page.previous_before da resposta anterior. Use apenas after ou before. Comprimento máximo: 128.
+	Before Optional[string] `json:"before,omitzero"`
+}
+
+// ListWebhookEventsParams contains the fields defined by the public API.
+type ListWebhookEventsParams struct {
+	// PageSize Quantidade de eventos por página. A resposta informa se há outra página e o cursor para consultá-la. Padrão: 10. Mínimo: 1. Máximo: 100.
+	PageSize Optional[int64] `json:"page_size,omitzero"`
+	// After Cursor de page.next_after para avançar na mesma consulta. Mantenha os filtros usados na primeira página. Comprimento máximo: 128.
+	After Optional[string] `json:"after,omitzero"`
+	// Before Cursor de page.previous_before para retornar na mesma consulta. Mantenha os filtros usados na primeira página. Comprimento máximo: 128.
+	Before Optional[string] `json:"before,omitzero"`
+	// EventType Filtra pelo nome do evento, como charge.paid. Comprimento máximo: 100. Exemplo: "charge.paid".
+	EventType Optional[string] `json:"event_type,omitzero"`
+	// ResourceID Filtra pelo identificador público em data.id no corpo do evento. Comprimento máximo: 128. Exemplo: "ch_3AbHiWSrsZBoaTg47OcMzC".
+	ResourceID Optional[string] `json:"resource_id,omitzero"`
+	// CreatedGte Filtra eventos criados a partir deste instante, inclusive, em segundos Unix UTC. Mínimo: 0. Máximo: 253402300799. Exemplo: 1767225600.
+	CreatedGte Optional[int64] `json:"created_gte,omitzero"`
+	// CreatedLte Filtra eventos criados até este instante, inclusive, em segundos Unix UTC. Se informar created_gte, este valor deve ser maior ou igual a ele. Mínimo: 0. Máximo: 253402300799. Exemplo: 1791936000.
+	CreatedLte Optional[int64] `json:"created_lte,omitzero"`
+}
+
 // ListWebhooksParams contains the fields defined by the public API.
 type ListWebhooksParams struct {
 	// PageSize Quantidade de registros por página. A resposta informa o tamanho efetivo em page.page_size. Padrão: 10. Mínimo: 1. Máximo: 100.
@@ -1796,6 +2734,40 @@ func (v *PaymentLink) UnmarshalJSON(data []byte) error {
 func (v PaymentLink) MarshalJSON() ([]byte, error) {
 	type plain PaymentLink
 	return encodeResource(v.Resource, plain(v), "PaymentLink")
+}
+
+// PaymentLinkCreatedWebhookEvent contains the fields defined by the public API.
+type PaymentLinkCreatedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data PaymentLinkCreatedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public PaymentLinkCreatedWebhookEvent response.
+func (v *PaymentLinkCreatedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain PaymentLinkCreatedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "PaymentLinkCreatedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = PaymentLinkCreatedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v PaymentLinkCreatedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain PaymentLinkCreatedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "PaymentLinkCreatedWebhookEvent")
 }
 
 // PaymentLinkDetails Dados do link de pagamento de uma cobrança.
@@ -1970,6 +2942,40 @@ func (v PaymentLinkUnavailableReason) MarshalJSON() ([]byte, error) {
 	return encodeResource(v.Resource, plain(v), "PaymentLinkUnavailableReason")
 }
 
+// PaymentLinkUpdatedWebhookEvent contains the fields defined by the public API.
+type PaymentLinkUpdatedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data PaymentLinkUpdatedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public PaymentLinkUpdatedWebhookEvent response.
+func (v *PaymentLinkUpdatedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain PaymentLinkUpdatedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "PaymentLinkUpdatedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = PaymentLinkUpdatedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v PaymentLinkUpdatedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain PaymentLinkUpdatedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "PaymentLinkUpdatedWebhookEvent")
+}
+
 // PaymentReceipt Pagamento confirmado e identificação cadastral das partes da cobrança. O valor corresponde ao recebimento original, sem descontar estornos ou tarifas.
 type PaymentReceipt struct {
 	Resource `json:"-"`
@@ -2012,6 +3018,108 @@ func (v *PaymentReceipt) UnmarshalJSON(data []byte) error {
 func (v PaymentReceipt) MarshalJSON() ([]byte, error) {
 	type plain PaymentReceipt
 	return encodeResource(v.Resource, plain(v), "PaymentReceipt")
+}
+
+// PixAvailableWebhookEvent contains the fields defined by the public API.
+type PixAvailableWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data PixAvailableWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public PixAvailableWebhookEvent response.
+func (v *PixAvailableWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain PixAvailableWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "PixAvailableWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = PixAvailableWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v PixAvailableWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain PixAvailableWebhookEvent
+	return encodeResource(v.Resource, plain(v), "PixAvailableWebhookEvent")
+}
+
+// PixIssuanceFailedWebhookEvent contains the fields defined by the public API.
+type PixIssuanceFailedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data PixIssuanceFailedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public PixIssuanceFailedWebhookEvent response.
+func (v *PixIssuanceFailedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain PixIssuanceFailedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "PixIssuanceFailedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = PixIssuanceFailedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v PixIssuanceFailedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain PixIssuanceFailedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "PixIssuanceFailedWebhookEvent")
+}
+
+// PixRefundReceivedWebhookEvent contains the fields defined by the public API.
+type PixRefundReceivedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data PixRefundReceivedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public PixRefundReceivedWebhookEvent response.
+func (v *PixRefundReceivedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain PixRefundReceivedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "PixRefundReceivedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = PixRefundReceivedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v PixRefundReceivedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain PixRefundReceivedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "PixRefundReceivedWebhookEvent")
 }
 
 // ReceiptParty Nome e documento cadastrais associados à cobrança, sem dados de conta bancária.
@@ -2084,6 +3192,74 @@ func (v Refund) MarshalJSON() ([]byte, error) {
 	return encodeResource(v.Resource, plain(v), "Refund")
 }
 
+// RefundAcceptedWebhookEvent contains the fields defined by the public API.
+type RefundAcceptedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data RefundAcceptedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public RefundAcceptedWebhookEvent response.
+func (v *RefundAcceptedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain RefundAcceptedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "RefundAcceptedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = RefundAcceptedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v RefundAcceptedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain RefundAcceptedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "RefundAcceptedWebhookEvent")
+}
+
+// RefundCompletedWebhookEvent contains the fields defined by the public API.
+type RefundCompletedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data RefundCompletedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public RefundCompletedWebhookEvent response.
+func (v *RefundCompletedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain RefundCompletedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "RefundCompletedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = RefundCompletedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v RefundCompletedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain RefundCompletedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "RefundCompletedWebhookEvent")
+}
+
 // RefundEligibility Disponibilidade atual para solicitar um estorno Pix.
 type RefundEligibility struct {
 	Resource `json:"-"`
@@ -2118,6 +3294,40 @@ func (v *RefundEligibility) UnmarshalJSON(data []byte) error {
 func (v RefundEligibility) MarshalJSON() ([]byte, error) {
 	type plain RefundEligibility
 	return encodeResource(v.Resource, plain(v), "RefundEligibility")
+}
+
+// RefundFailedWebhookEvent contains the fields defined by the public API.
+type RefundFailedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data RefundFailedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public RefundFailedWebhookEvent response.
+func (v *RefundFailedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain RefundFailedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "RefundFailedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = RefundFailedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v RefundFailedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain RefundFailedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "RefundFailedWebhookEvent")
 }
 
 // RefundFailureReason Causa pública de uma falha confirmada na solicitação de estorno.
@@ -2210,6 +3420,74 @@ func (v RefundListResponse) MarshalJSON() ([]byte, error) {
 	return encodeResource(v.Resource, plain(v), "RefundListResponse")
 }
 
+// RefundReconciliationRequiredWebhookEvent contains the fields defined by the public API.
+type RefundReconciliationRequiredWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data RefundReconciliationRequiredWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public RefundReconciliationRequiredWebhookEvent response.
+func (v *RefundReconciliationRequiredWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain RefundReconciliationRequiredWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "RefundReconciliationRequiredWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = RefundReconciliationRequiredWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v RefundReconciliationRequiredWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain RefundReconciliationRequiredWebhookEvent
+	return encodeResource(v.Resource, plain(v), "RefundReconciliationRequiredWebhookEvent")
+}
+
+// RefundRequestedWebhookEvent contains the fields defined by the public API.
+type RefundRequestedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data RefundRequestedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public RefundRequestedWebhookEvent response.
+func (v *RefundRequestedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain RefundRequestedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "RefundRequestedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = RefundRequestedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v RefundRequestedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain RefundRequestedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "RefundRequestedWebhookEvent")
+}
+
 // RefundUnavailableReason Condição que impede um pedido de devolução.
 type RefundUnavailableReason struct {
 	Resource `json:"-"`
@@ -2242,6 +3520,12 @@ func (v RefundUnavailableReason) MarshalJSON() ([]byte, error) {
 type RemoveCustomersParams struct {
 	// Identifiers IDs dos clientes que deseja remover. IDs repetidos não geram mais de uma remoção. IDs inválidos ou de clientes que a chave não pode acessar aparecem em invalid.
 	Identifiers Optional[[]*string] `json:"identifiers,omitzero"`
+}
+
+// ResendWebhookDeliveriesParams Entregas escolhidas para reenvio. Uma lista inválida impede o processamento do pedido.
+type ResendWebhookDeliveriesParams struct {
+	// DeliveryIds Identificadores das entregas obtidos no histórico. IDs repetidos ou entregas do mesmo evento para o mesmo destino geram um único reenvio, com o resultado repetido nas posições correspondentes.
+	DeliveryIds Optional[[]string] `json:"delivery_ids,omitzero"`
 }
 
 // ResolveChargeScenarioParams Ação pendente e resultado da simulação.
@@ -2336,6 +3620,40 @@ func (v Statement) MarshalJSON() ([]byte, error) {
 	return encodeResource(v.Resource, plain(v), "Statement")
 }
 
+// StatementCreatedWebhookEvent contains the fields defined by the public API.
+type StatementCreatedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data StatementCreatedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public StatementCreatedWebhookEvent response.
+func (v *StatementCreatedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain StatementCreatedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "StatementCreatedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = StatementCreatedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v StatementCreatedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain StatementCreatedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "StatementCreatedWebhookEvent")
+}
+
 // StatementListPage contains the fields defined by the public API.
 type StatementListPage struct {
 	Resource `json:"-"`
@@ -2396,6 +3714,40 @@ func (v *StatementListResponse) UnmarshalJSON(data []byte) error {
 func (v StatementListResponse) MarshalJSON() ([]byte, error) {
 	type plain StatementListResponse
 	return encodeResource(v.Resource, plain(v), "StatementListResponse")
+}
+
+// TedReceivedWebhookEvent contains the fields defined by the public API.
+type TedReceivedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data TedReceivedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public TedReceivedWebhookEvent response.
+func (v *TedReceivedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain TedReceivedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "TedReceivedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = TedReceivedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v TedReceivedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain TedReceivedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "TedReceivedWebhookEvent")
 }
 
 // UpdateAutomaticWithdrawalSettingsParams Alterações da configuração de saque automático. Campos omitidos são preservados; null não é aceito.
@@ -2540,6 +3892,218 @@ func (v Webhook) MarshalJSON() ([]byte, error) {
 	return encodeResource(v.Resource, plain(v), "Webhook")
 }
 
+// WebhookAdvanceAccepted contains the fields defined by the public API.
+type WebhookAdvanceAccepted struct {
+	Resource `json:"-"`
+	// DeliveryID Identificador da mesma entrega cuja tentativa foi solicitada.
+	DeliveryID string `json:"delivery_id"`
+}
+
+// UnmarshalJSON validates and reads the public WebhookAdvanceAccepted response.
+func (v *WebhookAdvanceAccepted) UnmarshalJSON(data []byte) error {
+	type plain WebhookAdvanceAccepted
+	var decoded plain
+	resource, err := decodeResource(data, "WebhookAdvanceAccepted", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WebhookAdvanceAccepted(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WebhookAdvanceAccepted) MarshalJSON() ([]byte, error) {
+	type plain WebhookAdvanceAccepted
+	return encodeResource(v.Resource, plain(v), "WebhookAdvanceAccepted")
+}
+
+// WebhookAttempt Resultado de uma chamada HTTP ao destino.
+type WebhookAttempt struct {
+	Resource `json:"-"`
+	// ID Identificador desta tentativa.
+	ID string `json:"id"`
+	// DeliveryID Entrega à qual esta tentativa pertence.
+	DeliveryID string `json:"delivery_id"`
+	// AttemptNumber Número da tentativa dentro da entrega.
+	AttemptNumber int64 `json:"attempt_number"`
+	// CreatedAt Instante de conclusão da tentativa, em segundos Unix UTC.
+	CreatedAt int64 `json:"created_at"`
+	// StatusCode Status HTTP recebido do receptor, ou null quando não houve resposta HTTP registrada. A ausência de resposta não comprova que o evento deixou de ser processado.
+	StatusCode *int64 `json:"status_code"`
+	// DurationMs Tempo total da tentativa, em milissegundos. Inclui a preparação do envio e a leitura da resposta; não mede somente o tempo de resposta do receptor.
+	DurationMs json.Number `json:"duration_ms"`
+	// DestinationIP IP remoto da conexão usada nesta tentativa, ou null quando não foi capturado. Não corresponde a uma nova consulta DNS do endereço cadastrado.
+	DestinationIP *string `json:"destination_ip"`
+	// ErrorCode Código do erro da tentativa, ou null quando não houve erro.
+	ErrorCode *string `json:"error_code"`
+	// EndpointURL URL usada na tentativa, ou null quando esse dado não está disponível.
+	EndpointURL *string `json:"endpoint_url"`
+	// RequestAvailable Indica se o corpo preparado para a tentativa está disponível para consulta. Não comprova seu recebimento pelo destino.
+	RequestAvailable bool `json:"request_available"`
+	// ResponseBodyAvailable Indica se um corpo de resposta foi registrado e ainda está disponível.
+	ResponseBodyAvailable bool `json:"response_body_available"`
+	// ResponseBodyTruncated Indica se o corpo da resposta foi capturado parcialmente.
+	ResponseBodyTruncated bool `json:"response_body_truncated"`
+}
+
+// UnmarshalJSON validates and reads the public WebhookAttempt response.
+func (v *WebhookAttempt) UnmarshalJSON(data []byte) error {
+	type plain WebhookAttempt
+	var decoded plain
+	resource, err := decodeResource(data, "WebhookAttempt", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WebhookAttempt(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WebhookAttempt) MarshalJSON() ([]byte, error) {
+	type plain WebhookAttempt
+	return encodeResource(v.Resource, plain(v), "WebhookAttempt")
+}
+
+// WebhookAttemptDetail Resultado e conteúdo disponível de uma chamada HTTP.
+type WebhookAttemptDetail struct {
+	Resource `json:"-"`
+	// RequestBody Corpo preparado para esta tentativa, ou null quando não está disponível no histórico.
+	RequestBody *string `json:"request_body"`
+	// ResponseBody Conteúdo registrado da resposta, limitado a 8 KiB em UTF-8. Uma string vazia indica corpo vazio confirmado; null indica conteúdo indisponível. Confira response_body_truncated antes de interpretar o conteúdo.
+	ResponseBody *string `json:"response_body"`
+	// ID Identificador desta tentativa.
+	ID string `json:"id"`
+	// DeliveryID Entrega à qual esta tentativa pertence.
+	DeliveryID string `json:"delivery_id"`
+	// AttemptNumber Número da tentativa dentro da entrega.
+	AttemptNumber int64 `json:"attempt_number"`
+	// CreatedAt Instante de conclusão da tentativa, em segundos Unix UTC.
+	CreatedAt int64 `json:"created_at"`
+	// StatusCode Status HTTP recebido do receptor, ou null quando não houve resposta HTTP registrada. A ausência de resposta não comprova que o evento deixou de ser processado.
+	StatusCode *int64 `json:"status_code"`
+	// DurationMs Tempo total da tentativa, em milissegundos. Inclui a preparação do envio e a leitura da resposta; não mede somente o tempo de resposta do receptor.
+	DurationMs json.Number `json:"duration_ms"`
+	// DestinationIP IP remoto da conexão usada nesta tentativa, ou null quando não foi capturado. Não corresponde a uma nova consulta DNS do endereço cadastrado.
+	DestinationIP *string `json:"destination_ip"`
+	// ErrorCode Código do erro da tentativa, ou null quando não houve erro.
+	ErrorCode *string `json:"error_code"`
+	// EndpointURL URL usada na tentativa, ou null quando esse dado não está disponível.
+	EndpointURL *string `json:"endpoint_url"`
+	// RequestAvailable Indica se o corpo preparado para a tentativa está disponível para consulta. Não comprova seu recebimento pelo destino.
+	RequestAvailable bool `json:"request_available"`
+	// ResponseBodyAvailable Indica se um corpo de resposta foi registrado e ainda está disponível.
+	ResponseBodyAvailable bool `json:"response_body_available"`
+	// ResponseBodyTruncated Indica se o corpo da resposta foi capturado parcialmente.
+	ResponseBodyTruncated bool `json:"response_body_truncated"`
+}
+
+// UnmarshalJSON validates and reads the public WebhookAttemptDetail response.
+func (v *WebhookAttemptDetail) UnmarshalJSON(data []byte) error {
+	type plain WebhookAttemptDetail
+	var decoded plain
+	resource, err := decodeResource(data, "WebhookAttemptDetail", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WebhookAttemptDetail(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WebhookAttemptDetail) MarshalJSON() ([]byte, error) {
+	type plain WebhookAttemptDetail
+	return encodeResource(v.Resource, plain(v), "WebhookAttemptDetail")
+}
+
+// WebhookAttemptListResponse Página de tentativas de uma entrega.
+type WebhookAttemptListResponse struct {
+	Resource `json:"-"`
+	// List Tentativas desta página.
+	List []WebhookAttempt `json:"list"`
+	// Page Informações para continuar ou voltar na consulta.
+	Page WebhookDeliveryPage `json:"page"`
+}
+
+// UnmarshalJSON validates and reads the public WebhookAttemptListResponse response.
+func (v *WebhookAttemptListResponse) UnmarshalJSON(data []byte) error {
+	type plain WebhookAttemptListResponse
+	var decoded plain
+	resource, err := decodeResource(data, "WebhookAttemptListResponse", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WebhookAttemptListResponse(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WebhookAttemptListResponse) MarshalJSON() ([]byte, error) {
+	type plain WebhookAttemptListResponse
+	return encodeResource(v.Resource, plain(v), "WebhookAttemptListResponse")
+}
+
+// WebhookBulkResendAccepted Resultados individuais dos reenvios solicitados.
+type WebhookBulkResendAccepted struct {
+	Resource `json:"-"`
+	// Results Um resultado para cada posição da lista enviada, na mesma ordem. A recusa de um item não impede o reenvio dos demais.
+	Results []WebhookBulkResendItem `json:"results"`
+}
+
+// UnmarshalJSON validates and reads the public WebhookBulkResendAccepted response.
+func (v *WebhookBulkResendAccepted) UnmarshalJSON(data []byte) error {
+	type plain WebhookBulkResendAccepted
+	var decoded plain
+	resource, err := decodeResource(data, "WebhookBulkResendAccepted", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WebhookBulkResendAccepted(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WebhookBulkResendAccepted) MarshalJSON() ([]byte, error) {
+	type plain WebhookBulkResendAccepted
+	return encodeResource(v.Resource, plain(v), "WebhookBulkResendAccepted")
+}
+
+// WebhookBulkResendItem Reenvio aceito ou motivo da recusa para uma entrega selecionada.
+type WebhookBulkResendItem struct {
+	Resource `json:"-"`
+	// SourceDeliveryID Identificador da entrega recebida nesta posição da lista.
+	SourceDeliveryID string `json:"source_delivery_id"`
+	// DeliveryID Identificador da nova entrega, ou null quando o item foi recusado. Consulte essa entrega para acompanhar o resultado.
+	DeliveryID *string `json:"delivery_id"`
+	// EventID Identificador do evento original preservado no reenvio, ou null quando o item foi recusado.
+	EventID *string `json:"event_id"`
+	// Error Motivo da recusa, ou null quando o reenvio foi aceito. Os códigos possíveis são NOT_FOUND, WEBHOOK_TEST_NOT_RESENDABLE, WEBHOOK_RESEND_EXPIRED, WEBHOOK_RESEND_PAYLOAD_UNAVAILABLE e WEBHOOK_RESEND_NOT_ALLOWED.
+	Error *Error `json:"error"`
+}
+
+// UnmarshalJSON validates and reads the public WebhookBulkResendItem response.
+func (v *WebhookBulkResendItem) UnmarshalJSON(data []byte) error {
+	type plain WebhookBulkResendItem
+	var decoded plain
+	resource, err := decodeResource(data, "WebhookBulkResendItem", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WebhookBulkResendItem(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WebhookBulkResendItem) MarshalJSON() ([]byte, error) {
+	type plain WebhookBulkResendItem
+	return encodeResource(v.Resource, plain(v), "WebhookBulkResendItem")
+}
+
 // WebhookCreated Webhook cadastrado e segredo necessário para validar suas assinaturas.
 type WebhookCreated struct {
 	Resource `json:"-"`
@@ -2588,6 +4152,238 @@ func (v *WebhookCreated) UnmarshalJSON(data []byte) error {
 func (v WebhookCreated) MarshalJSON() ([]byte, error) {
 	type plain WebhookCreated
 	return encodeResource(v.Resource, plain(v), "WebhookCreated")
+}
+
+// WebhookDelivery Acompanhamento da entrega de um evento a um destino.
+type WebhookDelivery struct {
+	Resource `json:"-"`
+	// ID Identificador desta entrega.
+	ID string `json:"id"`
+	// WebhookID Identificador do destino. Permanece no histórico após a exclusão do cadastro; pode ser null quando não for possível identificá-lo.
+	WebhookID *string `json:"webhook_id"`
+	// EventID Identificador do evento no conteúdo enviado. Reenvios preservam este valor.
+	EventID string `json:"event_id"`
+	// EventType Código do evento enviado ao destino.
+	EventType string `json:"event_type"`
+	// Status Estado mais recente da entrega. delivered confirma uma resposta HTTP 2xx do receptor, sem comprovar o processamento posterior no sistema de destino.
+	Status string `json:"status"`
+	// CreatedAt Instante de criação desta entrega, em segundos Unix UTC. O prazo de 30 dias de consulta do histórico começa nessa data.
+	CreatedAt int64 `json:"created_at"`
+	// EventCreatedAt Instante do evento original, em segundos Unix UTC.
+	EventCreatedAt int64 `json:"event_created_at"`
+	// DeadlineAt Fim do prazo de tentativas desta entrega, em segundos Unix UTC.
+	DeadlineAt int64 `json:"deadline_at"`
+	// NextAttemptAt Instante previsto para a próxima tentativa, em segundos Unix UTC, ou null quando não há próxima tentativa informada.
+	NextAttemptAt *int64 `json:"next_attempt_at"`
+	// UpdatedAt Instante da última atualização do acompanhamento, em segundos Unix UTC.
+	UpdatedAt int64 `json:"updated_at"`
+}
+
+// UnmarshalJSON validates and reads the public WebhookDelivery response.
+func (v *WebhookDelivery) UnmarshalJSON(data []byte) error {
+	type plain WebhookDelivery
+	var decoded plain
+	resource, err := decodeResource(data, "WebhookDelivery", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WebhookDelivery(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WebhookDelivery) MarshalJSON() ([]byte, error) {
+	type plain WebhookDelivery
+	return encodeResource(v.Resource, plain(v), "WebhookDelivery")
+}
+
+// WebhookDeliveryListResponse Página de entregas de webhooks.
+type WebhookDeliveryListResponse struct {
+	Resource `json:"-"`
+	// List Entregas desta página.
+	List []WebhookDelivery `json:"list"`
+	// Page Informações para continuar ou voltar na consulta.
+	Page WebhookDeliveryPage `json:"page"`
+}
+
+// UnmarshalJSON validates and reads the public WebhookDeliveryListResponse response.
+func (v *WebhookDeliveryListResponse) UnmarshalJSON(data []byte) error {
+	type plain WebhookDeliveryListResponse
+	var decoded plain
+	resource, err := decodeResource(data, "WebhookDeliveryListResponse", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WebhookDeliveryListResponse(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WebhookDeliveryListResponse) MarshalJSON() ([]byte, error) {
+	type plain WebhookDeliveryListResponse
+	return encodeResource(v.Resource, plain(v), "WebhookDeliveryListResponse")
+}
+
+// WebhookDeliveryPage Paginação do histórico de webhooks.
+type WebhookDeliveryPage struct {
+	Resource `json:"-"`
+	// PageSize Quantidade efetiva de registros por página.
+	PageSize int64 `json:"page_size"`
+	// HasNext Indica se há outra página para avançar.
+	HasNext bool `json:"has_next"`
+	// HasPrevious Indica se há outra página para voltar.
+	HasPrevious bool `json:"has_previous"`
+	// NextAfter Cursor para usar em after, ou null quando não há próxima página.
+	NextAfter *string `json:"next_after"`
+	// PreviousBefore Cursor para usar em before, ou null quando não há página anterior.
+	PreviousBefore *string `json:"previous_before"`
+}
+
+// UnmarshalJSON validates and reads the public WebhookDeliveryPage response.
+func (v *WebhookDeliveryPage) UnmarshalJSON(data []byte) error {
+	type plain WebhookDeliveryPage
+	var decoded plain
+	resource, err := decodeResource(data, "WebhookDeliveryPage", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WebhookDeliveryPage(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WebhookDeliveryPage) MarshalJSON() ([]byte, error) {
+	type plain WebhookDeliveryPage
+	return encodeResource(v.Resource, plain(v), "WebhookDeliveryPage")
+}
+
+// WebhookDeliveryResendAccepted Pedido de reenvio aceito.
+type WebhookDeliveryResendAccepted struct {
+	Resource `json:"-"`
+	// DeliveryID Identificador da nova entrega. Use-o para acompanhar o reenvio.
+	DeliveryID string `json:"delivery_id"`
+	// EventID Identificador original preservado no conteúdo enviado.
+	EventID string `json:"event_id"`
+}
+
+// UnmarshalJSON validates and reads the public WebhookDeliveryResendAccepted response.
+func (v *WebhookDeliveryResendAccepted) UnmarshalJSON(data []byte) error {
+	type plain WebhookDeliveryResendAccepted
+	var decoded plain
+	resource, err := decodeResource(data, "WebhookDeliveryResendAccepted", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WebhookDeliveryResendAccepted(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WebhookDeliveryResendAccepted) MarshalJSON() ([]byte, error) {
+	type plain WebhookDeliveryResendAccepted
+	return encodeResource(v.Resource, plain(v), "WebhookDeliveryResendAccepted")
+}
+
+// WebhookEvent contains the fields defined by the public API.
+type WebhookEvent struct {
+	Resource `json:"-"`
+	// ID Identificador do evento. É preservado nos reenvios.
+	ID string `json:"id"`
+	// EventType Nome do evento que originou a notificação.
+	EventType string `json:"event_type"`
+	// CreatedAt Instante em que o evento foi criado, em segundos Unix UTC.
+	CreatedAt int64 `json:"created_at"`
+	// ResourceType Tipo do recurso relacionado ao evento.
+	ResourceType string `json:"resource_type"`
+	// ResourceID Identificador público do recurso relacionado ao evento.
+	ResourceID string `json:"resource_id"`
+}
+
+// UnmarshalJSON validates and reads the public WebhookEvent response.
+func (v *WebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain WebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "WebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain WebhookEvent
+	return encodeResource(v.Resource, plain(v), "WebhookEvent")
+}
+
+// WebhookEventDetail contains the fields defined by the public API.
+type WebhookEventDetail struct {
+	Resource `json:"-"`
+	// Payload Conteúdo JSON original do evento, retornado como texto. O reenvio preserva esse conteúdo.
+	Payload string `json:"payload"`
+	// ID Identificador do evento. É preservado nos reenvios.
+	ID string `json:"id"`
+	// EventType Nome do evento que originou a notificação.
+	EventType string `json:"event_type"`
+	// CreatedAt Instante em que o evento foi criado, em segundos Unix UTC.
+	CreatedAt int64 `json:"created_at"`
+	// ResourceType Tipo do recurso relacionado ao evento.
+	ResourceType string `json:"resource_type"`
+	// ResourceID Identificador público do recurso relacionado ao evento.
+	ResourceID string `json:"resource_id"`
+}
+
+// UnmarshalJSON validates and reads the public WebhookEventDetail response.
+func (v *WebhookEventDetail) UnmarshalJSON(data []byte) error {
+	type plain WebhookEventDetail
+	var decoded plain
+	resource, err := decodeResource(data, "WebhookEventDetail", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WebhookEventDetail(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WebhookEventDetail) MarshalJSON() ([]byte, error) {
+	type plain WebhookEventDetail
+	return encodeResource(v.Resource, plain(v), "WebhookEventDetail")
+}
+
+// WebhookEventListResponse contains the fields defined by the public API.
+type WebhookEventListResponse struct {
+	Resource `json:"-"`
+	// List Eventos encontrados na página atual.
+	List []WebhookEvent `json:"list"`
+	// Page Cursores e indicação de páginas disponíveis.
+	Page WebhookDeliveryPage `json:"page"`
+}
+
+// UnmarshalJSON validates and reads the public WebhookEventListResponse response.
+func (v *WebhookEventListResponse) UnmarshalJSON(data []byte) error {
+	type plain WebhookEventListResponse
+	var decoded plain
+	resource, err := decodeResource(data, "WebhookEventListResponse", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WebhookEventListResponse(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WebhookEventListResponse) MarshalJSON() ([]byte, error) {
+	type plain WebhookEventListResponse
+	return encodeResource(v.Resource, plain(v), "WebhookEventListResponse")
 }
 
 // WebhookEventType Um evento disponível para assinatura.
@@ -2830,6 +4626,40 @@ func (v WebhookTestAccepted) MarshalJSON() ([]byte, error) {
 	return encodeResource(v.Resource, plain(v), "WebhookTestAccepted")
 }
 
+// WebhookTestWebhookEvent contains the fields defined by the public API.
+type WebhookTestWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data WebhookTestWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public WebhookTestWebhookEvent response.
+func (v *WebhookTestWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain WebhookTestWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "WebhookTestWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WebhookTestWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WebhookTestWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain WebhookTestWebhookEvent
+	return encodeResource(v.Resource, plain(v), "WebhookTestWebhookEvent")
+}
+
 // Withdrawal contains the fields defined by the public API.
 type Withdrawal struct {
 	Resource `json:"-"`
@@ -2878,6 +4708,74 @@ func (v Withdrawal) MarshalJSON() ([]byte, error) {
 	return encodeResource(v.Resource, plain(v), "Withdrawal")
 }
 
+// WithdrawalAcceptedWebhookEvent contains the fields defined by the public API.
+type WithdrawalAcceptedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data WithdrawalAcceptedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public WithdrawalAcceptedWebhookEvent response.
+func (v *WithdrawalAcceptedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain WithdrawalAcceptedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "WithdrawalAcceptedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WithdrawalAcceptedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WithdrawalAcceptedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain WithdrawalAcceptedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "WithdrawalAcceptedWebhookEvent")
+}
+
+// WithdrawalAutomaticSettingsChangedWebhookEvent contains the fields defined by the public API.
+type WithdrawalAutomaticSettingsChangedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data WithdrawalAutomaticSettingsChangedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public WithdrawalAutomaticSettingsChangedWebhookEvent response.
+func (v *WithdrawalAutomaticSettingsChangedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain WithdrawalAutomaticSettingsChangedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "WithdrawalAutomaticSettingsChangedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WithdrawalAutomaticSettingsChangedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WithdrawalAutomaticSettingsChangedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain WithdrawalAutomaticSettingsChangedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "WithdrawalAutomaticSettingsChangedWebhookEvent")
+}
+
 // WithdrawalBankAccount contains the fields defined by the public API.
 type WithdrawalBankAccount struct {
 	Resource `json:"-"`
@@ -2906,6 +4804,40 @@ func (v *WithdrawalBankAccount) UnmarshalJSON(data []byte) error {
 func (v WithdrawalBankAccount) MarshalJSON() ([]byte, error) {
 	type plain WithdrawalBankAccount
 	return encodeResource(v.Resource, plain(v), "WithdrawalBankAccount")
+}
+
+// WithdrawalCompletedWebhookEvent contains the fields defined by the public API.
+type WithdrawalCompletedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data WithdrawalCompletedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public WithdrawalCompletedWebhookEvent response.
+func (v *WithdrawalCompletedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain WithdrawalCompletedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "WithdrawalCompletedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WithdrawalCompletedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WithdrawalCompletedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain WithdrawalCompletedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "WithdrawalCompletedWebhookEvent")
 }
 
 // WithdrawalDestination Destino Pix verificado da própria empresa, disponível para consulta em Produção.
@@ -2944,6 +4876,40 @@ func (v *WithdrawalDestination) UnmarshalJSON(data []byte) error {
 func (v WithdrawalDestination) MarshalJSON() ([]byte, error) {
 	type plain WithdrawalDestination
 	return encodeResource(v.Resource, plain(v), "WithdrawalDestination")
+}
+
+// WithdrawalDestinationChangedWebhookEvent contains the fields defined by the public API.
+type WithdrawalDestinationChangedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data WithdrawalDestinationChangedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public WithdrawalDestinationChangedWebhookEvent response.
+func (v *WithdrawalDestinationChangedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain WithdrawalDestinationChangedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "WithdrawalDestinationChangedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WithdrawalDestinationChangedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WithdrawalDestinationChangedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain WithdrawalDestinationChangedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "WithdrawalDestinationChangedWebhookEvent")
 }
 
 // WithdrawalDestinationListPage Cursores da listagem de destinos. A presença de uma próxima página independe da quantidade de destinos retornados em list.
@@ -3008,6 +4974,40 @@ func (v WithdrawalDestinationListResponse) MarshalJSON() ([]byte, error) {
 	return encodeResource(v.Resource, plain(v), "WithdrawalDestinationListResponse")
 }
 
+// WithdrawalFailedWebhookEvent contains the fields defined by the public API.
+type WithdrawalFailedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data WithdrawalFailedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public WithdrawalFailedWebhookEvent response.
+func (v *WithdrawalFailedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain WithdrawalFailedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "WithdrawalFailedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WithdrawalFailedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WithdrawalFailedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain WithdrawalFailedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "WithdrawalFailedWebhookEvent")
+}
+
 // WithdrawalFailureReason contains the fields defined by the public API.
 type WithdrawalFailureReason struct {
 	Resource `json:"-"`
@@ -3049,7 +5049,7 @@ type WithdrawalLimits struct {
 	AvailableAmountCents int64 `json:"available_amount_cents"`
 	// DestinationConfigured Indica se há destino Pix próprio cadastrado para o saque. No Sandbox, retorna false.
 	DestinationConfigured bool `json:"destination_configured"`
-	// Limits Limites Pix e consumo do período atual, ou null quando não houver limites disponíveis para consulta. No Sandbox, retorna null. Esse valor não significa que o saque esteja livre de limites.
+	// Limits Limites Pix e consumo do período atual para o contexto do destino padrão, interno ou externo. Retorna null quando o contexto não puder ser identificado ou no Sandbox.
 	Limits *WithdrawalPeriodLimits `json:"limits"`
 }
 
@@ -3134,12 +5134,12 @@ func (v WithdrawalListResponse) MarshalJSON() ([]byte, error) {
 	return encodeResource(v.Resource, plain(v), "WithdrawalListResponse")
 }
 
-// WithdrawalPeriodLimits Limites e consumo de saque no período atual, pelo horário de São Paulo. O limite noturno faz parte do diário.
+// WithdrawalPeriodLimits Limites e consumo de saque no período atual, pelo horário de São Paulo. Durante a noite, o saque precisa caber no restante diário e no noturno.
 type WithdrawalPeriodLimits struct {
 	Resource `json:"-"`
-	// DayLimitCents Limite diário de saques, em centavos de real. O dia de saque vai das 06:00 às 06:00 do dia seguinte, no horário de São Paulo.
+	// DayLimitCents Limite de saques por dia civil, em centavos de real. A nova cota é liberada às 00:01, no horário de São Paulo.
 	DayLimitCents int64 `json:"day_limit_cents"`
-	// NightLimitCents Limite noturno de saques, em centavos de real, das 20:00 às 06:00 do dia seguinte. Esse valor faz parte do limite diário.
+	// NightLimitCents Limite noturno de saques, em centavos de real. O consumo acumula das 20:00 às 06:00 do dia seguinte, inclusive na virada do dia.
 	NightLimitCents int64 `json:"night_limit_cents"`
 	// PeriodLimitCents Limite aplicável ao período indicado por period, em centavos de real.
 	PeriodLimitCents int64 `json:"period_limit_cents"`
@@ -3151,7 +5151,7 @@ type WithdrawalPeriodLimits struct {
 	RequestMaximumAmountCents int64 `json:"request_maximum_amount_cents"`
 	// Period Período vigente: day durante o período diurno ou night das 20:00 às 06:00, no horário de São Paulo.
 	Period string `json:"period"`
-	// PeriodEndsAt Término do período vigente, em segundos Unix UTC. Consulte novamente após esse instante para conferir as condições atualizadas.
+	// PeriodEndsAt Próxima virada dos limites, em segundos Unix UTC. Consulte novamente após esse instante para conferir as condições atualizadas.
 	PeriodEndsAt int64 `json:"period_ends_at"`
 }
 
@@ -3206,6 +5206,40 @@ func (v WithdrawalPixDestination) MarshalJSON() ([]byte, error) {
 	return encodeResource(v.Resource, plain(v), "WithdrawalPixDestination")
 }
 
+// WithdrawalRequestedWebhookEvent contains the fields defined by the public API.
+type WithdrawalRequestedWebhookEvent struct {
+	Resource `json:"-"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// Type is defined by the public API.
+	Type string `json:"type"`
+	// CreatedAt is defined by the public API.
+	CreatedAt string `json:"created_at"`
+	// Environment is defined by the public API.
+	Environment string `json:"environment"`
+	// Data is defined by the public API.
+	Data WithdrawalRequestedWebhookEventData `json:"data"`
+}
+
+// UnmarshalJSON validates and reads the public WithdrawalRequestedWebhookEvent response.
+func (v *WithdrawalRequestedWebhookEvent) UnmarshalJSON(data []byte) error {
+	type plain WithdrawalRequestedWebhookEvent
+	var decoded plain
+	resource, err := decodeResource(data, "WithdrawalRequestedWebhookEvent", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WithdrawalRequestedWebhookEvent(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WithdrawalRequestedWebhookEvent) MarshalJSON() ([]byte, error) {
+	type plain WithdrawalRequestedWebhookEvent
+	return encodeResource(v.Resource, plain(v), "WithdrawalRequestedWebhookEvent")
+}
+
 // WithdrawalSummary Resumo atual dos saques pendentes ou em processamento da empresa.
 type WithdrawalSummary struct {
 	Resource `json:"-"`
@@ -3232,4 +5266,1392 @@ func (v *WithdrawalSummary) UnmarshalJSON(data []byte) error {
 func (v WithdrawalSummary) MarshalJSON() ([]byte, error) {
 	type plain WithdrawalSummary
 	return encodeResource(v.Resource, plain(v), "WithdrawalSummary")
+}
+
+// AccountRestoredWebhookEventData contains the fields defined by the public API.
+type AccountRestoredWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public AccountRestoredWebhookEventData response.
+func (v *AccountRestoredWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain AccountRestoredWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "AccountRestoredWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = AccountRestoredWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v AccountRestoredWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain AccountRestoredWebhookEventData
+	return encodeResource(v.Resource, plain(v), "AccountRestoredWebhookEventData")
+}
+
+// BalanceHoldCreatedWebhookEventData contains the fields defined by the public API.
+type BalanceHoldCreatedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public BalanceHoldCreatedWebhookEventData response.
+func (v *BalanceHoldCreatedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain BalanceHoldCreatedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "BalanceHoldCreatedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = BalanceHoldCreatedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v BalanceHoldCreatedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain BalanceHoldCreatedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "BalanceHoldCreatedWebhookEventData")
+}
+
+// BalanceHoldReleasedWebhookEventData contains the fields defined by the public API.
+type BalanceHoldReleasedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public BalanceHoldReleasedWebhookEventData response.
+func (v *BalanceHoldReleasedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain BalanceHoldReleasedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "BalanceHoldReleasedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = BalanceHoldReleasedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v BalanceHoldReleasedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain BalanceHoldReleasedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "BalanceHoldReleasedWebhookEventData")
+}
+
+// BoletoAvailableWebhookEventData contains the fields defined by the public API.
+type BoletoAvailableWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public BoletoAvailableWebhookEventData response.
+func (v *BoletoAvailableWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain BoletoAvailableWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "BoletoAvailableWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = BoletoAvailableWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v BoletoAvailableWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain BoletoAvailableWebhookEventData
+	return encodeResource(v.Resource, plain(v), "BoletoAvailableWebhookEventData")
+}
+
+// BoletoCompensatedWebhookEventData contains the fields defined by the public API.
+type BoletoCompensatedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public BoletoCompensatedWebhookEventData response.
+func (v *BoletoCompensatedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain BoletoCompensatedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "BoletoCompensatedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = BoletoCompensatedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v BoletoCompensatedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain BoletoCompensatedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "BoletoCompensatedWebhookEventData")
+}
+
+// BoletoIssuanceFailedWebhookEventData contains the fields defined by the public API.
+type BoletoIssuanceFailedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public BoletoIssuanceFailedWebhookEventData response.
+func (v *BoletoIssuanceFailedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain BoletoIssuanceFailedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "BoletoIssuanceFailedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = BoletoIssuanceFailedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v BoletoIssuanceFailedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain BoletoIssuanceFailedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "BoletoIssuanceFailedWebhookEventData")
+}
+
+// BoletoOverpaymentReceivedWebhookEventData contains the fields defined by the public API.
+type BoletoOverpaymentReceivedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+	// StatementID is defined by the public API.
+	StatementID *string `json:"statement_id"`
+	// CreditDeltaCents is defined by the public API.
+	CreditDeltaCents *int64 `json:"credit_delta_cents"`
+	// Currency is defined by the public API.
+	Currency *string `json:"currency"`
+}
+
+// UnmarshalJSON validates and reads the public BoletoOverpaymentReceivedWebhookEventData response.
+func (v *BoletoOverpaymentReceivedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain BoletoOverpaymentReceivedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "BoletoOverpaymentReceivedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = BoletoOverpaymentReceivedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v BoletoOverpaymentReceivedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain BoletoOverpaymentReceivedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "BoletoOverpaymentReceivedWebhookEventData")
+}
+
+// BoletoPartialSettlementDetectedWebhookEventData contains the fields defined by the public API.
+type BoletoPartialSettlementDetectedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public BoletoPartialSettlementDetectedWebhookEventData response.
+func (v *BoletoPartialSettlementDetectedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain BoletoPartialSettlementDetectedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "BoletoPartialSettlementDetectedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = BoletoPartialSettlementDetectedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v BoletoPartialSettlementDetectedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain BoletoPartialSettlementDetectedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "BoletoPartialSettlementDetectedWebhookEventData")
+}
+
+// ChargeCanceledWebhookEventData contains the fields defined by the public API.
+type ChargeCanceledWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public ChargeCanceledWebhookEventData response.
+func (v *ChargeCanceledWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain ChargeCanceledWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "ChargeCanceledWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = ChargeCanceledWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v ChargeCanceledWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain ChargeCanceledWebhookEventData
+	return encodeResource(v.Resource, plain(v), "ChargeCanceledWebhookEventData")
+}
+
+// ChargeCreatedWebhookEventData contains the fields defined by the public API.
+type ChargeCreatedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public ChargeCreatedWebhookEventData response.
+func (v *ChargeCreatedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain ChargeCreatedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "ChargeCreatedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = ChargeCreatedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v ChargeCreatedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain ChargeCreatedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "ChargeCreatedWebhookEventData")
+}
+
+// ChargeExpiredWebhookEventData contains the fields defined by the public API.
+type ChargeExpiredWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public ChargeExpiredWebhookEventData response.
+func (v *ChargeExpiredWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain ChargeExpiredWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "ChargeExpiredWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = ChargeExpiredWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v ChargeExpiredWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain ChargeExpiredWebhookEventData
+	return encodeResource(v.Resource, plain(v), "ChargeExpiredWebhookEventData")
+}
+
+// ChargeFailedWebhookEventData contains the fields defined by the public API.
+type ChargeFailedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public ChargeFailedWebhookEventData response.
+func (v *ChargeFailedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain ChargeFailedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "ChargeFailedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = ChargeFailedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v ChargeFailedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain ChargeFailedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "ChargeFailedWebhookEventData")
+}
+
+// ChargeFullyRefundedWebhookEventData contains the fields defined by the public API.
+type ChargeFullyRefundedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public ChargeFullyRefundedWebhookEventData response.
+func (v *ChargeFullyRefundedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain ChargeFullyRefundedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "ChargeFullyRefundedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = ChargeFullyRefundedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v ChargeFullyRefundedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain ChargeFullyRefundedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "ChargeFullyRefundedWebhookEventData")
+}
+
+// ChargePaidWebhookEventData contains the fields defined by the public API.
+type ChargePaidWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+	// StatementID is defined by the public API.
+	StatementID *string `json:"statement_id"`
+	// PaidAmountCents is defined by the public API.
+	PaidAmountCents *int64 `json:"paid_amount_cents"`
+	// Currency is defined by the public API.
+	Currency *string `json:"currency"`
+}
+
+// UnmarshalJSON validates and reads the public ChargePaidWebhookEventData response.
+func (v *ChargePaidWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain ChargePaidWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "ChargePaidWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = ChargePaidWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v ChargePaidWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain ChargePaidWebhookEventData
+	return encodeResource(v.Resource, plain(v), "ChargePaidWebhookEventData")
+}
+
+// ChargePartiallyRefundedWebhookEventData contains the fields defined by the public API.
+type ChargePartiallyRefundedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public ChargePartiallyRefundedWebhookEventData response.
+func (v *ChargePartiallyRefundedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain ChargePartiallyRefundedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "ChargePartiallyRefundedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = ChargePartiallyRefundedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v ChargePartiallyRefundedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain ChargePartiallyRefundedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "ChargePartiallyRefundedWebhookEventData")
+}
+
+// ChargePaymentInstructionsAvailableWebhookEventData contains the fields defined by the public API.
+type ChargePaymentInstructionsAvailableWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public ChargePaymentInstructionsAvailableWebhookEventData response.
+func (v *ChargePaymentInstructionsAvailableWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain ChargePaymentInstructionsAvailableWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "ChargePaymentInstructionsAvailableWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = ChargePaymentInstructionsAvailableWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v ChargePaymentInstructionsAvailableWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain ChargePaymentInstructionsAvailableWebhookEventData
+	return encodeResource(v.Resource, plain(v), "ChargePaymentInstructionsAvailableWebhookEventData")
+}
+
+// ChargePaymentInstructionsFailedWebhookEventData contains the fields defined by the public API.
+type ChargePaymentInstructionsFailedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public ChargePaymentInstructionsFailedWebhookEventData response.
+func (v *ChargePaymentInstructionsFailedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain ChargePaymentInstructionsFailedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "ChargePaymentInstructionsFailedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = ChargePaymentInstructionsFailedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v ChargePaymentInstructionsFailedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain ChargePaymentInstructionsFailedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "ChargePaymentInstructionsFailedWebhookEventData")
+}
+
+// ChargeUpdatedWebhookEventData contains the fields defined by the public API.
+type ChargeUpdatedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public ChargeUpdatedWebhookEventData response.
+func (v *ChargeUpdatedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain ChargeUpdatedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "ChargeUpdatedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = ChargeUpdatedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v ChargeUpdatedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain ChargeUpdatedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "ChargeUpdatedWebhookEventData")
+}
+
+// CustomerCreatedWebhookEventData contains the fields defined by the public API.
+type CustomerCreatedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public CustomerCreatedWebhookEventData response.
+func (v *CustomerCreatedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain CustomerCreatedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "CustomerCreatedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = CustomerCreatedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v CustomerCreatedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain CustomerCreatedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "CustomerCreatedWebhookEventData")
+}
+
+// CustomerDeletedWebhookEventData contains the fields defined by the public API.
+type CustomerDeletedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public CustomerDeletedWebhookEventData response.
+func (v *CustomerDeletedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain CustomerDeletedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "CustomerDeletedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = CustomerDeletedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v CustomerDeletedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain CustomerDeletedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "CustomerDeletedWebhookEventData")
+}
+
+// CustomerUpdatedWebhookEventData contains the fields defined by the public API.
+type CustomerUpdatedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public CustomerUpdatedWebhookEventData response.
+func (v *CustomerUpdatedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain CustomerUpdatedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "CustomerUpdatedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = CustomerUpdatedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v CustomerUpdatedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain CustomerUpdatedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "CustomerUpdatedWebhookEventData")
+}
+
+// DisputeClosedWebhookEventData contains the fields defined by the public API.
+type DisputeClosedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+	// ChargeID is defined by the public API.
+	ChargeID *string `json:"charge_id"`
+}
+
+// UnmarshalJSON validates and reads the public DisputeClosedWebhookEventData response.
+func (v *DisputeClosedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain DisputeClosedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "DisputeClosedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = DisputeClosedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v DisputeClosedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain DisputeClosedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "DisputeClosedWebhookEventData")
+}
+
+// DisputeFundsDebitedWebhookEventData contains the fields defined by the public API.
+type DisputeFundsDebitedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+	// ChargeID is defined by the public API.
+	ChargeID *string `json:"charge_id"`
+	// StatementID is defined by the public API.
+	StatementID *string `json:"statement_id"`
+	// DebitedAmountCents is defined by the public API.
+	DebitedAmountCents *int64 `json:"debited_amount_cents"`
+	// Currency is defined by the public API.
+	Currency *string `json:"currency"`
+}
+
+// UnmarshalJSON validates and reads the public DisputeFundsDebitedWebhookEventData response.
+func (v *DisputeFundsDebitedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain DisputeFundsDebitedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "DisputeFundsDebitedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = DisputeFundsDebitedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v DisputeFundsDebitedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain DisputeFundsDebitedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "DisputeFundsDebitedWebhookEventData")
+}
+
+// DisputeOpenedWebhookEventData contains the fields defined by the public API.
+type DisputeOpenedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+	// ChargeID is defined by the public API.
+	ChargeID *string `json:"charge_id"`
+}
+
+// UnmarshalJSON validates and reads the public DisputeOpenedWebhookEventData response.
+func (v *DisputeOpenedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain DisputeOpenedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "DisputeOpenedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = DisputeOpenedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v DisputeOpenedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain DisputeOpenedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "DisputeOpenedWebhookEventData")
+}
+
+// DisputeUpdatedWebhookEventData contains the fields defined by the public API.
+type DisputeUpdatedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+	// ChargeID is defined by the public API.
+	ChargeID *string `json:"charge_id"`
+}
+
+// UnmarshalJSON validates and reads the public DisputeUpdatedWebhookEventData response.
+func (v *DisputeUpdatedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain DisputeUpdatedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "DisputeUpdatedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = DisputeUpdatedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v DisputeUpdatedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain DisputeUpdatedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "DisputeUpdatedWebhookEventData")
+}
+
+// PaymentLinkCreatedWebhookEventData contains the fields defined by the public API.
+type PaymentLinkCreatedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public PaymentLinkCreatedWebhookEventData response.
+func (v *PaymentLinkCreatedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain PaymentLinkCreatedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "PaymentLinkCreatedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = PaymentLinkCreatedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v PaymentLinkCreatedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain PaymentLinkCreatedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "PaymentLinkCreatedWebhookEventData")
+}
+
+// PaymentLinkUpdatedWebhookEventData contains the fields defined by the public API.
+type PaymentLinkUpdatedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public PaymentLinkUpdatedWebhookEventData response.
+func (v *PaymentLinkUpdatedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain PaymentLinkUpdatedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "PaymentLinkUpdatedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = PaymentLinkUpdatedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v PaymentLinkUpdatedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain PaymentLinkUpdatedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "PaymentLinkUpdatedWebhookEventData")
+}
+
+// PixAvailableWebhookEventData contains the fields defined by the public API.
+type PixAvailableWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public PixAvailableWebhookEventData response.
+func (v *PixAvailableWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain PixAvailableWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "PixAvailableWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = PixAvailableWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v PixAvailableWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain PixAvailableWebhookEventData
+	return encodeResource(v.Resource, plain(v), "PixAvailableWebhookEventData")
+}
+
+// PixIssuanceFailedWebhookEventData contains the fields defined by the public API.
+type PixIssuanceFailedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public PixIssuanceFailedWebhookEventData response.
+func (v *PixIssuanceFailedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain PixIssuanceFailedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "PixIssuanceFailedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = PixIssuanceFailedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v PixIssuanceFailedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain PixIssuanceFailedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "PixIssuanceFailedWebhookEventData")
+}
+
+// PixRefundReceivedWebhookEventData contains the fields defined by the public API.
+type PixRefundReceivedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public PixRefundReceivedWebhookEventData response.
+func (v *PixRefundReceivedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain PixRefundReceivedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "PixRefundReceivedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = PixRefundReceivedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v PixRefundReceivedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain PixRefundReceivedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "PixRefundReceivedWebhookEventData")
+}
+
+// RefundAcceptedWebhookEventData contains the fields defined by the public API.
+type RefundAcceptedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+	// ChargeID is defined by the public API.
+	ChargeID *string `json:"charge_id"`
+	// AmountCents is defined by the public API.
+	AmountCents *int64 `json:"amount_cents"`
+	// Currency is defined by the public API.
+	Currency *string `json:"currency"`
+}
+
+// UnmarshalJSON validates and reads the public RefundAcceptedWebhookEventData response.
+func (v *RefundAcceptedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain RefundAcceptedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "RefundAcceptedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = RefundAcceptedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v RefundAcceptedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain RefundAcceptedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "RefundAcceptedWebhookEventData")
+}
+
+// RefundCompletedWebhookEventData contains the fields defined by the public API.
+type RefundCompletedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+	// ChargeID is defined by the public API.
+	ChargeID *string `json:"charge_id"`
+	// StatementID is defined by the public API.
+	StatementID *string `json:"statement_id"`
+	// AmountCents is defined by the public API.
+	AmountCents *int64 `json:"amount_cents"`
+	// Currency is defined by the public API.
+	Currency *string `json:"currency"`
+}
+
+// UnmarshalJSON validates and reads the public RefundCompletedWebhookEventData response.
+func (v *RefundCompletedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain RefundCompletedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "RefundCompletedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = RefundCompletedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v RefundCompletedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain RefundCompletedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "RefundCompletedWebhookEventData")
+}
+
+// RefundFailedWebhookEventData contains the fields defined by the public API.
+type RefundFailedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+	// ChargeID is defined by the public API.
+	ChargeID *string `json:"charge_id"`
+	// AmountCents is defined by the public API.
+	AmountCents *int64 `json:"amount_cents"`
+	// Currency is defined by the public API.
+	Currency *string `json:"currency"`
+	// FailureReasonCode is defined by the public API.
+	FailureReasonCode *string `json:"failure_reason_code"`
+}
+
+// UnmarshalJSON validates and reads the public RefundFailedWebhookEventData response.
+func (v *RefundFailedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain RefundFailedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "RefundFailedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = RefundFailedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v RefundFailedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain RefundFailedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "RefundFailedWebhookEventData")
+}
+
+// RefundReconciliationRequiredWebhookEventData contains the fields defined by the public API.
+type RefundReconciliationRequiredWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+	// ChargeID is defined by the public API.
+	ChargeID *string `json:"charge_id"`
+	// AmountCents is defined by the public API.
+	AmountCents *int64 `json:"amount_cents"`
+	// Currency is defined by the public API.
+	Currency *string `json:"currency"`
+}
+
+// UnmarshalJSON validates and reads the public RefundReconciliationRequiredWebhookEventData response.
+func (v *RefundReconciliationRequiredWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain RefundReconciliationRequiredWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "RefundReconciliationRequiredWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = RefundReconciliationRequiredWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v RefundReconciliationRequiredWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain RefundReconciliationRequiredWebhookEventData
+	return encodeResource(v.Resource, plain(v), "RefundReconciliationRequiredWebhookEventData")
+}
+
+// RefundRequestedWebhookEventData contains the fields defined by the public API.
+type RefundRequestedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+	// ChargeID is defined by the public API.
+	ChargeID *string `json:"charge_id"`
+	// AmountCents is defined by the public API.
+	AmountCents *int64 `json:"amount_cents"`
+	// Currency is defined by the public API.
+	Currency *string `json:"currency"`
+}
+
+// UnmarshalJSON validates and reads the public RefundRequestedWebhookEventData response.
+func (v *RefundRequestedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain RefundRequestedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "RefundRequestedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = RefundRequestedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v RefundRequestedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain RefundRequestedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "RefundRequestedWebhookEventData")
+}
+
+// StatementCreatedWebhookEventData contains the fields defined by the public API.
+type StatementCreatedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+	// AmountCents is defined by the public API.
+	AmountCents *int64 `json:"amount_cents"`
+	// Currency is defined by the public API.
+	Currency *string `json:"currency"`
+	// StatementType is defined by the public API.
+	StatementType *int64 `json:"statement_type"`
+	// ReferenceType is defined by the public API.
+	ReferenceType *int64 `json:"reference_type"`
+	// ReferenceID is defined by the public API.
+	ReferenceID *string `json:"reference_id"`
+}
+
+// UnmarshalJSON validates and reads the public StatementCreatedWebhookEventData response.
+func (v *StatementCreatedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain StatementCreatedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "StatementCreatedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = StatementCreatedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v StatementCreatedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain StatementCreatedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "StatementCreatedWebhookEventData")
+}
+
+// TedReceivedWebhookEventData contains the fields defined by the public API.
+type TedReceivedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public TedReceivedWebhookEventData response.
+func (v *TedReceivedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain TedReceivedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "TedReceivedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = TedReceivedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v TedReceivedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain TedReceivedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "TedReceivedWebhookEventData")
+}
+
+// WebhookTestWebhookEventData contains the fields defined by the public API.
+type WebhookTestWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+}
+
+// UnmarshalJSON validates and reads the public WebhookTestWebhookEventData response.
+func (v *WebhookTestWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain WebhookTestWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "WebhookTestWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WebhookTestWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WebhookTestWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain WebhookTestWebhookEventData
+	return encodeResource(v.Resource, plain(v), "WebhookTestWebhookEventData")
+}
+
+// WithdrawalAcceptedWebhookEventData contains the fields defined by the public API.
+type WithdrawalAcceptedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public WithdrawalAcceptedWebhookEventData response.
+func (v *WithdrawalAcceptedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain WithdrawalAcceptedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "WithdrawalAcceptedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WithdrawalAcceptedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WithdrawalAcceptedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain WithdrawalAcceptedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "WithdrawalAcceptedWebhookEventData")
+}
+
+// WithdrawalAutomaticSettingsChangedWebhookEventData contains the fields defined by the public API.
+type WithdrawalAutomaticSettingsChangedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public WithdrawalAutomaticSettingsChangedWebhookEventData response.
+func (v *WithdrawalAutomaticSettingsChangedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain WithdrawalAutomaticSettingsChangedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "WithdrawalAutomaticSettingsChangedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WithdrawalAutomaticSettingsChangedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WithdrawalAutomaticSettingsChangedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain WithdrawalAutomaticSettingsChangedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "WithdrawalAutomaticSettingsChangedWebhookEventData")
+}
+
+// WithdrawalCompletedWebhookEventData contains the fields defined by the public API.
+type WithdrawalCompletedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public WithdrawalCompletedWebhookEventData response.
+func (v *WithdrawalCompletedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain WithdrawalCompletedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "WithdrawalCompletedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WithdrawalCompletedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WithdrawalCompletedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain WithdrawalCompletedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "WithdrawalCompletedWebhookEventData")
+}
+
+// WithdrawalDestinationChangedWebhookEventData contains the fields defined by the public API.
+type WithdrawalDestinationChangedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public WithdrawalDestinationChangedWebhookEventData response.
+func (v *WithdrawalDestinationChangedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain WithdrawalDestinationChangedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "WithdrawalDestinationChangedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WithdrawalDestinationChangedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WithdrawalDestinationChangedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain WithdrawalDestinationChangedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "WithdrawalDestinationChangedWebhookEventData")
+}
+
+// WithdrawalFailedWebhookEventData contains the fields defined by the public API.
+type WithdrawalFailedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public WithdrawalFailedWebhookEventData response.
+func (v *WithdrawalFailedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain WithdrawalFailedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "WithdrawalFailedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WithdrawalFailedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WithdrawalFailedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain WithdrawalFailedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "WithdrawalFailedWebhookEventData")
+}
+
+// WithdrawalRequestedWebhookEventData contains the fields defined by the public API.
+type WithdrawalRequestedWebhookEventData struct {
+	Resource `json:"-"`
+	// Object is defined by the public API.
+	Object string `json:"object"`
+	// ID is defined by the public API.
+	ID string `json:"id"`
+	// PaymentMethod is defined by the public API.
+	PaymentMethod *string `json:"payment_method"`
+}
+
+// UnmarshalJSON validates and reads the public WithdrawalRequestedWebhookEventData response.
+func (v *WithdrawalRequestedWebhookEventData) UnmarshalJSON(data []byte) error {
+	type plain WithdrawalRequestedWebhookEventData
+	var decoded plain
+	resource, err := decodeResource(data, "WithdrawalRequestedWebhookEventData", &decoded)
+	if err != nil {
+		return err
+	}
+	*v = WithdrawalRequestedWebhookEventData(decoded)
+	v.Resource = resource
+	return nil
+}
+
+// MarshalJSON encodes typed fields and future fields, preserving received field presence.
+func (v WithdrawalRequestedWebhookEventData) MarshalJSON() ([]byte, error) {
+	type plain WithdrawalRequestedWebhookEventData
+	return encodeResource(v.Resource, plain(v), "WithdrawalRequestedWebhookEventData")
 }

@@ -253,6 +253,110 @@
       "type": "func([]byte) error",
       "receiver": "*AccountNumber"
     },
+    "AccountRestoredWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "AccountRestoredWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "AccountRestoredWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "AccountRestoredWebhookEvent"
+    },
+    "AccountRestoredWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*AccountRestoredWebhookEvent"
+    },
+    "AccountRestoredWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "AccountRestoredWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "AccountRestoredWebhookEventData"
+    },
+    "AccountRestoredWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*AccountRestoredWebhookEventData"
+    },
+    "AccountRestoredWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "AccountRestoredWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "AccountRestoredWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "AccountRestoredWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
     "AccountsService": {
       "kind": "type",
       "type": "struct"
@@ -453,6 +557,214 @@
       "type": "untyped string",
       "value": "\"today\""
     },
+    "BalanceHoldCreatedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "BalanceHoldCreatedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "BalanceHoldCreatedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "BalanceHoldCreatedWebhookEvent"
+    },
+    "BalanceHoldCreatedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*BalanceHoldCreatedWebhookEvent"
+    },
+    "BalanceHoldCreatedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "BalanceHoldCreatedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "BalanceHoldCreatedWebhookEventData"
+    },
+    "BalanceHoldCreatedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*BalanceHoldCreatedWebhookEventData"
+    },
+    "BalanceHoldCreatedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "BalanceHoldCreatedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "BalanceHoldCreatedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "BalanceHoldCreatedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "BalanceHoldReleasedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "BalanceHoldReleasedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "BalanceHoldReleasedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "BalanceHoldReleasedWebhookEvent"
+    },
+    "BalanceHoldReleasedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*BalanceHoldReleasedWebhookEvent"
+    },
+    "BalanceHoldReleasedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "BalanceHoldReleasedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "BalanceHoldReleasedWebhookEventData"
+    },
+    "BalanceHoldReleasedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*BalanceHoldReleasedWebhookEventData"
+    },
+    "BalanceHoldReleasedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "BalanceHoldReleasedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "BalanceHoldReleasedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "BalanceHoldReleasedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
     "BalancesService": {
       "kind": "type",
       "type": "struct"
@@ -466,6 +778,571 @@
       "kind": "method",
       "type": "func(context.Context, ...RequestOption) (*Balance, error)",
       "receiver": "*BalancesService"
+    },
+    "BoletoAvailableWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "BoletoAvailableWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "BoletoAvailableWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "BoletoAvailableWebhookEvent"
+    },
+    "BoletoAvailableWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*BoletoAvailableWebhookEvent"
+    },
+    "BoletoAvailableWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "BoletoAvailableWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "BoletoAvailableWebhookEventData"
+    },
+    "BoletoAvailableWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*BoletoAvailableWebhookEventData"
+    },
+    "BoletoAvailableWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "BoletoAvailableWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "BoletoAvailableWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "BoletoAvailableWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "BoletoAvailableWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "BoletoAvailableWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
+    },
+    "BoletoCompensatedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "BoletoCompensatedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "BoletoCompensatedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "BoletoCompensatedWebhookEvent"
+    },
+    "BoletoCompensatedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*BoletoCompensatedWebhookEvent"
+    },
+    "BoletoCompensatedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "BoletoCompensatedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "BoletoCompensatedWebhookEventData"
+    },
+    "BoletoCompensatedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*BoletoCompensatedWebhookEventData"
+    },
+    "BoletoCompensatedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "BoletoCompensatedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "BoletoCompensatedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "BoletoCompensatedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "BoletoCompensatedWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "BoletoCompensatedWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
+    },
+    "BoletoIssuanceFailedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "BoletoIssuanceFailedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "BoletoIssuanceFailedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "BoletoIssuanceFailedWebhookEvent"
+    },
+    "BoletoIssuanceFailedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*BoletoIssuanceFailedWebhookEvent"
+    },
+    "BoletoIssuanceFailedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "BoletoIssuanceFailedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "BoletoIssuanceFailedWebhookEventData"
+    },
+    "BoletoIssuanceFailedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*BoletoIssuanceFailedWebhookEventData"
+    },
+    "BoletoIssuanceFailedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "BoletoIssuanceFailedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "BoletoIssuanceFailedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "BoletoIssuanceFailedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "BoletoIssuanceFailedWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "BoletoIssuanceFailedWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
+    },
+    "BoletoOverpaymentReceivedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "BoletoOverpaymentReceivedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "BoletoOverpaymentReceivedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "BoletoOverpaymentReceivedWebhookEvent"
+    },
+    "BoletoOverpaymentReceivedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*BoletoOverpaymentReceivedWebhookEvent"
+    },
+    "BoletoOverpaymentReceivedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        },
+        {
+          "name": "StatementID",
+          "type": "*string",
+          "tag": "json:\"statement_id\""
+        },
+        {
+          "name": "CreditDeltaCents",
+          "type": "*int64",
+          "tag": "json:\"credit_delta_cents\""
+        },
+        {
+          "name": "Currency",
+          "type": "*string",
+          "tag": "json:\"currency\""
+        }
+      ]
+    },
+    "BoletoOverpaymentReceivedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "BoletoOverpaymentReceivedWebhookEventData"
+    },
+    "BoletoOverpaymentReceivedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*BoletoOverpaymentReceivedWebhookEventData"
+    },
+    "BoletoOverpaymentReceivedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "BoletoOverpaymentReceivedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "BoletoOverpaymentReceivedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "BoletoOverpaymentReceivedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "BoletoPartialSettlementDetectedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "BoletoPartialSettlementDetectedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "BoletoPartialSettlementDetectedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "BoletoPartialSettlementDetectedWebhookEvent"
+    },
+    "BoletoPartialSettlementDetectedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*BoletoPartialSettlementDetectedWebhookEvent"
+    },
+    "BoletoPartialSettlementDetectedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "BoletoPartialSettlementDetectedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "BoletoPartialSettlementDetectedWebhookEventData"
+    },
+    "BoletoPartialSettlementDetectedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*BoletoPartialSettlementDetectedWebhookEventData"
+    },
+    "BoletoPartialSettlementDetectedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "BoletoPartialSettlementDetectedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "BoletoPartialSettlementDetectedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "BoletoPartialSettlementDetectedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
     },
     "Charge": {
       "kind": "type",
@@ -556,6 +1433,11 @@
           "name": "Metadata",
           "type": "map[string]string",
           "tag": "json:\"metadata\""
+        },
+        {
+          "name": "BoletoSettlement",
+          "type": "*ChargeBoletoSettlement",
+          "tag": "json:\"boleto_settlement\""
         }
       ]
     },
@@ -647,6 +1529,157 @@
       "kind": "method",
       "type": "func([]byte) error",
       "receiver": "*ChargeBoletoPaymentInformation"
+    },
+    "ChargeBoletoSettlement": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ObservedAmountCents",
+          "type": "*int64",
+          "tag": "json:\"observed_amount_cents\""
+        },
+        {
+          "name": "ConfirmedTotalCents",
+          "type": "*int64",
+          "tag": "json:\"confirmed_total_cents\""
+        },
+        {
+          "name": "OverpaymentCents",
+          "type": "*int64",
+          "tag": "json:\"overpayment_cents\""
+        }
+      ]
+    },
+    "ChargeBoletoSettlement.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeBoletoSettlement"
+    },
+    "ChargeBoletoSettlement.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeBoletoSettlement"
+    },
+    "ChargeCanceledWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "ChargeCanceledWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "ChargeCanceledWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeCanceledWebhookEvent"
+    },
+    "ChargeCanceledWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeCanceledWebhookEvent"
+    },
+    "ChargeCanceledWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "ChargeCanceledWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeCanceledWebhookEventData"
+    },
+    "ChargeCanceledWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeCanceledWebhookEventData"
+    },
+    "ChargeCanceledWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "ChargeCanceledWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "ChargeCanceledWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "ChargeCanceledWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "ChargeCanceledWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "ChargeCanceledWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
     },
     "ChargeCreated": {
       "kind": "type",
@@ -749,6 +1782,462 @@
       "kind": "const",
       "type": "int64",
       "value": "1"
+    },
+    "ChargeCreatedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "ChargeCreatedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "ChargeCreatedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeCreatedWebhookEvent"
+    },
+    "ChargeCreatedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeCreatedWebhookEvent"
+    },
+    "ChargeCreatedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "ChargeCreatedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeCreatedWebhookEventData"
+    },
+    "ChargeCreatedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeCreatedWebhookEventData"
+    },
+    "ChargeCreatedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "ChargeCreatedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "ChargeCreatedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "ChargeCreatedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "ChargeCreatedWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "ChargeCreatedWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
+    },
+    "ChargeExpiredWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "ChargeExpiredWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "ChargeExpiredWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeExpiredWebhookEvent"
+    },
+    "ChargeExpiredWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeExpiredWebhookEvent"
+    },
+    "ChargeExpiredWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "ChargeExpiredWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeExpiredWebhookEventData"
+    },
+    "ChargeExpiredWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeExpiredWebhookEventData"
+    },
+    "ChargeExpiredWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "ChargeExpiredWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "ChargeExpiredWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "ChargeExpiredWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "ChargeExpiredWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "ChargeExpiredWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
+    },
+    "ChargeFailedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "ChargeFailedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "ChargeFailedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeFailedWebhookEvent"
+    },
+    "ChargeFailedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeFailedWebhookEvent"
+    },
+    "ChargeFailedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "ChargeFailedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeFailedWebhookEventData"
+    },
+    "ChargeFailedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeFailedWebhookEventData"
+    },
+    "ChargeFailedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "ChargeFailedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "ChargeFailedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "ChargeFailedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "ChargeFailedWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "ChargeFailedWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
+    },
+    "ChargeFullyRefundedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "ChargeFullyRefundedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "ChargeFullyRefundedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeFullyRefundedWebhookEvent"
+    },
+    "ChargeFullyRefundedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeFullyRefundedWebhookEvent"
+    },
+    "ChargeFullyRefundedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "ChargeFullyRefundedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeFullyRefundedWebhookEventData"
+    },
+    "ChargeFullyRefundedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeFullyRefundedWebhookEventData"
+    },
+    "ChargeFullyRefundedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "ChargeFullyRefundedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "ChargeFullyRefundedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "ChargeFullyRefundedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "ChargeFullyRefundedWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "ChargeFullyRefundedWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
     },
     "ChargeListItem": {
       "kind": "type",
@@ -941,6 +2430,249 @@
       "type": "func([]byte) error",
       "receiver": "*ChargeListResponse"
     },
+    "ChargePaidWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "ChargePaidWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "ChargePaidWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargePaidWebhookEvent"
+    },
+    "ChargePaidWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargePaidWebhookEvent"
+    },
+    "ChargePaidWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        },
+        {
+          "name": "StatementID",
+          "type": "*string",
+          "tag": "json:\"statement_id\""
+        },
+        {
+          "name": "PaidAmountCents",
+          "type": "*int64",
+          "tag": "json:\"paid_amount_cents\""
+        },
+        {
+          "name": "Currency",
+          "type": "*string",
+          "tag": "json:\"currency\""
+        }
+      ]
+    },
+    "ChargePaidWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargePaidWebhookEventData"
+    },
+    "ChargePaidWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargePaidWebhookEventData"
+    },
+    "ChargePaidWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "ChargePaidWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "ChargePaidWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "ChargePaidWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "ChargePaidWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "ChargePaidWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
+    },
+    "ChargePartiallyRefundedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "ChargePartiallyRefundedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "ChargePartiallyRefundedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargePartiallyRefundedWebhookEvent"
+    },
+    "ChargePartiallyRefundedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargePartiallyRefundedWebhookEvent"
+    },
+    "ChargePartiallyRefundedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "ChargePartiallyRefundedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargePartiallyRefundedWebhookEventData"
+    },
+    "ChargePartiallyRefundedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargePartiallyRefundedWebhookEventData"
+    },
+    "ChargePartiallyRefundedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "ChargePartiallyRefundedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "ChargePartiallyRefundedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "ChargePartiallyRefundedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "ChargePartiallyRefundedWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "ChargePartiallyRefundedWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
+    },
     "ChargePaymentInformation": {
       "kind": "type",
       "type": "struct",
@@ -1008,6 +2740,11 @@
       "type": "untyped string",
       "value": "\"compensated\""
     },
+    "ChargePaymentInformationBoletoPaymentStatusPartiallySettled": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"partially_settled\""
+    },
     "ChargePaymentInformationBoletoPaymentStatusSettled": {
       "kind": "const",
       "type": "untyped string",
@@ -1052,6 +2789,234 @@
       "kind": "const",
       "type": "untyped string",
       "value": "\"pending\""
+    },
+    "ChargePaymentInstructionsAvailableWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "ChargePaymentInstructionsAvailableWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "ChargePaymentInstructionsAvailableWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargePaymentInstructionsAvailableWebhookEvent"
+    },
+    "ChargePaymentInstructionsAvailableWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargePaymentInstructionsAvailableWebhookEvent"
+    },
+    "ChargePaymentInstructionsAvailableWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "ChargePaymentInstructionsAvailableWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargePaymentInstructionsAvailableWebhookEventData"
+    },
+    "ChargePaymentInstructionsAvailableWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargePaymentInstructionsAvailableWebhookEventData"
+    },
+    "ChargePaymentInstructionsAvailableWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "ChargePaymentInstructionsAvailableWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "ChargePaymentInstructionsAvailableWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "ChargePaymentInstructionsAvailableWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "ChargePaymentInstructionsAvailableWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "ChargePaymentInstructionsAvailableWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
+    },
+    "ChargePaymentInstructionsFailedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "ChargePaymentInstructionsFailedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "ChargePaymentInstructionsFailedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargePaymentInstructionsFailedWebhookEvent"
+    },
+    "ChargePaymentInstructionsFailedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargePaymentInstructionsFailedWebhookEvent"
+    },
+    "ChargePaymentInstructionsFailedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "ChargePaymentInstructionsFailedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargePaymentInstructionsFailedWebhookEventData"
+    },
+    "ChargePaymentInstructionsFailedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargePaymentInstructionsFailedWebhookEventData"
+    },
+    "ChargePaymentInstructionsFailedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "ChargePaymentInstructionsFailedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "ChargePaymentInstructionsFailedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "ChargePaymentInstructionsFailedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "ChargePaymentInstructionsFailedWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "ChargePaymentInstructionsFailedWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
     },
     "ChargePaymentMethodTypesItemBoleto": {
       "kind": "const",
@@ -1483,6 +3448,120 @@
       "type": "untyped string",
       "value": "\"today\""
     },
+    "ChargeUpdatedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "ChargeUpdatedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "ChargeUpdatedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeUpdatedWebhookEvent"
+    },
+    "ChargeUpdatedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeUpdatedWebhookEvent"
+    },
+    "ChargeUpdatedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "ChargeUpdatedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "ChargeUpdatedWebhookEventData"
+    },
+    "ChargeUpdatedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*ChargeUpdatedWebhookEventData"
+    },
+    "ChargeUpdatedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "ChargeUpdatedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "ChargeUpdatedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "ChargeUpdatedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "ChargeUpdatedWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "ChargeUpdatedWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
+    },
     "ChargesService": {
       "kind": "type",
       "type": "struct"
@@ -1818,6 +3897,14 @@
         {
           "name": "Webhooks",
           "type": "*WebhooksService"
+        },
+        {
+          "name": "WebhookEvents",
+          "type": "*WebhookEventsService"
+        },
+        {
+          "name": "WebhookDeliveries",
+          "type": "*WebhookDeliveriesService"
         },
         {
           "name": "WithdrawalDestinations",
@@ -2207,20 +4294,20 @@
       "type": "untyped string",
       "value": "\"balance.hold.released\""
     },
-    "CreateWebhookParamsEventsItemBoletoAvailable": {
-      "kind": "const",
-      "type": "untyped string",
-      "value": "\"boleto.available\""
-    },
     "CreateWebhookParamsEventsItemBoletoCompensated": {
       "kind": "const",
       "type": "untyped string",
       "value": "\"boleto.compensated\""
     },
-    "CreateWebhookParamsEventsItemBoletoIssuanceFailed": {
+    "CreateWebhookParamsEventsItemBoletoOverpaymentReceived": {
       "kind": "const",
       "type": "untyped string",
-      "value": "\"boleto.issuance_failed\""
+      "value": "\"boleto.overpayment_received\""
+    },
+    "CreateWebhookParamsEventsItemBoletoPartialSettlementDetected": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto.partial_settlement_detected\""
     },
     "CreateWebhookParamsEventsItemChargeCanceled": {
       "kind": "const",
@@ -2251,6 +4338,21 @@
       "kind": "const",
       "type": "untyped string",
       "value": "\"charge.paid\""
+    },
+    "CreateWebhookParamsEventsItemChargePartiallyRefunded": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"charge.partially_refunded\""
+    },
+    "CreateWebhookParamsEventsItemChargePaymentInstructionsAvailable": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"charge.payment_instructions_available\""
+    },
+    "CreateWebhookParamsEventsItemChargePaymentInstructionsFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"charge.payment_instructions_failed\""
     },
     "CreateWebhookParamsEventsItemChargeUpdated": {
       "kind": "const",
@@ -2302,16 +4404,6 @@
       "type": "untyped string",
       "value": "\"payment_link.updated\""
     },
-    "CreateWebhookParamsEventsItemPixAvailable": {
-      "kind": "const",
-      "type": "untyped string",
-      "value": "\"pix.available\""
-    },
-    "CreateWebhookParamsEventsItemPixIssuanceFailed": {
-      "kind": "const",
-      "type": "untyped string",
-      "value": "\"pix.issuance_failed\""
-    },
     "CreateWebhookParamsEventsItemPixRefundReceived": {
       "kind": "const",
       "type": "untyped string",
@@ -2331,6 +4423,11 @@
       "kind": "const",
       "type": "untyped string",
       "value": "\"refund.failed\""
+    },
+    "CreateWebhookParamsEventsItemRefundReconciliationRequired": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"refund.reconciliation_required\""
     },
     "CreateWebhookParamsEventsItemRefundRequested": {
       "kind": "const",
@@ -2352,10 +4449,20 @@
       "type": "untyped string",
       "value": "\"withdrawal.accepted\""
     },
+    "CreateWebhookParamsEventsItemWithdrawalAutomaticSettingsChanged": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"withdrawal.automatic_settings_changed\""
+    },
     "CreateWebhookParamsEventsItemWithdrawalCompleted": {
       "kind": "const",
       "type": "untyped string",
       "value": "\"withdrawal.completed\""
+    },
+    "CreateWebhookParamsEventsItemWithdrawalDestinationChanged": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"withdrawal.destination_changed\""
     },
     "CreateWebhookParamsEventsItemWithdrawalFailed": {
       "kind": "const",
@@ -2492,6 +4599,120 @@
       "type": "untyped string",
       "value": "\"cpf\""
     },
+    "CustomerCreatedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "CustomerCreatedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "CustomerCreatedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "CustomerCreatedWebhookEvent"
+    },
+    "CustomerCreatedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*CustomerCreatedWebhookEvent"
+    },
+    "CustomerCreatedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "CustomerCreatedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "CustomerCreatedWebhookEventData"
+    },
+    "CustomerCreatedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*CustomerCreatedWebhookEventData"
+    },
+    "CustomerCreatedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "CustomerCreatedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "CustomerCreatedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "CustomerCreatedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "CustomerCreatedWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "CustomerCreatedWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
+    },
     "CustomerDeleted": {
       "kind": "type",
       "type": "struct",
@@ -2523,6 +4744,120 @@
       "kind": "method",
       "type": "func([]byte) error",
       "receiver": "*CustomerDeleted"
+    },
+    "CustomerDeletedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "CustomerDeletedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "CustomerDeletedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "CustomerDeletedWebhookEvent"
+    },
+    "CustomerDeletedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*CustomerDeletedWebhookEvent"
+    },
+    "CustomerDeletedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "CustomerDeletedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "CustomerDeletedWebhookEventData"
+    },
+    "CustomerDeletedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*CustomerDeletedWebhookEventData"
+    },
+    "CustomerDeletedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "CustomerDeletedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "CustomerDeletedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "CustomerDeletedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "CustomerDeletedWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "CustomerDeletedWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
     },
     "CustomerListItem": {
       "kind": "type",
@@ -2745,6 +5080,120 @@
       "type": "func([]byte) error",
       "receiver": "*CustomerListResponse"
     },
+    "CustomerUpdatedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "CustomerUpdatedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "CustomerUpdatedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "CustomerUpdatedWebhookEvent"
+    },
+    "CustomerUpdatedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*CustomerUpdatedWebhookEvent"
+    },
+    "CustomerUpdatedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "CustomerUpdatedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "CustomerUpdatedWebhookEventData"
+    },
+    "CustomerUpdatedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*CustomerUpdatedWebhookEventData"
+    },
+    "CustomerUpdatedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "CustomerUpdatedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "CustomerUpdatedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "CustomerUpdatedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "CustomerUpdatedWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "CustomerUpdatedWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
+    },
     "CustomersService": {
       "kind": "type",
       "type": "struct"
@@ -2793,6 +5242,17 @@
       "kind": "const",
       "type": "time.Duration",
       "value": "300000000000"
+    },
+    "DeliverWebhookEventParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "WebhookID",
+          "type": "Optional[string]",
+          "tag": "json:\"webhook_id,omitzero\""
+        }
+      ]
     },
     "Dispute": {
       "kind": "type",
@@ -2920,6 +5380,239 @@
       "kind": "method",
       "type": "func([]byte) error",
       "receiver": "*Dispute"
+    },
+    "DisputeClosedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "DisputeClosedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "DisputeClosedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "DisputeClosedWebhookEvent"
+    },
+    "DisputeClosedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*DisputeClosedWebhookEvent"
+    },
+    "DisputeClosedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        },
+        {
+          "name": "ChargeID",
+          "type": "*string",
+          "tag": "json:\"charge_id\""
+        }
+      ]
+    },
+    "DisputeClosedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "DisputeClosedWebhookEventData"
+    },
+    "DisputeClosedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*DisputeClosedWebhookEventData"
+    },
+    "DisputeClosedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "DisputeClosedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "DisputeClosedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "DisputeClosedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "DisputeFundsDebitedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "DisputeFundsDebitedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "DisputeFundsDebitedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "DisputeFundsDebitedWebhookEvent"
+    },
+    "DisputeFundsDebitedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*DisputeFundsDebitedWebhookEvent"
+    },
+    "DisputeFundsDebitedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        },
+        {
+          "name": "ChargeID",
+          "type": "*string",
+          "tag": "json:\"charge_id\""
+        },
+        {
+          "name": "StatementID",
+          "type": "*string",
+          "tag": "json:\"statement_id\""
+        },
+        {
+          "name": "DebitedAmountCents",
+          "type": "*int64",
+          "tag": "json:\"debited_amount_cents\""
+        },
+        {
+          "name": "Currency",
+          "type": "*string",
+          "tag": "json:\"currency\""
+        }
+      ]
+    },
+    "DisputeFundsDebitedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "DisputeFundsDebitedWebhookEventData"
+    },
+    "DisputeFundsDebitedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*DisputeFundsDebitedWebhookEventData"
+    },
+    "DisputeFundsDebitedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "DisputeFundsDebitedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "DisputeFundsDebitedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "DisputeFundsDebitedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
     },
     "DisputeInfractionResultAgreed": {
       "kind": "const",
@@ -3137,6 +5830,115 @@
       "type": "func([]byte) error",
       "receiver": "*DisputeListResponse"
     },
+    "DisputeOpenedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "DisputeOpenedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "DisputeOpenedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "DisputeOpenedWebhookEvent"
+    },
+    "DisputeOpenedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*DisputeOpenedWebhookEvent"
+    },
+    "DisputeOpenedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        },
+        {
+          "name": "ChargeID",
+          "type": "*string",
+          "tag": "json:\"charge_id\""
+        }
+      ]
+    },
+    "DisputeOpenedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "DisputeOpenedWebhookEventData"
+    },
+    "DisputeOpenedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*DisputeOpenedWebhookEventData"
+    },
+    "DisputeOpenedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "DisputeOpenedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "DisputeOpenedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "DisputeOpenedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
     "DisputeRefundResultPartiallyAccepted": {
       "kind": "const",
       "type": "untyped string",
@@ -3186,6 +5988,115 @@
       "kind": "const",
       "type": "untyped string",
       "value": "\"rejected\""
+    },
+    "DisputeUpdatedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "DisputeUpdatedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "DisputeUpdatedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "DisputeUpdatedWebhookEvent"
+    },
+    "DisputeUpdatedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*DisputeUpdatedWebhookEvent"
+    },
+    "DisputeUpdatedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        },
+        {
+          "name": "ChargeID",
+          "type": "*string",
+          "tag": "json:\"charge_id\""
+        }
+      ]
+    },
+    "DisputeUpdatedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "DisputeUpdatedWebhookEventData"
+    },
+    "DisputeUpdatedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*DisputeUpdatedWebhookEventData"
+    },
+    "DisputeUpdatedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "DisputeUpdatedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "DisputeUpdatedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "DisputeUpdatedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
     },
     "DisputesService": {
       "kind": "type",
@@ -3820,6 +6731,144 @@
       "type": "untyped string",
       "value": "\"desc\""
     },
+    "ListWebhookDeliveriesParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "PageSize",
+          "type": "Optional[int64]",
+          "tag": "json:\"page_size,omitzero\""
+        },
+        {
+          "name": "After",
+          "type": "Optional[string]",
+          "tag": "json:\"after,omitzero\""
+        },
+        {
+          "name": "Before",
+          "type": "Optional[string]",
+          "tag": "json:\"before,omitzero\""
+        },
+        {
+          "name": "WebhookID",
+          "type": "Optional[string]",
+          "tag": "json:\"webhook_id,omitzero\""
+        },
+        {
+          "name": "EventType",
+          "type": "Optional[string]",
+          "tag": "json:\"event_type,omitzero\""
+        },
+        {
+          "name": "EventID",
+          "type": "Optional[string]",
+          "tag": "json:\"event_id,omitzero\""
+        },
+        {
+          "name": "Status",
+          "type": "Optional[string]",
+          "tag": "json:\"status,omitzero\""
+        },
+        {
+          "name": "CreatedGte",
+          "type": "Optional[int64]",
+          "tag": "json:\"created_gte,omitzero\""
+        },
+        {
+          "name": "CreatedLte",
+          "type": "Optional[int64]",
+          "tag": "json:\"created_lte,omitzero\""
+        }
+      ]
+    },
+    "ListWebhookDeliveriesParamsStatusCanceled": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"canceled\""
+    },
+    "ListWebhookDeliveriesParamsStatusDelivered": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"delivered\""
+    },
+    "ListWebhookDeliveriesParamsStatusFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"failed\""
+    },
+    "ListWebhookDeliveriesParamsStatusPending": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pending\""
+    },
+    "ListWebhookDeliveriesParamsStatusProcessing": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"processing\""
+    },
+    "ListWebhookDeliveryAttemptsParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "PageSize",
+          "type": "Optional[int64]",
+          "tag": "json:\"page_size,omitzero\""
+        },
+        {
+          "name": "After",
+          "type": "Optional[string]",
+          "tag": "json:\"after,omitzero\""
+        },
+        {
+          "name": "Before",
+          "type": "Optional[string]",
+          "tag": "json:\"before,omitzero\""
+        }
+      ]
+    },
+    "ListWebhookEventsParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "PageSize",
+          "type": "Optional[int64]",
+          "tag": "json:\"page_size,omitzero\""
+        },
+        {
+          "name": "After",
+          "type": "Optional[string]",
+          "tag": "json:\"after,omitzero\""
+        },
+        {
+          "name": "Before",
+          "type": "Optional[string]",
+          "tag": "json:\"before,omitzero\""
+        },
+        {
+          "name": "EventType",
+          "type": "Optional[string]",
+          "tag": "json:\"event_type,omitzero\""
+        },
+        {
+          "name": "ResourceID",
+          "type": "Optional[string]",
+          "tag": "json:\"resource_id,omitzero\""
+        },
+        {
+          "name": "CreatedGte",
+          "type": "Optional[int64]",
+          "tag": "json:\"created_gte,omitzero\""
+        },
+        {
+          "name": "CreatedLte",
+          "type": "Optional[int64]",
+          "tag": "json:\"created_lte,omitzero\""
+        }
+      ]
+    },
     "ListWebhooksParams": {
       "kind": "type",
       "type": "struct",
@@ -4028,6 +7077,120 @@
       "kind": "method",
       "type": "func([]byte) error",
       "receiver": "*PaymentLink"
+    },
+    "PaymentLinkCreatedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "PaymentLinkCreatedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "PaymentLinkCreatedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "PaymentLinkCreatedWebhookEvent"
+    },
+    "PaymentLinkCreatedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*PaymentLinkCreatedWebhookEvent"
+    },
+    "PaymentLinkCreatedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "PaymentLinkCreatedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "PaymentLinkCreatedWebhookEventData"
+    },
+    "PaymentLinkCreatedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*PaymentLinkCreatedWebhookEventData"
+    },
+    "PaymentLinkCreatedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "PaymentLinkCreatedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "PaymentLinkCreatedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "PaymentLinkCreatedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "PaymentLinkCreatedWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "PaymentLinkCreatedWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
     },
     "PaymentLinkDetails": {
       "kind": "type",
@@ -4344,6 +7507,120 @@
       "type": "untyped string",
       "value": "\"PIX_CANCELLED\""
     },
+    "PaymentLinkUpdatedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "PaymentLinkUpdatedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "PaymentLinkUpdatedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "PaymentLinkUpdatedWebhookEvent"
+    },
+    "PaymentLinkUpdatedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*PaymentLinkUpdatedWebhookEvent"
+    },
+    "PaymentLinkUpdatedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "PaymentLinkUpdatedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "PaymentLinkUpdatedWebhookEventData"
+    },
+    "PaymentLinkUpdatedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*PaymentLinkUpdatedWebhookEventData"
+    },
+    "PaymentLinkUpdatedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "PaymentLinkUpdatedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "PaymentLinkUpdatedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "PaymentLinkUpdatedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "PaymentLinkUpdatedWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "PaymentLinkUpdatedWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
+    },
     "PaymentLinksService": {
       "kind": "type",
       "type": "struct"
@@ -4449,6 +7726,338 @@
       "kind": "method",
       "type": "func([]byte) error",
       "receiver": "*PaymentReceipt"
+    },
+    "PixAvailableWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "PixAvailableWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "PixAvailableWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "PixAvailableWebhookEvent"
+    },
+    "PixAvailableWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*PixAvailableWebhookEvent"
+    },
+    "PixAvailableWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "PixAvailableWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "PixAvailableWebhookEventData"
+    },
+    "PixAvailableWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*PixAvailableWebhookEventData"
+    },
+    "PixAvailableWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "PixAvailableWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "PixAvailableWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "PixAvailableWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "PixAvailableWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "PixAvailableWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
+    },
+    "PixIssuanceFailedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "PixIssuanceFailedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "PixIssuanceFailedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "PixIssuanceFailedWebhookEvent"
+    },
+    "PixIssuanceFailedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*PixIssuanceFailedWebhookEvent"
+    },
+    "PixIssuanceFailedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "PixIssuanceFailedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "PixIssuanceFailedWebhookEventData"
+    },
+    "PixIssuanceFailedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*PixIssuanceFailedWebhookEventData"
+    },
+    "PixIssuanceFailedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "PixIssuanceFailedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "PixIssuanceFailedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "PixIssuanceFailedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "PixIssuanceFailedWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "PixIssuanceFailedWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
+    },
+    "PixRefundReceivedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "PixRefundReceivedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "PixRefundReceivedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "PixRefundReceivedWebhookEvent"
+    },
+    "PixRefundReceivedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*PixRefundReceivedWebhookEvent"
+    },
+    "PixRefundReceivedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "PixRefundReceivedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "PixRefundReceivedWebhookEventData"
+    },
+    "PixRefundReceivedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*PixRefundReceivedWebhookEventData"
+    },
+    "PixRefundReceivedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "PixRefundReceivedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "PixRefundReceivedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "PixRefundReceivedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
     },
     "Production": {
       "kind": "const",
@@ -4573,6 +8182,259 @@
       "type": "func([]byte) error",
       "receiver": "*Refund"
     },
+    "RefundAcceptedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "RefundAcceptedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "RefundAcceptedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "RefundAcceptedWebhookEvent"
+    },
+    "RefundAcceptedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*RefundAcceptedWebhookEvent"
+    },
+    "RefundAcceptedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        },
+        {
+          "name": "ChargeID",
+          "type": "*string",
+          "tag": "json:\"charge_id\""
+        },
+        {
+          "name": "AmountCents",
+          "type": "*int64",
+          "tag": "json:\"amount_cents\""
+        },
+        {
+          "name": "Currency",
+          "type": "*string",
+          "tag": "json:\"currency\""
+        }
+      ]
+    },
+    "RefundAcceptedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "RefundAcceptedWebhookEventData"
+    },
+    "RefundAcceptedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*RefundAcceptedWebhookEventData"
+    },
+    "RefundAcceptedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "RefundAcceptedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "RefundAcceptedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "RefundAcceptedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "RefundCompletedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "RefundCompletedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "RefundCompletedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "RefundCompletedWebhookEvent"
+    },
+    "RefundCompletedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*RefundCompletedWebhookEvent"
+    },
+    "RefundCompletedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        },
+        {
+          "name": "ChargeID",
+          "type": "*string",
+          "tag": "json:\"charge_id\""
+        },
+        {
+          "name": "StatementID",
+          "type": "*string",
+          "tag": "json:\"statement_id\""
+        },
+        {
+          "name": "AmountCents",
+          "type": "*int64",
+          "tag": "json:\"amount_cents\""
+        },
+        {
+          "name": "Currency",
+          "type": "*string",
+          "tag": "json:\"currency\""
+        }
+      ]
+    },
+    "RefundCompletedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "RefundCompletedWebhookEventData"
+    },
+    "RefundCompletedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*RefundCompletedWebhookEventData"
+    },
+    "RefundCompletedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "RefundCompletedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "RefundCompletedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "RefundCompletedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "RefundCompletedWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "RefundCompletedWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
+    },
     "RefundEligibility": {
       "kind": "type",
       "type": "struct",
@@ -4624,6 +8486,165 @@
       "kind": "method",
       "type": "func([]byte) error",
       "receiver": "*RefundEligibility"
+    },
+    "RefundFailedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "RefundFailedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "RefundFailedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "RefundFailedWebhookEvent"
+    },
+    "RefundFailedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*RefundFailedWebhookEvent"
+    },
+    "RefundFailedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        },
+        {
+          "name": "ChargeID",
+          "type": "*string",
+          "tag": "json:\"charge_id\""
+        },
+        {
+          "name": "AmountCents",
+          "type": "*int64",
+          "tag": "json:\"amount_cents\""
+        },
+        {
+          "name": "Currency",
+          "type": "*string",
+          "tag": "json:\"currency\""
+        },
+        {
+          "name": "FailureReasonCode",
+          "type": "*string",
+          "tag": "json:\"failure_reason_code\""
+        }
+      ]
+    },
+    "RefundFailedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "RefundFailedWebhookEventData"
+    },
+    "RefundFailedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*RefundFailedWebhookEventData"
+    },
+    "RefundFailedWebhookEventDataFailureReasonCodeREFUNDFAILUREREASONUNAVAILABLE": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"REFUND_FAILURE_REASON_UNAVAILABLE\""
+    },
+    "RefundFailedWebhookEventDataFailureReasonCodeREFUNDNOTSUBMITTED": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"REFUND_NOT_SUBMITTED\""
+    },
+    "RefundFailedWebhookEventDataFailureReasonCodeREFUNDPROCESSINGFAILED": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"REFUND_PROCESSING_FAILED\""
+    },
+    "RefundFailedWebhookEventDataFailureReasonCodeREFUNDPROCESSINGUNAVAILABLE": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"REFUND_PROCESSING_UNAVAILABLE\""
+    },
+    "RefundFailedWebhookEventDataFailureReasonCodeREFUNDREJECTED": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"REFUND_REJECTED\""
+    },
+    "RefundFailedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "RefundFailedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "RefundFailedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "RefundFailedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "RefundFailedWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "RefundFailedWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
     },
     "RefundFailureReason": {
       "kind": "type",
@@ -4770,6 +8791,254 @@
       "kind": "method",
       "type": "func([]byte) error",
       "receiver": "*RefundListResponse"
+    },
+    "RefundReconciliationRequiredWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "RefundReconciliationRequiredWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "RefundReconciliationRequiredWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "RefundReconciliationRequiredWebhookEvent"
+    },
+    "RefundReconciliationRequiredWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*RefundReconciliationRequiredWebhookEvent"
+    },
+    "RefundReconciliationRequiredWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        },
+        {
+          "name": "ChargeID",
+          "type": "*string",
+          "tag": "json:\"charge_id\""
+        },
+        {
+          "name": "AmountCents",
+          "type": "*int64",
+          "tag": "json:\"amount_cents\""
+        },
+        {
+          "name": "Currency",
+          "type": "*string",
+          "tag": "json:\"currency\""
+        }
+      ]
+    },
+    "RefundReconciliationRequiredWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "RefundReconciliationRequiredWebhookEventData"
+    },
+    "RefundReconciliationRequiredWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*RefundReconciliationRequiredWebhookEventData"
+    },
+    "RefundReconciliationRequiredWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "RefundReconciliationRequiredWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "RefundReconciliationRequiredWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "RefundReconciliationRequiredWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "RefundRequestedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "RefundRequestedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "RefundRequestedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "RefundRequestedWebhookEvent"
+    },
+    "RefundRequestedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*RefundRequestedWebhookEvent"
+    },
+    "RefundRequestedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        },
+        {
+          "name": "ChargeID",
+          "type": "*string",
+          "tag": "json:\"charge_id\""
+        },
+        {
+          "name": "AmountCents",
+          "type": "*int64",
+          "tag": "json:\"amount_cents\""
+        },
+        {
+          "name": "Currency",
+          "type": "*string",
+          "tag": "json:\"currency\""
+        }
+      ]
+    },
+    "RefundRequestedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "RefundRequestedWebhookEventData"
+    },
+    "RefundRequestedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*RefundRequestedWebhookEventData"
+    },
+    "RefundRequestedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "RefundRequestedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "RefundRequestedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "RefundRequestedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "RefundRequestedWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "RefundRequestedWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
     },
     "RefundStatusAccepted": {
       "kind": "const",
@@ -4931,6 +9200,17 @@
     "RequestOption": {
       "kind": "type",
       "type": "func(*requestConfig) error"
+    },
+    "ResendWebhookDeliveriesParams": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "DeliveryIds",
+          "type": "Optional[[]string]",
+          "tag": "json:\"delivery_ids,omitzero\""
+        }
+      ]
     },
     "ResolveChargeScenarioParams": {
       "kind": "type",
@@ -5237,6 +9517,145 @@
       "type": "func([]byte) error",
       "receiver": "*Statement"
     },
+    "StatementCreatedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "StatementCreatedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "StatementCreatedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "StatementCreatedWebhookEvent"
+    },
+    "StatementCreatedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*StatementCreatedWebhookEvent"
+    },
+    "StatementCreatedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        },
+        {
+          "name": "AmountCents",
+          "type": "*int64",
+          "tag": "json:\"amount_cents\""
+        },
+        {
+          "name": "Currency",
+          "type": "*string",
+          "tag": "json:\"currency\""
+        },
+        {
+          "name": "StatementType",
+          "type": "*int64",
+          "tag": "json:\"statement_type\""
+        },
+        {
+          "name": "ReferenceType",
+          "type": "*int64",
+          "tag": "json:\"reference_type\""
+        },
+        {
+          "name": "ReferenceID",
+          "type": "*string",
+          "tag": "json:\"reference_id\""
+        }
+      ]
+    },
+    "StatementCreatedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "StatementCreatedWebhookEventData"
+    },
+    "StatementCreatedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*StatementCreatedWebhookEventData"
+    },
+    "StatementCreatedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "StatementCreatedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "StatementCreatedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "StatementCreatedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "StatementCreatedWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "StatementCreatedWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
+    },
     "StatementListPage": {
       "kind": "type",
       "type": "struct",
@@ -5419,6 +9838,110 @@
       "kind": "method",
       "type": "func(context.Context, *ListStatementsParams, ...RequestOption) *Iterator[Statement]",
       "receiver": "*StatementsService"
+    },
+    "TedReceivedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "TedReceivedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "TedReceivedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "TedReceivedWebhookEvent"
+    },
+    "TedReceivedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*TedReceivedWebhookEvent"
+    },
+    "TedReceivedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "TedReceivedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "TedReceivedWebhookEventData"
+    },
+    "TedReceivedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*TedReceivedWebhookEventData"
+    },
+    "TedReceivedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "TedReceivedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "TedReceivedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "TedReceivedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
     },
     "UpdateAutomaticWithdrawalSettingsParams": {
       "kind": "type",
@@ -5667,7 +10190,7 @@
     "Version": {
       "kind": "const",
       "type": "untyped string",
-      "value": "\"0.1.3\""
+      "value": "\"0.2.0\""
     },
     "Webhook": {
       "kind": "type",
@@ -5750,6 +10273,318 @@
       "kind": "method",
       "type": "func([]byte) error",
       "receiver": "*Webhook"
+    },
+    "WebhookAdvanceAccepted": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "DeliveryID",
+          "type": "string",
+          "tag": "json:\"delivery_id\""
+        }
+      ]
+    },
+    "WebhookAdvanceAccepted.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookAdvanceAccepted"
+    },
+    "WebhookAdvanceAccepted.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookAdvanceAccepted"
+    },
+    "WebhookAttempt": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "DeliveryID",
+          "type": "string",
+          "tag": "json:\"delivery_id\""
+        },
+        {
+          "name": "AttemptNumber",
+          "type": "int64",
+          "tag": "json:\"attempt_number\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "int64",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "StatusCode",
+          "type": "*int64",
+          "tag": "json:\"status_code\""
+        },
+        {
+          "name": "DurationMs",
+          "type": "encoding/json.Number",
+          "tag": "json:\"duration_ms\""
+        },
+        {
+          "name": "DestinationIP",
+          "type": "*string",
+          "tag": "json:\"destination_ip\""
+        },
+        {
+          "name": "ErrorCode",
+          "type": "*string",
+          "tag": "json:\"error_code\""
+        },
+        {
+          "name": "EndpointURL",
+          "type": "*string",
+          "tag": "json:\"endpoint_url\""
+        },
+        {
+          "name": "RequestAvailable",
+          "type": "bool",
+          "tag": "json:\"request_available\""
+        },
+        {
+          "name": "ResponseBodyAvailable",
+          "type": "bool",
+          "tag": "json:\"response_body_available\""
+        },
+        {
+          "name": "ResponseBodyTruncated",
+          "type": "bool",
+          "tag": "json:\"response_body_truncated\""
+        }
+      ]
+    },
+    "WebhookAttempt.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookAttempt"
+    },
+    "WebhookAttempt.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookAttempt"
+    },
+    "WebhookAttemptDetail": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "RequestBody",
+          "type": "*string",
+          "tag": "json:\"request_body\""
+        },
+        {
+          "name": "ResponseBody",
+          "type": "*string",
+          "tag": "json:\"response_body\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "DeliveryID",
+          "type": "string",
+          "tag": "json:\"delivery_id\""
+        },
+        {
+          "name": "AttemptNumber",
+          "type": "int64",
+          "tag": "json:\"attempt_number\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "int64",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "StatusCode",
+          "type": "*int64",
+          "tag": "json:\"status_code\""
+        },
+        {
+          "name": "DurationMs",
+          "type": "encoding/json.Number",
+          "tag": "json:\"duration_ms\""
+        },
+        {
+          "name": "DestinationIP",
+          "type": "*string",
+          "tag": "json:\"destination_ip\""
+        },
+        {
+          "name": "ErrorCode",
+          "type": "*string",
+          "tag": "json:\"error_code\""
+        },
+        {
+          "name": "EndpointURL",
+          "type": "*string",
+          "tag": "json:\"endpoint_url\""
+        },
+        {
+          "name": "RequestAvailable",
+          "type": "bool",
+          "tag": "json:\"request_available\""
+        },
+        {
+          "name": "ResponseBodyAvailable",
+          "type": "bool",
+          "tag": "json:\"response_body_available\""
+        },
+        {
+          "name": "ResponseBodyTruncated",
+          "type": "bool",
+          "tag": "json:\"response_body_truncated\""
+        }
+      ]
+    },
+    "WebhookAttemptDetail.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookAttemptDetail"
+    },
+    "WebhookAttemptDetail.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookAttemptDetail"
+    },
+    "WebhookAttemptListResponse": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "List",
+          "type": "[]WebhookAttempt",
+          "tag": "json:\"list\""
+        },
+        {
+          "name": "Page",
+          "type": "WebhookDeliveryPage",
+          "tag": "json:\"page\""
+        }
+      ]
+    },
+    "WebhookAttemptListResponse.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookAttemptListResponse"
+    },
+    "WebhookAttemptListResponse.NextPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*WebhookAttemptListResponse, error)",
+      "receiver": "*WebhookAttemptListResponse"
+    },
+    "WebhookAttemptListResponse.PreviousPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*WebhookAttemptListResponse, error)",
+      "receiver": "*WebhookAttemptListResponse"
+    },
+    "WebhookAttemptListResponse.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookAttemptListResponse"
+    },
+    "WebhookBulkResendAccepted": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Results",
+          "type": "[]WebhookBulkResendItem",
+          "tag": "json:\"results\""
+        }
+      ]
+    },
+    "WebhookBulkResendAccepted.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookBulkResendAccepted"
+    },
+    "WebhookBulkResendAccepted.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookBulkResendAccepted"
+    },
+    "WebhookBulkResendItem": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "SourceDeliveryID",
+          "type": "string",
+          "tag": "json:\"source_delivery_id\""
+        },
+        {
+          "name": "DeliveryID",
+          "type": "*string",
+          "tag": "json:\"delivery_id\""
+        },
+        {
+          "name": "EventID",
+          "type": "*string",
+          "tag": "json:\"event_id\""
+        },
+        {
+          "name": "Error",
+          "type": "*Error",
+          "tag": "json:\"error\""
+        }
+      ]
+    },
+    "WebhookBulkResendItem.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookBulkResendItem"
+    },
+    "WebhookBulkResendItem.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookBulkResendItem"
     },
     "WebhookCreated": {
       "kind": "type",
@@ -5848,6 +10683,273 @@
       "type": "untyped string",
       "value": "\"manual\""
     },
+    "WebhookDeliveriesService": {
+      "kind": "type",
+      "type": "struct"
+    },
+    "WebhookDeliveriesService.Advance": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*WebhookAdvanceAccepted, error)",
+      "receiver": "*WebhookDeliveriesService"
+    },
+    "WebhookDeliveriesService.Get": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*WebhookDelivery, error)",
+      "receiver": "*WebhookDeliveriesService"
+    },
+    "WebhookDeliveriesService.GetAttempt": {
+      "kind": "method",
+      "type": "func(context.Context, string, string, ...RequestOption) (*WebhookAttemptDetail, error)",
+      "receiver": "*WebhookDeliveriesService"
+    },
+    "WebhookDeliveriesService.List": {
+      "kind": "method",
+      "type": "func(context.Context, *ListWebhookDeliveriesParams, ...RequestOption) (*WebhookDeliveryListResponse, error)",
+      "receiver": "*WebhookDeliveriesService"
+    },
+    "WebhookDeliveriesService.ListAll": {
+      "kind": "method",
+      "type": "func(context.Context, *ListWebhookDeliveriesParams, ...RequestOption) *Iterator[WebhookDelivery]",
+      "receiver": "*WebhookDeliveriesService"
+    },
+    "WebhookDeliveriesService.ListAttempts": {
+      "kind": "method",
+      "type": "func(context.Context, string, *ListWebhookDeliveryAttemptsParams, ...RequestOption) (*WebhookAttemptListResponse, error)",
+      "receiver": "*WebhookDeliveriesService"
+    },
+    "WebhookDeliveriesService.ListAttemptsAll": {
+      "kind": "method",
+      "type": "func(context.Context, string, *ListWebhookDeliveryAttemptsParams, ...RequestOption) *Iterator[WebhookAttempt]",
+      "receiver": "*WebhookDeliveriesService"
+    },
+    "WebhookDeliveriesService.Resend": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*WebhookDeliveryResendAccepted, error)",
+      "receiver": "*WebhookDeliveriesService"
+    },
+    "WebhookDeliveriesService.ResendMany": {
+      "kind": "method",
+      "type": "func(context.Context, *ResendWebhookDeliveriesParams, ...RequestOption) (*WebhookBulkResendAccepted, error)",
+      "receiver": "*WebhookDeliveriesService"
+    },
+    "WebhookDelivery": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "WebhookID",
+          "type": "*string",
+          "tag": "json:\"webhook_id\""
+        },
+        {
+          "name": "EventID",
+          "type": "string",
+          "tag": "json:\"event_id\""
+        },
+        {
+          "name": "EventType",
+          "type": "string",
+          "tag": "json:\"event_type\""
+        },
+        {
+          "name": "Status",
+          "type": "string",
+          "tag": "json:\"status\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "int64",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "EventCreatedAt",
+          "type": "int64",
+          "tag": "json:\"event_created_at\""
+        },
+        {
+          "name": "DeadlineAt",
+          "type": "int64",
+          "tag": "json:\"deadline_at\""
+        },
+        {
+          "name": "NextAttemptAt",
+          "type": "*int64",
+          "tag": "json:\"next_attempt_at\""
+        },
+        {
+          "name": "UpdatedAt",
+          "type": "int64",
+          "tag": "json:\"updated_at\""
+        }
+      ]
+    },
+    "WebhookDelivery.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookDelivery"
+    },
+    "WebhookDelivery.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookDelivery"
+    },
+    "WebhookDeliveryListResponse": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "List",
+          "type": "[]WebhookDelivery",
+          "tag": "json:\"list\""
+        },
+        {
+          "name": "Page",
+          "type": "WebhookDeliveryPage",
+          "tag": "json:\"page\""
+        }
+      ]
+    },
+    "WebhookDeliveryListResponse.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookDeliveryListResponse"
+    },
+    "WebhookDeliveryListResponse.NextPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*WebhookDeliveryListResponse, error)",
+      "receiver": "*WebhookDeliveryListResponse"
+    },
+    "WebhookDeliveryListResponse.PreviousPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*WebhookDeliveryListResponse, error)",
+      "receiver": "*WebhookDeliveryListResponse"
+    },
+    "WebhookDeliveryListResponse.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookDeliveryListResponse"
+    },
+    "WebhookDeliveryPage": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "PageSize",
+          "type": "int64",
+          "tag": "json:\"page_size\""
+        },
+        {
+          "name": "HasNext",
+          "type": "bool",
+          "tag": "json:\"has_next\""
+        },
+        {
+          "name": "HasPrevious",
+          "type": "bool",
+          "tag": "json:\"has_previous\""
+        },
+        {
+          "name": "NextAfter",
+          "type": "*string",
+          "tag": "json:\"next_after\""
+        },
+        {
+          "name": "PreviousBefore",
+          "type": "*string",
+          "tag": "json:\"previous_before\""
+        }
+      ]
+    },
+    "WebhookDeliveryPage.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookDeliveryPage"
+    },
+    "WebhookDeliveryPage.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookDeliveryPage"
+    },
+    "WebhookDeliveryResendAccepted": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "DeliveryID",
+          "type": "string",
+          "tag": "json:\"delivery_id\""
+        },
+        {
+          "name": "EventID",
+          "type": "string",
+          "tag": "json:\"event_id\""
+        }
+      ]
+    },
+    "WebhookDeliveryResendAccepted.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookDeliveryResendAccepted"
+    },
+    "WebhookDeliveryResendAccepted.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookDeliveryResendAccepted"
+    },
+    "WebhookDeliveryStatusCanceled": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"canceled\""
+    },
+    "WebhookDeliveryStatusDelivered": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"delivered\""
+    },
+    "WebhookDeliveryStatusFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"failed\""
+    },
+    "WebhookDeliveryStatusPending": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pending\""
+    },
+    "WebhookDeliveryStatusProcessing": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"processing\""
+    },
     "WebhookDisabledReasonContinuousFailure": {
       "kind": "const",
       "type": "untyped string",
@@ -5857,6 +10959,147 @@
       "kind": "const",
       "type": "untyped string",
       "value": "\"manual\""
+    },
+    "WebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "EventType",
+          "type": "string",
+          "tag": "json:\"event_type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "int64",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "ResourceType",
+          "type": "string",
+          "tag": "json:\"resource_type\""
+        },
+        {
+          "name": "ResourceID",
+          "type": "string",
+          "tag": "json:\"resource_id\""
+        }
+      ]
+    },
+    "WebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookEvent"
+    },
+    "WebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookEvent"
+    },
+    "WebhookEventDetail": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Payload",
+          "type": "string",
+          "tag": "json:\"payload\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "EventType",
+          "type": "string",
+          "tag": "json:\"event_type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "int64",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "ResourceType",
+          "type": "string",
+          "tag": "json:\"resource_type\""
+        },
+        {
+          "name": "ResourceID",
+          "type": "string",
+          "tag": "json:\"resource_id\""
+        }
+      ]
+    },
+    "WebhookEventDetail.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookEventDetail"
+    },
+    "WebhookEventDetail.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookEventDetail"
+    },
+    "WebhookEventListResponse": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "List",
+          "type": "[]WebhookEvent",
+          "tag": "json:\"list\""
+        },
+        {
+          "name": "Page",
+          "type": "WebhookDeliveryPage",
+          "tag": "json:\"page\""
+        }
+      ]
+    },
+    "WebhookEventListResponse.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookEventListResponse"
+    },
+    "WebhookEventListResponse.NextPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*WebhookEventListResponse, error)",
+      "receiver": "*WebhookEventListResponse"
+    },
+    "WebhookEventListResponse.PreviousPage": {
+      "kind": "method",
+      "type": "func(context.Context) (*WebhookEventListResponse, error)",
+      "receiver": "*WebhookEventListResponse"
+    },
+    "WebhookEventListResponse.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookEventListResponse"
     },
     "WebhookEventType": {
       "kind": "type",
@@ -5900,20 +11143,20 @@
       "type": "untyped string",
       "value": "\"balance.hold.released\""
     },
-    "WebhookEventTypeCodeBoletoAvailable": {
-      "kind": "const",
-      "type": "untyped string",
-      "value": "\"boleto.available\""
-    },
     "WebhookEventTypeCodeBoletoCompensated": {
       "kind": "const",
       "type": "untyped string",
       "value": "\"boleto.compensated\""
     },
-    "WebhookEventTypeCodeBoletoIssuanceFailed": {
+    "WebhookEventTypeCodeBoletoOverpaymentReceived": {
       "kind": "const",
       "type": "untyped string",
-      "value": "\"boleto.issuance_failed\""
+      "value": "\"boleto.overpayment_received\""
+    },
+    "WebhookEventTypeCodeBoletoPartialSettlementDetected": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto.partial_settlement_detected\""
     },
     "WebhookEventTypeCodeChargeCanceled": {
       "kind": "const",
@@ -5944,6 +11187,21 @@
       "kind": "const",
       "type": "untyped string",
       "value": "\"charge.paid\""
+    },
+    "WebhookEventTypeCodeChargePartiallyRefunded": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"charge.partially_refunded\""
+    },
+    "WebhookEventTypeCodeChargePaymentInstructionsAvailable": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"charge.payment_instructions_available\""
+    },
+    "WebhookEventTypeCodeChargePaymentInstructionsFailed": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"charge.payment_instructions_failed\""
     },
     "WebhookEventTypeCodeChargeUpdated": {
       "kind": "const",
@@ -5995,16 +11253,6 @@
       "type": "untyped string",
       "value": "\"payment_link.updated\""
     },
-    "WebhookEventTypeCodePixAvailable": {
-      "kind": "const",
-      "type": "untyped string",
-      "value": "\"pix.available\""
-    },
-    "WebhookEventTypeCodePixIssuanceFailed": {
-      "kind": "const",
-      "type": "untyped string",
-      "value": "\"pix.issuance_failed\""
-    },
     "WebhookEventTypeCodePixRefundReceived": {
       "kind": "const",
       "type": "untyped string",
@@ -6024,6 +11272,11 @@
       "kind": "const",
       "type": "untyped string",
       "value": "\"refund.failed\""
+    },
+    "WebhookEventTypeCodeRefundReconciliationRequired": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"refund.reconciliation_required\""
     },
     "WebhookEventTypeCodeRefundRequested": {
       "kind": "const",
@@ -6045,10 +11298,20 @@
       "type": "untyped string",
       "value": "\"withdrawal.accepted\""
     },
+    "WebhookEventTypeCodeWithdrawalAutomaticSettingsChanged": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"withdrawal.automatic_settings_changed\""
+    },
     "WebhookEventTypeCodeWithdrawalCompleted": {
       "kind": "const",
       "type": "untyped string",
       "value": "\"withdrawal.completed\""
+    },
+    "WebhookEventTypeCodeWithdrawalDestinationChanged": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"withdrawal.destination_changed\""
     },
     "WebhookEventTypeCodeWithdrawalFailed": {
       "kind": "const",
@@ -6095,6 +11358,30 @@
       "kind": "method",
       "type": "func(context.Context, ...RequestOption) (*WebhookEventTypeListResponse, error)",
       "receiver": "*WebhookEventTypesService"
+    },
+    "WebhookEventsService": {
+      "kind": "type",
+      "type": "struct"
+    },
+    "WebhookEventsService.Deliver": {
+      "kind": "method",
+      "type": "func(context.Context, string, *DeliverWebhookEventParams, ...RequestOption) (*WebhookDeliveryResendAccepted, error)",
+      "receiver": "*WebhookEventsService"
+    },
+    "WebhookEventsService.Get": {
+      "kind": "method",
+      "type": "func(context.Context, string, ...RequestOption) (*WebhookEventDetail, error)",
+      "receiver": "*WebhookEventsService"
+    },
+    "WebhookEventsService.List": {
+      "kind": "method",
+      "type": "func(context.Context, *ListWebhookEventsParams, ...RequestOption) (*WebhookEventListResponse, error)",
+      "receiver": "*WebhookEventsService"
+    },
+    "WebhookEventsService.ListAll": {
+      "kind": "method",
+      "type": "func(context.Context, *ListWebhookEventsParams, ...RequestOption) *Iterator[WebhookEvent]",
+      "receiver": "*WebhookEventsService"
     },
     "WebhookHealth": {
       "kind": "type",
@@ -6368,6 +11655,95 @@
       "type": "func([]byte) error",
       "receiver": "*WebhookTestAccepted"
     },
+    "WebhookTestWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "WebhookTestWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "WebhookTestWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookTestWebhookEvent"
+    },
+    "WebhookTestWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookTestWebhookEvent"
+    },
+    "WebhookTestWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        }
+      ]
+    },
+    "WebhookTestWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WebhookTestWebhookEventData"
+    },
+    "WebhookTestWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WebhookTestWebhookEventData"
+    },
+    "WebhookTestWebhookEventEnvironmentProduction": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"production\""
+    },
+    "WebhookTestWebhookEventEnvironmentSandbox": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"sandbox\""
+    },
     "WebhooksService": {
       "kind": "type",
       "type": "struct"
@@ -6532,6 +11908,214 @@
       "type": "func([]byte) error",
       "receiver": "*Withdrawal"
     },
+    "WithdrawalAcceptedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "WithdrawalAcceptedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "WithdrawalAcceptedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WithdrawalAcceptedWebhookEvent"
+    },
+    "WithdrawalAcceptedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WithdrawalAcceptedWebhookEvent"
+    },
+    "WithdrawalAcceptedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "WithdrawalAcceptedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WithdrawalAcceptedWebhookEventData"
+    },
+    "WithdrawalAcceptedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WithdrawalAcceptedWebhookEventData"
+    },
+    "WithdrawalAcceptedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "WithdrawalAcceptedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "WithdrawalAcceptedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "WithdrawalAcceptedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
+    "WithdrawalAutomaticSettingsChangedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "WithdrawalAutomaticSettingsChangedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "WithdrawalAutomaticSettingsChangedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WithdrawalAutomaticSettingsChangedWebhookEvent"
+    },
+    "WithdrawalAutomaticSettingsChangedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WithdrawalAutomaticSettingsChangedWebhookEvent"
+    },
+    "WithdrawalAutomaticSettingsChangedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "WithdrawalAutomaticSettingsChangedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WithdrawalAutomaticSettingsChangedWebhookEventData"
+    },
+    "WithdrawalAutomaticSettingsChangedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WithdrawalAutomaticSettingsChangedWebhookEventData"
+    },
+    "WithdrawalAutomaticSettingsChangedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "WithdrawalAutomaticSettingsChangedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "WithdrawalAutomaticSettingsChangedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "WithdrawalAutomaticSettingsChangedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
+    },
     "WithdrawalBankAccount": {
       "kind": "type",
       "type": "struct",
@@ -6568,6 +12152,110 @@
       "kind": "method",
       "type": "func([]byte) error",
       "receiver": "*WithdrawalBankAccount"
+    },
+    "WithdrawalCompletedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "WithdrawalCompletedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "WithdrawalCompletedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WithdrawalCompletedWebhookEvent"
+    },
+    "WithdrawalCompletedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WithdrawalCompletedWebhookEvent"
+    },
+    "WithdrawalCompletedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "WithdrawalCompletedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WithdrawalCompletedWebhookEventData"
+    },
+    "WithdrawalCompletedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WithdrawalCompletedWebhookEventData"
+    },
+    "WithdrawalCompletedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "WithdrawalCompletedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "WithdrawalCompletedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "WithdrawalCompletedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
     },
     "WithdrawalDestination": {
       "kind": "type",
@@ -6625,6 +12313,110 @@
       "kind": "method",
       "type": "func([]byte) error",
       "receiver": "*WithdrawalDestination"
+    },
+    "WithdrawalDestinationChangedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "WithdrawalDestinationChangedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "WithdrawalDestinationChangedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WithdrawalDestinationChangedWebhookEvent"
+    },
+    "WithdrawalDestinationChangedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WithdrawalDestinationChangedWebhookEvent"
+    },
+    "WithdrawalDestinationChangedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "WithdrawalDestinationChangedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WithdrawalDestinationChangedWebhookEventData"
+    },
+    "WithdrawalDestinationChangedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WithdrawalDestinationChangedWebhookEventData"
+    },
+    "WithdrawalDestinationChangedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "WithdrawalDestinationChangedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "WithdrawalDestinationChangedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "WithdrawalDestinationChangedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
     },
     "WithdrawalDestinationKeyTypeCNPJ": {
       "kind": "const",
@@ -6753,6 +12545,110 @@
       "kind": "method",
       "type": "func(context.Context, *ListWithdrawalDestinationsParams, ...RequestOption) *Iterator[WithdrawalDestination]",
       "receiver": "*WithdrawalDestinationsService"
+    },
+    "WithdrawalFailedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "WithdrawalFailedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "WithdrawalFailedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WithdrawalFailedWebhookEvent"
+    },
+    "WithdrawalFailedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WithdrawalFailedWebhookEvent"
+    },
+    "WithdrawalFailedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "WithdrawalFailedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WithdrawalFailedWebhookEventData"
+    },
+    "WithdrawalFailedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WithdrawalFailedWebhookEventData"
+    },
+    "WithdrawalFailedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "WithdrawalFailedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "WithdrawalFailedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "WithdrawalFailedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
     },
     "WithdrawalFailureReason": {
       "kind": "type",
@@ -7130,6 +13026,110 @@
       "kind": "const",
       "type": "untyped string",
       "value": "\"PHONE\""
+    },
+    "WithdrawalRequestedWebhookEvent": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "Type",
+          "type": "string",
+          "tag": "json:\"type\""
+        },
+        {
+          "name": "CreatedAt",
+          "type": "string",
+          "tag": "json:\"created_at\""
+        },
+        {
+          "name": "Environment",
+          "type": "string",
+          "tag": "json:\"environment\""
+        },
+        {
+          "name": "Data",
+          "type": "WithdrawalRequestedWebhookEventData",
+          "tag": "json:\"data\""
+        }
+      ]
+    },
+    "WithdrawalRequestedWebhookEvent.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WithdrawalRequestedWebhookEvent"
+    },
+    "WithdrawalRequestedWebhookEvent.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WithdrawalRequestedWebhookEvent"
+    },
+    "WithdrawalRequestedWebhookEventData": {
+      "kind": "type",
+      "type": "struct",
+      "fields": [
+        {
+          "name": "Resource",
+          "type": "Resource",
+          "tag": "json:\"-\"",
+          "embedded": true
+        },
+        {
+          "name": "Object",
+          "type": "string",
+          "tag": "json:\"object\""
+        },
+        {
+          "name": "ID",
+          "type": "string",
+          "tag": "json:\"id\""
+        },
+        {
+          "name": "PaymentMethod",
+          "type": "*string",
+          "tag": "json:\"payment_method\""
+        }
+      ]
+    },
+    "WithdrawalRequestedWebhookEventData.MarshalJSON": {
+      "kind": "method",
+      "type": "func() ([]byte, error)",
+      "receiver": "WithdrawalRequestedWebhookEventData"
+    },
+    "WithdrawalRequestedWebhookEventData.UnmarshalJSON": {
+      "kind": "method",
+      "type": "func([]byte) error",
+      "receiver": "*WithdrawalRequestedWebhookEventData"
+    },
+    "WithdrawalRequestedWebhookEventDataPaymentMethodBoleto": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"boleto\""
+    },
+    "WithdrawalRequestedWebhookEventDataPaymentMethodCreditCard": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"credit_card\""
+    },
+    "WithdrawalRequestedWebhookEventDataPaymentMethodDebit": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"debit\""
+    },
+    "WithdrawalRequestedWebhookEventDataPaymentMethodPix": {
+      "kind": "const",
+      "type": "untyped string",
+      "value": "\"pix\""
     },
     "WithdrawalStatusCANCELED": {
       "kind": "const",

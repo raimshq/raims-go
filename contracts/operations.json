@@ -1043,6 +1043,231 @@
     },
     "max_body_bytes": 0
   },
+  "ListWebhookEvents": {
+    "method": "GET",
+    "path": "/v1/webhook_events",
+    "params": "ListWebhookEventsParams",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "WebhookEventListResponse"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {},
+    "max_body_bytes": 0
+  },
+  "GetWebhookEvent": {
+    "method": "GET",
+    "path": "/v1/webhook_events/{event_id}",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "WebhookEventDetail"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {
+      "event_id": {
+        "type": "string",
+        "format": "uuid",
+        "pattern": "^(?!00000000-0000-0000-0000-000000000000$)[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+        "example": "d36ffb51-e0c6-8a8f-904d-e426cc0b76bb"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "DeliverWebhookEvent": {
+    "method": "POST",
+    "path": "/v1/webhook_events/{event_id}/deliveries",
+    "params": "DeliverWebhookEventRequest",
+    "body": true,
+    "body_required": true,
+    "responses": {
+      "202": "WebhookDeliveryResendAccepted"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "event_id": {
+        "type": "string",
+        "format": "uuid",
+        "pattern": "^(?!00000000-0000-0000-0000-000000000000$)[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+        "example": "01113f18-d275-8b6f-ab82-70b8860938da"
+      }
+    },
+    "max_body_bytes": 16384
+  },
+  "ListWebhookDeliveries": {
+    "method": "GET",
+    "path": "/v1/webhook_deliveries",
+    "params": "ListWebhookDeliveriesParams",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "WebhookDeliveryListResponse"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {},
+    "max_body_bytes": 0
+  },
+  "GetWebhookDelivery": {
+    "method": "GET",
+    "path": "/v1/webhook_deliveries/{delivery_id}",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "WebhookDelivery"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {
+      "delivery_id": {
+        "type": "string",
+        "format": "uuid",
+        "pattern": "^(?!00000000-0000-0000-0000-000000000000$)[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+        "example": "46be4604-31fc-876a-bbb7-69e204ff9c14"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "ListWebhookDeliveryAttempts": {
+    "method": "GET",
+    "path": "/v1/webhook_deliveries/{delivery_id}/attempts",
+    "params": "ListWebhookDeliveryAttemptsParams",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "WebhookAttemptListResponse"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {
+      "delivery_id": {
+        "type": "string",
+        "format": "uuid",
+        "pattern": "^(?!00000000-0000-0000-0000-000000000000$)[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+        "example": "46be4604-31fc-876a-bbb7-69e204ff9c14"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "GetWebhookDeliveryAttempt": {
+    "method": "GET",
+    "path": "/v1/webhook_deliveries/{delivery_id}/attempts/{attempt_id}",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "200": "WebhookAttemptDetail"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": false,
+    "path_parameters": {
+      "delivery_id": {
+        "type": "string",
+        "format": "uuid",
+        "pattern": "^(?!00000000-0000-0000-0000-000000000000$)[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+        "example": "46be4604-31fc-876a-bbb7-69e204ff9c14"
+      },
+      "attempt_id": {
+        "type": "string",
+        "format": "uuid",
+        "pattern": "^(?!00000000-0000-0000-0000-000000000000$)[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+        "example": "4172c8fa-6c06-488c-9e67-3f60d29596a4"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "AdvanceWebhookDelivery": {
+    "method": "POST",
+    "path": "/v1/webhook_deliveries/{delivery_id}/advance",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "202": "WebhookAdvanceAccepted"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "delivery_id": {
+        "type": "string",
+        "format": "uuid",
+        "pattern": "^(?!00000000-0000-0000-0000-000000000000$)[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+        "example": "46be4604-31fc-876a-bbb7-69e204ff9c14"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "ResendWebhookDelivery": {
+    "method": "POST",
+    "path": "/v1/webhook_deliveries/{delivery_id}/resend",
+    "params": "",
+    "body": false,
+    "body_required": false,
+    "responses": {
+      "202": "WebhookDeliveryResendAccepted"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {
+      "delivery_id": {
+        "type": "string",
+        "format": "uuid",
+        "pattern": "^(?!00000000-0000-0000-0000-000000000000$)[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$",
+        "example": "46be4604-31fc-876a-bbb7-69e204ff9c14"
+      }
+    },
+    "max_body_bytes": 0
+  },
+  "ResendWebhookDeliveries": {
+    "method": "POST",
+    "path": "/v1/webhook_deliveries/resend",
+    "params": "ResendWebhookDeliveriesRequest",
+    "body": true,
+    "body_required": true,
+    "responses": {
+      "202": "WebhookBulkResendAccepted"
+    },
+    "environments": [
+      "Sandbox",
+      "Production"
+    ],
+    "idempotency": true,
+    "path_parameters": {},
+    "max_body_bytes": 65536
+  },
   "ListWithdrawalDestinations": {
     "method": "GET",
     "path": "/v1/withdrawal_destinations",

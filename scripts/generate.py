@@ -146,7 +146,9 @@ class Generator:
             if '$ref' in value:
                 self.schema_reference(value, 'schema properties')
                 self.resolve(value)
-            if 'oneOf' in value or 'allOf' in value:
+            if 'oneOf' in value:
+                self.normalize(value)
+            if 'allOf' in value:
                 raise ValueError('Unsupported schema composition')
             if 'anyOf' in value:
                 branches = value['anyOf']
@@ -160,6 +162,14 @@ class Generator:
 
     def normalize(self, schema):
         schema = dict(schema)
+        if 'oneOf' in schema:
+            branches = schema['oneOf']
+            if set(schema) != {'oneOf'} or len(branches) < 2 or any(
+                    set(branch) != {'type', 'pattern'} or branch['type'] != 'string'
+                    for branch in branches):
+                raise ValueError('Only patterned string alternatives can be represented.')
+            # The SDK type is shared by all alternatives. The pinned schema retains the patterns.
+            return {'type': 'string'}
         if 'anyOf' in schema:
             child = next(x for x in schema.pop('anyOf') if x.get('type') != 'null')
             schema = dict(child, **schema)

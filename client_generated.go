@@ -21,6 +21,8 @@ func initServices(client *Client) {
 	client.Statements = &StatementsService{client: client}
 	client.WebhookEventTypes = &WebhookEventTypesService{client: client}
 	client.Webhooks = &WebhooksService{client: client}
+	client.WebhookEvents = &WebhookEventsService{client: client}
+	client.WebhookDeliveries = &WebhookDeliveriesService{client: client}
 	client.WithdrawalDestinations = &WithdrawalDestinationsService{client: client}
 	client.Withdrawals = &WithdrawalsService{client: client}
 	client.Simulations = &SimulationsService{Charges: &SimulationChargesService{client: client}, Refunds: &SimulationRefundsService{client: client}}
